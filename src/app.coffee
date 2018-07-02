@@ -2,10 +2,12 @@ express = require('express')
 path = require('path')
 cookieParser = require('cookie-parser')
 logger = require('morgan')
+helmet = require('helmet')
 router = require('./routes/router')
 
 app = express()
 
+app.use(helmet())
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
