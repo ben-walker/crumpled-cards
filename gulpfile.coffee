@@ -7,6 +7,11 @@ gulp.task 'clean', ->
     allowEmpty: true
   }).pipe(plugins.clean())
 
+gulp.task 'coffee-lint', ->
+  gulp.src('src/**/*.coffee')
+    .pipe(plugins.coffeelint())
+    .pipe(plugins.coffeelint.reporter())
+
 gulp.task 'coffee-compile', ->
   gulp.src('src/**/*.coffee', {
     sourcemaps: true
