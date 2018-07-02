@@ -1,19 +1,9 @@
 gulp = require('gulp')
 plugins = require('gulp-load-plugins')()
 
-gulp.task 'clean', ->
-  gulp.src('dist', {
-    read: false,
-    allowEmpty: true
-  }).pipe(plugins.clean())
+getTask = (task) ->
+  return require("./gulp_tasks/#{task}")(gulp, plugins)
 
-gulp.task 'coffee-lint', ->
-  gulp.src('src/**/*.coffee')
-    .pipe(plugins.coffeelint())
-    .pipe(plugins.coffeelint.reporter())
-
-gulp.task 'coffee-compile', ->
-  gulp.src('src/**/*.coffee', {
-    sourcemaps: true
-  }).pipe(plugins.coffee({ bare: true }))
-    .pipe(gulp.dest('dist'))
+gulp.task('clean', getTask('clean'))
+gulp.task('coffee-lint', getTask('coffee-lint'))
+gulp.task('coffee-compile', getTask('coffee-compile'))
