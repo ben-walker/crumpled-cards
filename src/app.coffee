@@ -1,8 +1,8 @@
-import express from 'express'
-import path from 'path'
-import cookieParser from 'cookie-parser'
-import logger from 'morgan'
-import router from './routes/router'
+express = require('express')
+path = require('path')
+cookieParser = require('cookie-parser')
+logger = require('morgan')
+router = require('./routes/router')
 
 app = express()
 

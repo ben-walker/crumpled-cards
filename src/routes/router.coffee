@@ -1,4 +1,4 @@
-import express from 'express'
+express = require('express')
 
 router = express.Router()
 
