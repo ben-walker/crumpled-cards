@@ -15,5 +15,5 @@ gulp.task 'coffee-lint', ->
 gulp.task 'coffee-compile', ->
   gulp.src('src/**/*.coffee', {
     sourcemaps: true
-  }).pipe(plugins.coffee())
-    .pipe(gulp.dest('dist/src'))
+  }).pipe(plugins.coffee({ bare: true }))
+    .pipe(gulp.dest('dist'))
