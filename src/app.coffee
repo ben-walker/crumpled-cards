@@ -5,10 +5,13 @@ logger = require('morgan')
 helmet = require('helmet')
 router = require('./routes/router')
 dotenv = require('dotenv')
+mongoose = require('mongoose')
 
 app = express()
 
 dotenv.config()
+
+mongoose.connect(process.env.MONGODB_URI)
 
 app.use(helmet())
 app.use(logger('dev'))
