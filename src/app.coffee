@@ -4,8 +4,11 @@ cookieParser = require('cookie-parser')
 logger = require('morgan')
 helmet = require('helmet')
 router = require('./routes/router')
+dotenv = require('dotenv')
 
 app = express()
+
+dotenv.config()
 
 app.use(helmet())
 app.use(logger('dev'))
