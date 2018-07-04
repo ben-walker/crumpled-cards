@@ -12,7 +12,7 @@ userSchema = new Schema({
   timestamps: true
 })
 
-userSchema.pre 'save', (next) =>
+userSchema.pre 'save', (next) -> # coffeelint: disable-line=missing_fat_arrows
   return next() if !this.isModified('password')
   this.password = bcrypt.hashSync(this.password, SALT_FACTOR)
   next()
