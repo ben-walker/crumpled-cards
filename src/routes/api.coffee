@@ -5,4 +5,4 @@ router = express.Router()
 
 router.post '/signup', authController.register
 
-module.exports = router
+export default router
