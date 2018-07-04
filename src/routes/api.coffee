@@ -1,8 +1,8 @@
 express = require('express')
+authController = require('../controllers/auth')
 
 router = express.Router()
 
-router.get '/', (req, res, next) ->
-  res.send 'Hello World'
+router.post '/signup', authController.register
 
 module.exports = router
