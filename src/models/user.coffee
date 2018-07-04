@@ -1,12 +1,12 @@
 import mongoose from 'mongoose'
 
-schema = mongoose.schema
+Schema = mongoose.Schema
 
-userSchema = new schema({
+userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true }
 }, {
   timestamps: true
 })
 
-export default mongoose.model('user', userSchema)
+export default mongoose.model('User', userSchema)
