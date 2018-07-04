@@ -3,7 +3,7 @@ path = require('path')
 cookieParser = require('cookie-parser')
 logger = require('morgan')
 helmet = require('helmet')
-router = require('./routes/router')
+apiRouter = require('./routes/api')
 mongoose = require('mongoose')
 require('dotenv').config()
 
@@ -18,6 +18,6 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', router)
+app.use('/api', apiRouter)
 
 module.exports = app
