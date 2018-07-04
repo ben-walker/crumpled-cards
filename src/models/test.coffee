@@ -1,4 +1,7 @@
 import mongoose from 'mongoose'
+import bcrypt from 'bcryptjs'
+
+SALT_FACTOR = 12
 
 Schema = mongoose.Schema
 
@@ -8,5 +11,10 @@ userSchema = new Schema({
 }, {
   timestamps: true
 })
+
+userSchema.pre 'save', (next) =>
+  return next() if !this.isModified('password')
+  this.password = bcrypt.hashSync(this.password, SALT_FACTOR)
+  next()
 
 export default mongoose.model('User', userSchema)
