@@ -1,5 +1,5 @@
-express = require('express')
-authController = require('../controllers/auth')
+import express from 'express'
+import * as authController from '../controllers/auth'
 
 router = express.Router()
 

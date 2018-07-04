@@ -1,11 +1,13 @@
-express = require('express')
-path = require('path')
-cookieParser = require('cookie-parser')
-logger = require('morgan')
-helmet = require('helmet')
-apiRouter = require('./routes/api')
-mongoose = require('mongoose')
-require('dotenv').config()
+import express from 'express'
+import path from 'path'
+import cookieParser from 'cookie-parser'
+import logger from 'morgan'
+import helmet from 'helmet'
+import mongoose from 'mongoose'
+import apiRouter from './routes/api'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 app = express()
 

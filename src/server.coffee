@@ -1,5 +1,5 @@
-app = require('./app')
-http = require('http')
+import app from './app'
+import http from 'http'
 
 normalizePort = (val) ->
   port = parseInt(val, 10)
