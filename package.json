@@ -27,6 +27,7 @@
     "gulp-coffee": "^3.0.2",
     "gulp-coffeelint": "^0.6.0",
     "gulp-load-plugins": "^1.5.0",
+    "gulp-nodemon": "git+https://github.com/ben-walker/gulp-nodemon.git",
     "gulp-sourcemaps": "^2.6.4",
     "nodemon": "^1.17.5"
   }
