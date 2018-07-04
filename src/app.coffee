@@ -1,26 +1,15 @@
 express = require('express')
-session = require('express-session')
 path = require('path')
 cookieParser = require('cookie-parser')
 logger = require('morgan')
 helmet = require('helmet')
 router = require('./routes/router')
-dotenv = require('dotenv')
 mongoose = require('mongoose')
-mongoStore = require('connect-mongo')(session)
+require('dotenv').config()
 
 app = express()
 
-dotenv.config()
-
 mongoose.connect(process.env.MONGODB_URI)
-
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  store: new mongoStore({ mongooseConnection: mongoose.connection }),
-  saveUninitialized: false,
-  resave: false
-}))
 
 app.use(helmet())
 app.use(logger('dev'))
