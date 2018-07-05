@@ -1,8 +1,11 @@
 gulp = require('gulp')
 plugins = require('gulp-load-plugins')()
+config = require('./gulpconfig.json')
+
+PATHS = config.paths
 
 getTask = (task) ->
-  return require("./gulp_tasks/#{task}")(gulp, plugins)
+  return require(PATHS.task_dir + task)(gulp, plugins)
 
 gulp.task('CLEAN', getTask('clean'))
 

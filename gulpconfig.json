@@ -1,0 +1,5 @@
+{
+  "paths": {
+    "task_dir": "./gulp_tasks/"
+  }
+}
