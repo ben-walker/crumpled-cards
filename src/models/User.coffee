@@ -11,15 +11,14 @@ userSchema = new Schema({
   timestamps: true
 })
 
-class UserClass
-  comparePassword: (candidate, cb) ->
-    return bcrypt.compareSync(candidate, this.password)
+# coffeelint: disable=missing_fat_arrows
+userSchema.methods.comparePassword = (candidate, cb) ->
+  return bcrypt.compareSync(candidate, this.password)
 
-
-userSchema.pre 'save', (next) -> # coffeelint: disable-line=missing_fat_arrows
+userSchema.pre 'save', (next) ->
   return next() if !this.isModified('password')
   this.password = bcrypt.hashSync(this.password, SALT_WORK)
   next()
+# coffeelint: enable
 
-userSchema.loadClass(UserClass)
 export default mongoose.model('User', userSchema)
