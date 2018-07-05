@@ -13,7 +13,15 @@ dotenv.config()
 
 app = express()
 
+mongoStore = connectMongo(session)
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+
+app.use(session({
+  secret: process.env.SECRET,
+  store: new mongoStore({ mongooseConnection: mongoose.connection }),
+  saveUninitialized: false,
+  resave: false
+}))
 
 app.use(helmet())
 app.use(logger('dev'))
