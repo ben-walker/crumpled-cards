@@ -9,6 +9,7 @@ import connectMongo from 'connect-mongo'
 import apiRouter from './routes/api'
 import dotenv from 'dotenv'
 import passport from 'passport'
+import passportConfig from './config/passport'
 
 dotenv.config()
 
@@ -24,6 +25,7 @@ app.use(session({
   resave: false
 }))
 
+passportConfig(passport)
 app.use(passport.initialize())
 app.use(passport.session())
 
