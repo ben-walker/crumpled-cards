@@ -1,25 +1,12 @@
 import User from '../models/User'
-import jwt from 'jsonwebtoken'
+import passport from 'passport'
 
 export register = (req, res) ->
   User.create req.body, (err, user) ->
     return res.status(500).send('User registration failed') if err
-    token = genAuthToken(user._id, '1d')
-    res.status(200).send({ authenticated: true, token: token })
+    req.logIn(user)
 
-export login = (req, res) ->
-  id = req.body.identifier
-  User.findOne { $or: [{ username: id }, { email: id }] }, (err, user) ->
-    return res.status(500).send('Server error') if err
-    return res.status(404).send('User not found') if !user
-    if !user.comparePassword(req.body.password)
-      return res.status(401).send({ authenticated: false, token: null })
-
-    token = genAuthToken(user._id, '1d')
-    res.status(200).send({ authenticated: true, token: token })
-
-genAuthToken = (identifier, expiry) ->
-  return jwt.sign({ id: identifier }, process.env.SECRET, {
-    expiresIn: expiry,
-    algorithm: process.env.JWT_ALGORITHM
-  })
+export login = [
+  passport.authenticate('local'),
+  (req, res, next) -> req.session.save()
+]
