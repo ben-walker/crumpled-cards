@@ -1,8 +1,13 @@
 import User from '../models/User'
 import jwt from 'jsonwebtoken'
+import env from 'env-var'
+
+SECRET = env.get('SECRET').required().asString()
+JWT_ALGORITHM = env.get('JWT_ALGORITHM').required().asString()
 
 export register = (req, res) ->
   User.create req.body, (err, user) ->
+    console.log(err)
     return res.status(500).send('User registration failed') if err
     token = genAuthToken(user._id, '1d')
     res.status(200).send({ auth: true, token: token })
@@ -19,7 +24,7 @@ export login = (req, res) ->
     res.status(200).send({ auth: true, token: token })
 
 genAuthToken = (identifier, expiry) ->
-  return jwt.sign({ id: identifier }, process.env.SECRET, {
+  return jwt.sign({ id: identifier }, SECRET, {
     expiresIn: expiry,
-    algorithm: process.env.JWT_ALGORITHM
+    algorithm: JWT_ALGORITHM
   })
