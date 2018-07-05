@@ -1,7 +1,8 @@
 {
   "paths": {
     "task_dir": "./gulp_tasks/",
-    "build_dir": "dist"
+    "build_dir": "dist",
+    "node_entry": "dist/server.js"
   },
   "globs": {
     "src_coffee": "src/**/*.coffee"

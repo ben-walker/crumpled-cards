@@ -1,7 +1,8 @@
-module.exports = (gulp, plugins) ->
+module.exports = (gulp, plugins, config) ->
+  PATHS = config.paths
   return (done) ->
     started = false
-    plugins.nodemon({ script: 'dist/server.js' }).on 'start', ->
+    plugins.nodemon({ script: PATHS.node_entry }).on 'start', ->
       if !started
         done()
         started = true
