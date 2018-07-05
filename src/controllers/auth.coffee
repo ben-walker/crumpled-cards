@@ -9,5 +9,7 @@ export register = (req, res, next) ->
 
 export login = [
   passport.authenticate('local'),
-  (req, res, next) -> req.session.save()
+  (req, res, next) ->
+    req.session.save()
+    res.status(200).send({ authenticated: true })
 ]
