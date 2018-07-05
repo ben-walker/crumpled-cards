@@ -4,8 +4,22 @@ import jwt from 'jsonwebtoken'
 export register = (req, res) ->
   User.create req.body, (err, user) ->
     return res.status(500).send('User registration failed') if err
-    token = jwt.sign({ id: user._id }, process.env.SECRET, {
-      expiresIn: '1d',
-      algorithm: 'HS512'
-    })
-    res.status(200).send(token)
+    token = genAuthToken(user._id, '1d')
+    res.status(200).send({ auth: true, token: token })
+
+export login = (req, res) ->
+  id = req.body.identifier
+  User.findOne { $or: [{ username: id }, { email: id }] }, (err, user) ->
+    return res.status(500).send('Server error') if err
+    return res.status(404).send('User not found') if !user
+    if !user.comparePassword(req.body.password)
+      return res.status(401).send({ auth: false, token: null })
+
+    token = genAuthToken(user._id, '1d')
+    res.status(200).send({ auth: true, token: token })
+
+genAuthToken = (identifier, expiry) ->
+  return jwt.sign({ id: identifier }, process.env.SECRET, {
+    expiresIn: expiry,
+    algorithm: process.env.JWT_ALGORITHM
+  })
