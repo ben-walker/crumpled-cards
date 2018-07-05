@@ -1,9 +1,11 @@
 import express from 'express'
+import session from 'express-session'
 import path from 'path'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 import helmet from 'helmet'
 import mongoose from 'mongoose'
+import connectMongo from 'connect-mongo'
 import apiRouter from './routes/api'
 import dotenv from 'dotenv'
 
