@@ -6,12 +6,14 @@ import helmet from 'helmet'
 import mongoose from 'mongoose'
 import apiRouter from './routes/api'
 import dotenv from 'dotenv'
+import env from 'env-var'
 
 dotenv.config()
 
 app = express()
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+MONGODB_URI = env.get('MONGODB_URI').required().asUrlString()
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 
 app.use(helmet())
 app.use(logger('dev'))
