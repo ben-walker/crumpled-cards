@@ -1,20 +1,27 @@
 gulp = require('gulp')
 plugins = require('gulp-load-plugins')()
+fs = require('fs')
+path = require('path')
 config = require('./gulpconfig.json')
 
 PATHS = config.paths
 
+stripExt = (file) ->
+  return path.basename(file, path.extname(file))
+
 getTask = (task) ->
   return require(PATHS.task_dir + task)(gulp, plugins)
 
-gulp.task('CLEAN', getTask('clean'))
+loadTasks = ->
+  tasks = fs.readdirSync(PATHS.task_dir).map (file) -> stripExt(file)
+  tasks.forEach (task) -> gulp.task(task, getTask(task))
 
-gulp.task('coffee-lint', getTask('coffee-lint'))
-gulp.task('coffee-compile', getTask('coffee-compile'))
-gulp.task('DIST_COFFEE', gulp.series('coffee-lint', 'coffee-compile'))
+loadTasks()
 
-gulp.task('WATCH', getTask('watch'))
+gulp.task('dist-coffee', gulp.series('coffee-lint', 'coffee-compile'))
 
-gulp.task('SERVE', getTask('nodemon'))
+gulp.task 'watch', (done) ->
+  gulp.watch('src/**/*.coffee', gulp.series('dist-coffee'))
+  done()
 
-gulp.task('default', gulp.series('CLEAN', 'DIST_COFFEE', 'WATCH', 'SERVE'))
+gulp.task('default', gulp.series('clean', 'dist-coffee', 'watch', 'nodemon'))
