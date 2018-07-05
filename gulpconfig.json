@@ -1,5 +1,8 @@
 {
   "paths": {
     "task_dir": "./gulp_tasks/"
+  },
+  "globs": {
+    "src_coffee": "src/**/*.coffee"
   }
 }

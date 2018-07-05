@@ -5,6 +5,7 @@ path = require('path')
 config = require('./gulpconfig.json')
 
 PATHS = config.paths
+GLOBS = config.globs
 
 stripExt = (file) ->
   return path.basename(file, path.extname(file))
@@ -19,9 +20,8 @@ loadTasks = ->
 loadTasks()
 
 gulp.task('dist-coffee', gulp.series('coffee-lint', 'coffee-compile'))
-
 gulp.task 'watch', (done) ->
-  gulp.watch('src/**/*.coffee', gulp.series('dist-coffee'))
+  gulp.watch(GLOBS.src_coffee, gulp.series('dist-coffee'))
   done()
 
 gulp.task('default', gulp.series('clean', 'dist-coffee', 'watch', 'nodemon'))
