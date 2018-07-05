@@ -2,7 +2,7 @@ import express from 'express'
 import session from 'express-session'
 import path from 'path'
 import cookieParser from 'cookie-parser'
-import logger from 'morgan'
+import morgan from 'morgan'
 import helmet from 'helmet'
 import mongoose from 'mongoose'
 import connectMongo from 'connect-mongo'
@@ -30,7 +30,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(helmet())
-app.use(logger('dev'))
+app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
