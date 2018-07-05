@@ -11,7 +11,7 @@ dotenv.config()
 
 app = express()
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
 
 app.use(helmet())
 app.use(logger('dev'))
