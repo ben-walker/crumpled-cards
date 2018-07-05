@@ -11,7 +11,7 @@ stripExt = (file) ->
   return path.basename(file, path.extname(file))
 
 getTask = (task) ->
-  return require(PATHS.task_dir + task)(gulp, plugins)
+  return require(PATHS.task_dir + task)(gulp, plugins, config)
 
 loadTasks = ->
   tasks = fs.readdirSync(PATHS.task_dir).map (file) -> stripExt(file)
