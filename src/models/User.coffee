@@ -1,8 +1,6 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 
-SALT_FACTOR = 12
-
 Schema = mongoose.Schema
 
 userSchema = new Schema({
@@ -12,9 +10,15 @@ userSchema = new Schema({
   timestamps: true
 })
 
+class UserClass
+  comparePassword: (candidate, cb) ->
+    return bcrypt.compareSync(candidate, this.password)
+
+
 userSchema.pre 'save', (next) -> # coffeelint: disable-line=missing_fat_arrows
   return next() if !this.isModified('password')
-  this.password = bcrypt.hashSync(this.password, SALT_FACTOR)
+  this.password = bcrypt.hashSync(this.password, process.env.SALT_WORK)
   next()
 
+userSchema.loadClass(UserClass)
 export default mongoose.model('User', userSchema)
