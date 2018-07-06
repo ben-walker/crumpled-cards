@@ -1,3 +1,4 @@
+import createError from 'http-errors'
 import express from 'express'
 import session from 'express-session'
 import path from 'path'
@@ -10,6 +11,7 @@ import apiRouter from './routes/api'
 import dotenv from 'dotenv'
 import passport from 'passport'
 import passportConfig from './config/passport'
+import winston from './config/winston'
 
 dotenv.config()
 
@@ -30,12 +32,23 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(helmet())
-app.use(morgan('combined'))
+app.use(morgan('combined', { stream: winston.stream }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', apiRouter)
+
+app.use (req, res, next) ->
+  next(createError(404))
+
+app.use (err, req, res, next) ->
+  error = if req.app.get('env') == 'development' then err else {}
+  status = err.status || 500
+  errorMessage = "#{status} - #{err.message} -
+                  #{req.originalUrl} - #{req.method} - #{req.ip}"
+  winston.error(errorMessage)
+  res.status(status).send(error)
 
 export default app
