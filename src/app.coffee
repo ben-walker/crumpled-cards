@@ -1,6 +1,7 @@
 import createError from 'http-errors'
 import express from 'express'
 import session from 'express-session'
+import cors from 'cors'
 import path from 'path'
 import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
@@ -31,6 +32,7 @@ passportConfig(passport)
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.use(cors())
 app.use(helmet())
 app.use(morgan('combined', { stream: winston.stream }))
 app.use(express.json())
