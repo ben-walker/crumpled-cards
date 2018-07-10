@@ -6,6 +6,11 @@ export default {
     trim: true,
     escape: true
   },
+  email: {
+    trim: true,
+    isEmail: true,
+    normalizeEmail: true
+  }
   password: {
     isLength: {
       options: { min: 8 }
