@@ -6,9 +6,8 @@ import { checkSchema, validationResult } from 'express-validator/check'
 export register = [
   checkSchema(UserValidation),
   (req, res, next) ->
-    errors = validationResult(req)
-    if !errors.isEmpty()
-      return res.status(422).json({ errors: errors.array() })
+    errs = validationResult(req)
+    return res.status(422).json({ errors: errs.array() }) if !errs.isEmpty()
 
     User.create req.body, (err, user) ->
       return res.status(500).send('User registration failed') if err
