@@ -1,6 +1,6 @@
 import User from '../models/User'
-import passport from 'passport'
 import UserValidation from '../models/validation-schemas/user-validation'
+import passport from 'passport'
 import { checkSchema, validationResult } from 'express-validator/check'
 
 export register = [
