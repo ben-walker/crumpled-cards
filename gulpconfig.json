@@ -1,6 +1,6 @@
 {
   "paths": {
-    "task_dir": "./gulp_tasks/",
+    "task_dir": "./gulp-tasks/",
     "build_dir": "dist",
     "node_entry": "dist/server.js"
   },
