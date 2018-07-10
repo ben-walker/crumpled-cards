@@ -1,5 +1,5 @@
 import User from '../models/User'
-import UserValidation from '../models/validation-schemas/user-validation'
+import UserValidation from '../models/validation-schemas/User'
 import passport from 'passport'
 import { checkSchema, validationResult } from 'express-validator/check'
 
