@@ -21,11 +21,8 @@ userSchema.pre 'save', (next) ->
   this.password = bcrypt.hashSync(this.password, SALT_WORK)
   next()
 
-userSchema.statics.findByUsername = (username, cb) ->
-  return this.findOne({ username: username }, cb)
-
-userSchema.statics.findByEmail = (email, cb) ->
-  return this.findOne({ email: email }, cb)
+userSchema.statics.findByKeyValue = (k, v, cb) ->
+  return this.findOne({ [k]: v }, cb)
 # coffeelint: enable
 
 export default mongoose.model('User', userSchema)
