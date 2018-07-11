@@ -8,21 +8,18 @@ LOG_DIR = 'logs'
 
 fs.mkdirSync(LOG_DIR) if !fs.existsSync(LOG_DIR)
 
-options = {
-  errorFile: {
-    level: 'error',
-    filename: "#{appRoot}/#{LOG_DIR}/error.log",
-    handleExceptions: true,
-    maxsize: FILE_SIZE,
+options =
+  errorFile:
+    level: 'error'
+    filename: "#{appRoot}/#{LOG_DIR}/error.log"
+    handleExceptions: true
+    maxsize: FILE_SIZE
     maxFiles: MAX_FILES
-  },
-  combinedFile: {
-    filename: "#{appRoot}/#{LOG_DIR}/combined.log",
-    handleExceptions: true,
-    maxsize: FILE_SIZE,
+  combinedFile:
+    filename: "#{appRoot}/#{LOG_DIR}/combined.log"
+    handleExceptions: true
+    maxsize: FILE_SIZE
     maxFiles: MAX_FILES
-  }
-}
 
 logger = winston.createLogger({
   transports: [
