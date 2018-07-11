@@ -22,7 +22,9 @@ userSchema.pre 'save', (next) ->
   next()
 
 userSchema.statics.findByKeyValue = (k, v, cb) ->
-  return this.findOne({ [k]: v }, cb)
+  query = {}
+  query[k] = v
+  return this.findOne(query, cb)
 # coffeelint: enable
 
 export default mongoose.model('User', userSchema)
