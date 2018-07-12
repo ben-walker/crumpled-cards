@@ -7,3 +7,7 @@
       router-link(to="/about") About
     router-view
 </template>
+
+<style lang="scss">
+@import "~buefy/lib/buefy.min";
+</style>
