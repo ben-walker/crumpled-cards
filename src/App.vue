@@ -1,15 +1,15 @@
 <template lang="pug">
   #app
-    #nav
-      router-link(to="/") Home
-      |  |
-      |
-      router-link(to="/about") About
-    router-view
+    Auth()
 </template>
 
 <script>
+import Auth from '@/views/Auth.vue'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    Auth
+  }
 }
 </script>
