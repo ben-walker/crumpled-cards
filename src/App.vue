@@ -7,3 +7,9 @@
       router-link(to="/about") About
     router-view
 </template>
+
+<script>
+export default {
+  name: 'app'
+}
+</script>
