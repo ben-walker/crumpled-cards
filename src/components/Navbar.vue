@@ -1,13 +1,13 @@
 <template lang="pug">
   #nav
-    nav.navbar.has-shadow.is-spaced.is-transparent.is-primary
+    nav.navbar.has-shadow.is-spaced.is-transparent.is-light
       .navbar-brand
-        h1.title.is-2.has-text-white {{ siteTitle }}
+        h1.title.is-2.has-text-primary {{ siteTitle }}
       .navbar-menu
         .navbar-end
-          router-link.navbar-item(to="/login" v-if="!authenticated") Login
+          router-link.navbar-item.has-text-primary(to="/login" v-if="!authenticated") Log In
           p or
-          router-link.navbar-item(to="/signup" v-if="!authenticated") Signup
+          router-link.navbar-item.has-text-primary(to="/signup" v-if="!authenticated") Sign Up
 </template>
 
 <script>
