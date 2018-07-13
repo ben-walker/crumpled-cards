@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    Auth()
+    Auth
 </template>
 
 <script>
