@@ -1,7 +1,7 @@
 <template lang="pug">
   #signup
     .box
-      form
+      form(@submit.prevent novalidate)
         b-field(label="Username")
           b-input(v-model.trim="username" type="text" rounded ref="username")
         b-field(label="Email")

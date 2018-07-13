@@ -1,7 +1,7 @@
 <template lang="pug">
   #login
     .box
-      form
+      form(@submit.prevent novalidate)
         b-field(label="Username or Email")
           b-input(v-model.trim="identifier" type="text" rounded ref="identifier")
         b-field(label="Password")
