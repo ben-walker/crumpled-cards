@@ -6,6 +6,7 @@
       .navbar-menu
         .navbar-end
           router-link.navbar-item(to="/login" v-if="!authenticated") Login
+          p or
           router-link.navbar-item(to="/signup" v-if="!authenticated") Signup
 </template>
 
