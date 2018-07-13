@@ -17,5 +17,6 @@ export default {
 <style lang="scss">
 .router-link-exact-active {
   font-weight: bolder;
+  font-size: 130%;
 }
 </style>
