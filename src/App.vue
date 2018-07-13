@@ -1,6 +1,11 @@
 <template lang="pug">
   #app
     Navbar(siteTitle="Poker Nook" :authenticated="false")
+    section.section.is-medium
+      .columns.is-centered.is-mobile
+        .column.is-one-third
+          transition(name="fade" mode="out-in")
+            router-view
 </template>
 
 <script>
@@ -17,6 +22,6 @@ export default {
 <style lang="scss">
 .router-link-exact-active {
   font-weight: bolder;
-  font-size: 130%;
+  font-size: 140%;
 }
 </style>
