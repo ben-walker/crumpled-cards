@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    Navbar(siteTitle="Poker Nook")
+    Navbar(siteTitle="Poker Nook" :authenticated="false")
 </template>
 
 <script>
@@ -13,3 +13,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.router-link-exact-active {
+  font-weight: bolder;
+}
+</style>
