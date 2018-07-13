@@ -5,7 +5,8 @@
       .columns.is-centered.is-mobile
         .column.is-one-third
           transition(name="fade" mode="out-in")
-            router-view
+            keep-alive
+              router-view
 </template>
 
 <script>
