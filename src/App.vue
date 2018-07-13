@@ -1,20 +1,15 @@
 <template lang="pug">
   #app
-    Navbar(siteTitle="Poker Nook" :authenticated="false")
-    section.section.is-medium
-      .columns.is-centered.is-mobile
-        .column.is-one-third
-          transition(name="fade" mode="out-in")
-            router-view
+    Auth()
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue'
+import Auth from '@/views/Auth.vue'
 
 export default {
   name: 'app',
   components: {
-    Navbar
+    Auth
   }
 }
 </script>
