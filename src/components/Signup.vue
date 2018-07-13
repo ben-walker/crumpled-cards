@@ -12,6 +12,7 @@
           b-input(v-model="confirmPassword" type="password" placeholder="••••••••" rounded password-reveal)
         .has-text-right
           button.button.is-primary.is-outlined(type="submit") Sign Up
+      b-loading(:is-full-page="false" :active.sync="loading")
 </template>
 
 <script>
@@ -22,7 +23,8 @@ export default {
       username: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      loading: false
     }
   },
   mounted () {

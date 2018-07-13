@@ -10,6 +10,7 @@
           b-checkbox(v-model="rememberMe") Remember me
         .has-text-right
           button.button.is-primary.is-outlined(type="submit") Log In
+      b-loading(:is-full-page="false" :active.sync="loading")
 </template>
 
 <script>
@@ -19,7 +20,8 @@ export default {
     return {
       identifier: '',
       password: '',
-      rememberMe: false
+      rememberMe: false,
+      loading: false
     }
   },
   mounted () {
