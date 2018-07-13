@@ -8,6 +8,8 @@
           b-input(v-model.trim="email" type="text" rounded)
         b-field(label="Password")
           b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal)
+        b-field(label="Confirm Password")
+          b-input(v-model="confirmPassword" type="password" placeholder="••••••••" rounded password-reveal)
         .has-text-right
           button.button.is-primary.is-outlined(type="submit") Sign Up
 </template>
