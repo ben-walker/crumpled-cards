@@ -21,7 +21,8 @@ export default {
     return {
       username: '',
       email: '',
-      password: ''
+      password: '',
+      confirmPassword: ''
     }
   },
   mounted () {
