@@ -1,7 +1,7 @@
 <template lang="pug">
   #auth
     Navbar(siteTitle="Poker Nook" :authenticated="false")
-    section.section.is-medium
+    section.section
       .columns.is-centered.is-mobile
         .column.is-one-third
           transition(name="fade" mode="out-in")
