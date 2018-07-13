@@ -4,8 +4,8 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const routes = [
-  { path: '/login', name: 'login' },
-  { path: '/signup', name: 'signup' }
+  { path: '/login' },
+  { path: '/signup' }
 ]
 
 export default new Router({
