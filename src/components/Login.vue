@@ -40,7 +40,17 @@ export default {
       })
     },
     submit () {
-
+      this.loading = true
+      this.axios.post('login', {
+        identifier: this.identifier,
+        password: this.password
+      })
+        .then(() => this.$toast.open('Login succeeded.'))
+        .catch(() => this.$toast.open({
+          message: 'Login credentials not recognized.',
+          type: 'is-danger'
+        }))
+        .finally(() => { this.loading = false })
     }
   },
   mounted () {
