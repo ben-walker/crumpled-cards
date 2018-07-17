@@ -13,6 +13,7 @@
     "buefy": "^0.6.6",
     "simple-vue-validator": "^0.15.1",
     "vue": "^2.5.16",
+    "vue-axios": "^2.1.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
