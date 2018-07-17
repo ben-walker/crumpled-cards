@@ -1,7 +1,7 @@
 <template lang="pug">
   #login
     .box
-      form(@submit.prevent novalidate)
+      form(@submit.prevent="processForm" novalidate)
         b-field(label="Username or Email")
           b-input(v-model.trim="identifier" type="text" rounded ref="identifier")
         b-field(label="Password")
@@ -22,6 +22,14 @@ export default {
       password: '',
       rememberMe: false,
       loading: false
+    }
+  },
+  methods: {
+    processForm () {
+      this.requestLogin()
+    },
+    requestLogin () {
+
     }
   },
   mounted () {
