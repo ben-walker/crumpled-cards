@@ -2,15 +2,17 @@
   #login
     .box
       h1.subtitle.is-4.has-text-grey Welcome Back
-      form(@submit.prevent novalidate)
+      form(@submit.prevent="submit" novalidate)
 
-        HelpText(dir="right" :msg="validation.firstError('identifier')")
-        b-field(label="Username or Email" :type="determineFieldType('identifier')")
+        b-field(label="Username or Email"
+        :type="determineFieldType('identifier')"
+        :message="validation.firstError('identifier')")
           b-input(v-model.trim="identifier" type="text" rounded ref="identifier")
 
-        HelpText(dir="right" :msg="validation.firstError('password')")
-        b-field(label="Password" :type="determineFieldType('password')")
-          b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal)
+        b-field(label="Password"
+        :type="determineFieldType('password')"
+        :message="validation.firstError('password')")
+          b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal ref="password")
 
         .field
           b-checkbox(v-model="rememberMe") Remember me
@@ -22,7 +24,6 @@
 </template>
 
 <script>
-import HelpText from '@/components/HelpText.vue'
 import validation from '@/mixins/validation'
 
 export default {
@@ -30,15 +31,19 @@ export default {
   mixins: [
     validation
   ],
-  components: {
-    HelpText
-  },
   data () {
     return {
       identifier: '',
       password: '',
       rememberMe: false,
       loading: false
+    }
+  },
+  methods: {
+    submit () {
+      this.validateForm((err) => {
+
+      })
     }
   },
   mounted () {
