@@ -2,23 +2,27 @@
   #signup
     .box
       h1.subtitle.is-4.has-text-grey Create Your Account
-      form(@submit.prevent novalidate)
+      form(@submit.prevent="processForm" novalidate)
 
-        HelpText(dir="right" :msg="validation.firstError('username')")
-        b-field(label="Username" :type="determineFieldType('username')")
+        b-field(label="Username"
+          :type="determineFieldType('username')"
+          :message="validation.firstError('username')")
           b-input(v-model.trim="username" type="text" rounded ref="username")
 
-        HelpText(dir="right" :msg="validation.firstError('email')")
-        b-field(label="Email" :type="determineFieldType('email')")
-          b-input(v-model.trim="email" type="text" rounded)
+        b-field(label="Email"
+          :type="determineFieldType('email')"
+          :message="validation.firstError('email')")
+          b-input(v-model.trim="email" type="text" rounded ref="email")
 
-        HelpText(dir="right" :msg="validation.firstError('password')")
-        b-field(label="Password" :type="determineFieldType('password')")
-          b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal)
+        b-field(label="Password"
+          :type="determineFieldType('password')"
+          :message="validation.firstError('password')")
+          b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal ref="password")
 
-        HelpText(dir="right" :msg="validation.firstError('confirmPassword')")
-        b-field(label="Confirm Password" :type="determineFieldType('confirmPassword')")
-          b-input(v-model="confirmPassword" type="password" placeholder="••••••••" rounded password-reveal)
+        b-field(label="Confirm Password"
+        :type="determineFieldType('confirmPassword')"
+        :message="validation.firstError('confirmPassword')")
+          b-input(v-model="confirmPassword" type="password" placeholder="••••••••" rounded password-reveal ref="confirmPassword")
 
         .has-text-right
           button.button.is-primary.is-outlined(type="submit") Sign Up
@@ -27,7 +31,6 @@
 </template>
 
 <script>
-import HelpText from '@/components/HelpText.vue'
 import validation from '@/mixins/validation'
 
 export default {
@@ -35,9 +38,6 @@ export default {
   mixins: [
     validation
   ],
-  components: {
-    HelpText
-  },
   data () {
     return {
       username: '',
@@ -45,6 +45,11 @@ export default {
       password: '',
       confirmPassword: '',
       loading: false
+    }
+  },
+  methods: {
+    processForm () {
+      this.$validate(Object.keys(this.$refs))
     }
   },
   mounted () {
