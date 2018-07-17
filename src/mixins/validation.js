@@ -21,9 +21,7 @@ export default {
       return Validator.value(value).required().minLength(8)
     },
     'confirmPassword, password': function (value, password) {
-      if (this.submitted || this.validation.isTouched('confirmPassword')) {
-        return Validator.value(value).required().match(password)
-      }
+      return Validator.value(value).required().match(password)
     }
   },
   methods: {
