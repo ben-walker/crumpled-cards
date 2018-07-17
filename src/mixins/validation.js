@@ -27,6 +27,9 @@ export default {
     }
   },
   methods: {
+    determineFieldType (fieldName) {
+      return this.validation.hasError(fieldName) ? 'is-danger' : ''
+    },
     usernameTaken () {
       return new Promise((resolve, reject) => {
         this.axios.get('usernameRegistered', {
