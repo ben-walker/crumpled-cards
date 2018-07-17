@@ -2,7 +2,7 @@
   #signup
     .box
       h1.subtitle.is-4.has-text-grey Create Your Account
-      form(@submit.prevent="processForm" novalidate)
+      form(@submit.prevent="submit" novalidate)
 
         b-field(label="Username"
           :type="determineFieldType('username')"
@@ -48,8 +48,10 @@ export default {
     }
   },
   methods: {
-    processForm () {
-      this.$validate(Object.keys(this.$refs))
+    submit () {
+      this.validateForm((err) => {
+
+      })
     }
   },
   mounted () {
