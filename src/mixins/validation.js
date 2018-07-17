@@ -1,6 +1,9 @@
 import SimpleVueValidation from 'simple-vue-validator'
 
 const Validator = SimpleVueValidation.Validator
+const ERR_FIELD_TYPE = 'is-danger'
+const USERNAME_TAKEN = 'Username in use.'
+const EMAIL_TAKEN = 'Email in use.'
 
 export default {
   validators: {
@@ -26,7 +29,7 @@ export default {
   },
   methods: {
     determineFieldType (fieldName) {
-      return this.validation.hasError(fieldName) ? 'is-danger' : ''
+      return this.validation.hasError(fieldName) ? ERR_FIELD_TYPE : ''
     },
     validateForm (cb) {
       this.$validate(Object.keys(this.$refs))
@@ -41,7 +44,7 @@ export default {
           params: { username: this.username }
         })
           .then(res => {
-            res.data.userFound ? resolve('Username in use.') : resolve()
+            res.data.userFound ? resolve(USERNAME_TAKEN) : resolve()
           })
           .catch(err => reject(err))
       })
@@ -52,7 +55,7 @@ export default {
           params: { email: this.email }
         })
           .then(res => {
-            res.data.userFound ? resolve('Email in use.') : resolve()
+            res.data.userFound ? resolve(EMAIL_TAKEN) : resolve()
           })
           .catch(err => reject(err))
       })
