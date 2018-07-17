@@ -28,6 +28,13 @@ export default {
     determineFieldType (fieldName) {
       return this.validation.hasError(fieldName) ? 'is-danger' : ''
     },
+    validateForm (cb) {
+      this.$validate(Object.keys(this.$refs))
+        .then((success) => {
+          if (success) cb(null)
+          else cb(new Error('Form validation failed.'))
+        })
+    },
     usernameTaken () {
       return new Promise((resolve, reject) => {
         this.axios.get('usernameRegistered', {
