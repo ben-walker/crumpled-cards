@@ -1,6 +1,7 @@
 <template lang="pug">
   #login
     .box
+      h1.subtitle.is-4.has-text-grey Welcome Back
       form(@submit.prevent novalidate)
         b-field(label="Username or Email")
           b-input(v-model.trim="identifier" type="text" rounded ref="identifier")

@@ -1,6 +1,7 @@
 <template lang="pug">
   #signup
     .box
+      h1.subtitle.is-4.has-text-grey Create Your Account
       form(@submit.prevent novalidate)
         b-field(label="Username")
           b-input(v-model.trim="username" type="text" rounded ref="username")
