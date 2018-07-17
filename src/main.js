@@ -14,7 +14,7 @@ import '@fortawesome/fontawesome-free/css/all.css'
 Vue.config.productionTip = false
 Vue.use(Buefy, { defaultIconPack: 'fas' })
 Vue.use(VueAxios, axios.create({ baseURL: 'http://localhost:3000/api/' }))
-Vue.use(SimpleVueValidation, { mode: 'conservative' })
+Vue.use(SimpleVueValidation)
 promiseFinally.shim()
 
 new Vue({
