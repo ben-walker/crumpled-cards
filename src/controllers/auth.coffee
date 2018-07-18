@@ -13,12 +13,16 @@ export register = [
       return res.status(500).send('User registration failure') if err
       req.logIn user, (err) ->
         return next(err) if err
-        res.status(200).send({ authenticated: true })
+        res.status(200).send({ authenticated: req.isAuthenticated() })
 ]
 
 export login = [
   passport.authenticate('local'),
   (req, res, next) ->
     req.session.save()
-    res.status(200).send({ authenticated: true })
+    res.status(200).send({ authenticated: req.isAuthenticated() })
 ]
+
+export logout = (req, res, next) ->
+  req.logOut()
+  res.status(200).send({ authenticated: req.isAuthenticated() })
