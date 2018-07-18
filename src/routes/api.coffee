@@ -8,6 +8,8 @@ router.post('/register', authController.register)
 
 router.post('/login', authController.login)
 
+router.post('/logout', authController.logout)
+
 router.get('/usernameRegistered', queryController.usernameRegistered)
 
 router.get('/emailRegistered', queryController.emailRegistered)
