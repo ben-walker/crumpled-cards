@@ -9,7 +9,7 @@ export default (passport) ->
     done(null, user.id)
 
   passport.deserializeUser (id, done) ->
-    User.findById id, (err, user) ->
+    User.findById id, '-password', (err, user) ->
       done(err, user)
 
   passport.use new localStrategy({ usernameField: 'identifier' },
