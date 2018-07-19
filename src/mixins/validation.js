@@ -40,7 +40,7 @@ export default {
     },
     usernameTaken () {
       return new Promise((resolve, reject) => {
-        this.axios.get('usernameRegistered', {
+        this.$http.get('usernameRegistered', {
           params: { username: this.username }
         })
           .then(res => {
@@ -51,7 +51,7 @@ export default {
     },
     emailTaken () {
       return new Promise((resolve, reject) => {
-        this.axios.get('emailRegistered', {
+        this.$http.get('emailRegistered', {
           params: { email: this.email }
         })
           .then(res => {
