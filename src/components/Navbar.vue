@@ -5,9 +5,10 @@
         h1.title.is-2.has-text-primary {{ siteTitle }}
       .navbar-menu
         .navbar-end
-          router-link.navbar-item.has-text-primary(to="/login" v-if="!authenticated") Log In
-          p or
-          router-link.navbar-item.has-text-primary(to="/signup" v-if="!authenticated") Sign Up
+          .navbar-item(v-if="!authenticated")
+            router-link.button.is-primary(to="/login") Log In
+          .navbar-item(v-if="!authenticated")
+            router-link.button.is-primary(to="/signup") Sign Up
 </template>
 
 <script>
