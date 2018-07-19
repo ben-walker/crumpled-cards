@@ -3,7 +3,7 @@ import App from './App.vue'
 import Buefy from 'buefy'
 import SimpleVueValidation from 'simple-vue-validator'
 import router from '@/config/router'
-import store from '@/config/store'
+import store from '@/config/vuex'
 import http from '@/config/axios'
 import promiseFinally from 'promise.prototype.finally'
 
