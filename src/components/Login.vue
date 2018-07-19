@@ -18,8 +18,10 @@
           b-checkbox(v-model="rememberMe") Remember me
 
         .has-text-right
-          button.button.is-primary.is-outlined(type="submit") Log In
-          a.help Forgot your password?
+          div
+            button.button.is-primary.is-outlined(type="submit") Log In
+          div
+            a.is-size-7 Forgot your password?
 
       b-loading(:is-full-page="false" :active.sync="loading")
 </template>
