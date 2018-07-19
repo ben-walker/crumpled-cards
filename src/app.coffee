@@ -32,7 +32,7 @@ passportConfig(passport)
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(cors())
+app.use(cors({ credentials: true }))
 app.use(helmet())
 app.use(morgan('combined', { stream: winston.stream }))
 app.use(express.json())
