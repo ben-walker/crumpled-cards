@@ -5,12 +5,12 @@
       form(@submit.prevent="submit" novalidate)
 
         b-field(label="Username or Email"
-        :type="determineFieldType('identifier')"
+        :type="fieldType('identifier')"
         :message="validation.firstError('identifier')")
-          b-input(v-model.trim="identifier" type="text" rounded ref="identifier")
+          b-input.is-danger(v-model.trim="identifier" type="text" rounded ref="identifier")
 
         b-field(label="Password"
-        :type="determineFieldType('password')"
+        :type="fieldType('password')"
         :message="validation.firstError('password')")
           b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal ref="password")
 
@@ -28,12 +28,13 @@
 
 <script>
 import validation from '@/mixins/validation'
+import SimpleVueValidation from 'simple-vue-validator'
+
+const Validator = SimpleVueValidation.Validator
 
 export default {
   name: 'login',
-  mixins: [
-    validation
-  ],
+  mixins: [validation],
   data () {
     return {
       identifier: '',
@@ -42,11 +43,18 @@ export default {
       loading: false
     }
   },
+  validators: {
+    identifier: (value) => {
+      return Validator.value(value).required()
+    },
+    password: (value) => {
+      return Validator.value(value).required()
+    }
+  },
   methods: {
-    submit () {
-      this.validateForm((err) => {
-
-      })
+    submit () {},
+    fieldType (field) {
+      return this.validation.hasError(field) ? 'is-danger' : ''
     }
   },
   mounted () {
