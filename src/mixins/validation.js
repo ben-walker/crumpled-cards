@@ -33,7 +33,7 @@ export default {
     },
     validateForm (cb) {
       this.$validate(Object.keys(this.$refs))
-        .then((success) => {
+        .then(success => {
           if (success) cb(null)
           else cb(new Error('Form validation failed.'))
         })
