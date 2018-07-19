@@ -19,6 +19,7 @@
 
         .has-text-right
           button.button.is-primary.is-outlined(type="submit") Log In
+          a.help Forgot your password?
 
       b-loading(:is-full-page="false" :active.sync="loading")
 </template>
