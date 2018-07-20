@@ -42,8 +42,12 @@ export default {
       username: '',
       email: '',
       password: '',
-      confirmPassword: '',
-      loading: false
+      confirmPassword: ''
+    }
+  },
+  computed: {
+    loading () {
+      return this.$store.state.user.authPending
     }
   },
   validators: {
