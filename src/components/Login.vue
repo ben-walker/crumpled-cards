@@ -57,8 +57,15 @@ export default {
     submit () {
       this.$validate()
         .then((success) => {
-
+          if (success) this.login()
         })
+    },
+    login () {
+      const payload = {
+        identifier: this.identifier,
+        password: this.password
+      }
+      this.$store.dispatch('user/login', payload)
     },
     fieldType (field) {
       return this.validation.hasError(field) ? 'is-danger' : ''
