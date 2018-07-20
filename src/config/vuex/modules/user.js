@@ -1,7 +1,8 @@
 import http from '@/config/axios'
 
 const state = {
-  authenticated: false
+  authenticated: false,
+  authPending: false
 }
 
 const getters = {}
