@@ -1,8 +1,4 @@
 import axios from 'axios'
-
-const config = {
-  baseURL: 'http://localhost:3000/api/',
-  withCredentials: true
-}
+import config from './config'
 
 export default axios.create(config)
