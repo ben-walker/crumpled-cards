@@ -9,10 +9,12 @@ const getters = {}
 
 const actions = {
   login ({ commit }, authPayload) {
+    commit('authenticating')
     return new Promise((resolve, reject) => {
       http.post('login', authPayload)
         .then(res => resolve(res))
         .catch(err => reject(err))
+        .finally(() => commit('authComplete'))
     })
   },
 
@@ -25,7 +27,15 @@ const actions = {
   }
 }
 
-const mutations = {}
+const mutations = {
+  authenticating (state) {
+    state.authPending = true
+  },
+
+  authComplete (state) {
+    state.authPending = false
+  }
+}
 
 export default {
   namespaced: true,
