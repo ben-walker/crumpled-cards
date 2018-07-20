@@ -25,4 +25,6 @@ export login = [
 
 export logout = (req, res, next) ->
   req.logOut()
-  res.status(200).send({ authenticated: req.isAuthenticated() })
+  req.session.destroy (err) ->
+    if err then res.status(500).send('Session destruction failure')
+    else res.status(200).send({ authenticated: req.isAuthenticated() })
