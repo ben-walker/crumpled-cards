@@ -27,4 +27,7 @@ export logout = (req, res, next) ->
   req.logOut()
   req.session.destroy (err) ->
     if err then res.status(500).send('Session destruction failure')
-    else res.status(200).send({ authenticated: req.isAuthenticated() })
+    else res.
+      status(200).
+      clearCookie('connect.sid', { path: '/' }).
+      send({ authenticated: req.isAuthenticated() })
