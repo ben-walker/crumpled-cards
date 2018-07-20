@@ -1,31 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import http from '@/config/axios'
+import user from './modules/user'
 
 Vue.use(Vuex)
 
+const debug = process.env.NODE_ENV !== 'production'
+
 export default new Vuex.Store({
-  strict: process.env.NODE_ENV !== 'production',
-  state: {
-
+  modules: {
+    user
   },
-  mutations: {
-
-  },
-  actions: {
-    login ({ commit }, authPayload) {
-      return new Promise((resolve, reject) => {
-        http.post('login', authPayload)
-          .then(res => resolve(res))
-          .catch(err => reject(err))
-      })
-    },
-    logout ({ commit }) {
-      return new Promise((resolve, reject) => {
-        http.post('logout')
-          .then(res => resolve(res))
-          .catch(err => reject(err))
-      })
-    }
-  }
+  strict: debug
 })
