@@ -19,6 +19,13 @@ export default new Vuex.Store({
           .then(res => resolve(res))
           .catch(err => reject(err))
       })
+    },
+    logout ({ commit }) {
+      return new Promise((resolve, reject) => {
+        http.post('logout')
+          .then(res => resolve(res))
+          .catch(err => reject(err))
+      })
     }
   }
 })
