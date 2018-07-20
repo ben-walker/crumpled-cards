@@ -37,8 +37,12 @@ export default {
     return {
       identifier: '',
       password: '',
-      rememberMe: false,
-      loading: false
+      rememberMe: false
+    }
+  },
+  computed: {
+    loading () {
+      return this.$store.getters['user/authPending']
     }
   },
   validators: {
