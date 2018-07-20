@@ -3,7 +3,7 @@
     nav.navbar.has-shadow.is-spaced
       .container
         .navbar-brand
-          h1.title.is-2.has-text-primary {{ siteTitle }}
+          h1.title.is-2 {{ siteTitle }}
         .navbar-menu
           .navbar-end(v-if="!authenticated")
             router-link.navbar-item(to="/login")
