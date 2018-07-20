@@ -89,7 +89,12 @@ export default {
     }
   },
   methods: {
-    submit () {},
+    submit () {
+      this.$validate()
+        .then((success) => {
+
+        })
+    },
     fieldType (field) {
       return this.validation.hasError(field) ? 'is-danger' : ''
     }
