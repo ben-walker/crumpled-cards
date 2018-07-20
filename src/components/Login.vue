@@ -27,14 +27,12 @@
 </template>
 
 <script>
-import validation from '@/mixins/validation'
 import SimpleVueValidation from 'simple-vue-validator'
 
 const Validator = SimpleVueValidation.Validator
 
 export default {
   name: 'login',
-  mixins: [validation],
   data () {
     return {
       identifier: '',
