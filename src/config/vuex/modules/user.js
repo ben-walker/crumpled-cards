@@ -8,6 +8,16 @@ const state = {
 const getters = {}
 
 const actions = {
+  signup ({ commit }, authPayload) {
+    commit('authenticating')
+    return new Promise((resolve, reject) => {
+      http.post('register', authPayload)
+        .then(res => resolve(res))
+        .catch(err => reject(err))
+        .finally(() => commit('authComplete'))
+    })
+  },
+
   login ({ commit }, authPayload) {
     commit('authenticating')
     return new Promise((resolve, reject) => {
