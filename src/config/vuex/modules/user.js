@@ -12,7 +12,10 @@ const actions = {
     commit('authenticating')
     return new Promise((resolve, reject) => {
       http.post('register', authPayload)
-        .then(res => resolve(res))
+        .then(res => {
+          commit('authenticate')
+          resolve(res)
+        })
         .catch(err => reject(err))
         .finally(() => commit('authComplete'))
     })
@@ -22,7 +25,10 @@ const actions = {
     commit('authenticating')
     return new Promise((resolve, reject) => {
       http.post('login', authPayload)
-        .then(res => resolve(res))
+        .then(res => {
+          commit('authenticate')
+          resolve(res)
+        })
         .catch(err => reject(err))
         .finally(() => commit('authComplete'))
     })
@@ -33,11 +39,20 @@ const actions = {
       http.post('logout')
         .then(res => resolve(res))
         .catch(err => reject(err))
+        .finally(() => commit('revokeAuth'))
     })
   }
 }
 
 const mutations = {
+  authenticate (state) {
+    state.authenticated = true
+  },
+
+  revokeAuth (state) {
+    state.authenticated = false
+  },
+
   authenticating (state) {
     state.authPending = true
   },
