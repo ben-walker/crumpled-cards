@@ -10,6 +10,9 @@ export default {
   name: 'app',
   components: {
     Auth
+  },
+  created () {
+    this.$store.dispatch('user/verifyAuth').catch(err => this.$log.error(err))
   }
 }
 </script>
