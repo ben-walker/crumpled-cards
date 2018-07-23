@@ -66,6 +66,15 @@ export default {
         password: this.password
       }
       this.$store.dispatch('user/login', payload)
+        .catch(this.danger('Credentials not recognized.'))
+    },
+    danger (message) {
+      this.$toast.open({
+        message: message,
+        position: 'is-bottom',
+        type: 'is-danger',
+        queue: false
+      })
     },
     fieldType (field) {
       return this.validation.hasError(field) ? 'is-danger' : ''
