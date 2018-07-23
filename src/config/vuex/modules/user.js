@@ -9,7 +9,7 @@ const getters = {}
 
 const actions = {
   signup ({ commit }, authPayload) {
-    commit('authenticating')
+    commit('startLoading')
     return new Promise((resolve, reject) => {
       http.post('register', authPayload)
         .then(res => {
@@ -17,12 +17,12 @@ const actions = {
           resolve(res)
         })
         .catch(err => reject(err))
-        .finally(() => commit('authComplete'))
+        .finally(() => commit('endLoading'))
     })
   },
 
   login ({ commit }, authPayload) {
-    commit('authenticating')
+    commit('startLoading')
     return new Promise((resolve, reject) => {
       http.post('login', authPayload)
         .then(res => {
@@ -30,7 +30,7 @@ const actions = {
           resolve(res)
         })
         .catch(err => reject(err))
-        .finally(() => commit('authComplete'))
+        .finally(() => commit('endLoading'))
     })
   },
 
@@ -40,6 +40,20 @@ const actions = {
         .then(res => resolve(res))
         .catch(err => reject(err))
         .finally(() => commit('revokeAuth'))
+    })
+  },
+
+  verifyAuth ({ commit }) {
+    return new Promise((resolve, reject) => {
+      http.get('me')
+        .then((res) => {
+          commit('authenticate')
+          resolve(res)
+        })
+        .catch((err) => {
+          commit('revokeAuth')
+          reject(err)
+        })
     })
   }
 }
@@ -53,11 +67,11 @@ const mutations = {
     state.authenticated = false
   },
 
-  authenticating (state) {
+  startLoading (state) {
     state.loading = true
   },
 
-  authComplete (state) {
+  endLoading (state) {
     state.loading = false
   }
 }
