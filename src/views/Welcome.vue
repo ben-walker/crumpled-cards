@@ -6,7 +6,7 @@
           h1.title.is-1 {{ siteTitle }}
           h2.subtitle.is-4.
             online poker, made with ❤️
-          router-link.button.is-white.is-outlined(to="/signup") Let's Go
+          router-link.button.is-white.is-outlined(to="/login") Let's Go
 </template>
 
 <script>
