@@ -23,7 +23,7 @@
           div
             a.is-size-7 Forgot your password?
 
-      b-loading(:is-full-page="false" :active.sync="loading")
+      b-loading(:is-full-page="true" :active.sync="loading")
 </template>
 
 <script>

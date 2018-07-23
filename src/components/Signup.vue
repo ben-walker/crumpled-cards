@@ -27,7 +27,7 @@
         .has-text-right
           button.button.is-primary.is-outlined(type="submit") Sign Up
 
-      b-loading(:is-full-page="false" :active.sync="loading")
+      b-loading(:is-full-page="true" :active.sync="loading")
 </template>
 
 <script>
