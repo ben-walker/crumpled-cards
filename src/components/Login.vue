@@ -66,7 +66,7 @@ export default {
         password: this.password
       }
       this.$store.dispatch('user/login', payload)
-        .catch(this.danger('Credentials not recognized.'))
+        .catch(() => this.danger('Credentials not recognized.'))
     },
     danger (message) {
       this.$toast.open({
