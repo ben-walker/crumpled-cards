@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     loading () {
-      return this.$store.state.user.authPending
+      return this.$store.state.user.loading
     }
   },
   validators: {
