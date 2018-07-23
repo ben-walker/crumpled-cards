@@ -37,9 +37,11 @@ const actions = {
   logout ({ commit }) {
     return new Promise((resolve, reject) => {
       http.post('logout')
-        .then(res => resolve(res))
+        .then(res => {
+          commit('revokeAuth')
+          resolve(res)
+        })
         .catch(err => reject(err))
-        .finally(() => commit('revokeAuth'))
     })
   },
 
