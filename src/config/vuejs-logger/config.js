@@ -6,6 +6,6 @@ export default {
   stringifyArguments: false,
   showLogLevel: true,
   showMethodName: true,
-  separator: '//',
+  separator: '||',
   showConsoleColors: true
 }
