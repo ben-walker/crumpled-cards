@@ -14,7 +14,7 @@ export default {
     Welcome
   },
   created () {
-    this.$store.dispatch('user/verifyAuth').catch(err => this.$log.error(err))
+    this.$store.dispatch('user/updateAuthStatus')
   }
 }
 </script>
