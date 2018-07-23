@@ -5,7 +5,7 @@ import SimpleVueValidation from 'simple-vue-validator'
 import router from '@/config/vue-router'
 import store from '@/config/vuex'
 import http from '@/config/axios'
-import logger from '@/config/vuejs-logger'
+import '@/config/vuejs-logger'
 import promiseFinally from 'promise.prototype.finally'
 
 import 'buefy/lib/buefy.min.css'
@@ -20,6 +20,5 @@ promiseFinally.shim()
 new Vue({
   router,
   store,
-  logger,
   render: h => h(App)
 }).$mount('#app')
