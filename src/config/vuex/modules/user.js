@@ -45,18 +45,10 @@ const actions = {
     })
   },
 
-  verifyAuth ({ commit }) {
-    return new Promise((resolve, reject) => {
-      http.get('me')
-        .then((res) => {
-          commit('authenticate')
-          resolve(res)
-        })
-        .catch((err) => {
-          commit('revokeAuth')
-          reject(err)
-        })
-    })
+  updateAuthStatus ({ commit }) {
+    http.get('me')
+      .then(() => commit('authenticate'))
+      .catch(() => commit('revokeAuth'))
   }
 }
 
