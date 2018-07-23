@@ -5,13 +5,13 @@
       form(@submit.prevent="submit" novalidate)
 
         b-field(label="Username or Email"
-        :type="fieldType('identifier')"
-        :message="validation.firstError('identifier')")
+          :type="fieldType('identifier')"
+          :message="validation.firstError('identifier')")
           b-input.is-danger(v-model.trim="identifier" type="text" rounded ref="identifier")
 
         b-field(label="Password"
-        :type="fieldType('password')"
-        :message="validation.firstError('password')")
+          :type="fieldType('password')"
+          :message="validation.firstError('password')")
           b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal ref="password")
 
         .field

@@ -20,8 +20,8 @@
           b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal ref="password")
 
         b-field(label="Confirm Password"
-        :type="fieldType('confirmPassword')"
-        :message="validation.firstError('confirmPassword')")
+          :type="fieldType('confirmPassword')"
+          :message="validation.firstError('confirmPassword')")
           b-input(v-model="confirmPassword" type="password" placeholder="••••••••" rounded password-reveal ref="confirmPassword")
 
         .has-text-right
