@@ -2,7 +2,7 @@ import http from '@/config/axios'
 
 const state = {
   authenticated: false,
-  authPending: false
+  loading: false
 }
 
 const getters = {}
@@ -54,11 +54,11 @@ const mutations = {
   },
 
   authenticating (state) {
-    state.authPending = true
+    state.loading = true
   },
 
   authComplete (state) {
-    state.authPending = false
+    state.loading = false
   }
 }
 
