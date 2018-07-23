@@ -91,7 +91,7 @@ export default {
   methods: {
     submit () {
       this.$validate()
-        .then((success) => {
+        .then(success => {
           if (success) this.signup()
         })
     },
