@@ -6,11 +6,18 @@
           h1.title.is-1 {{ $appName }}
           h2.subtitle.is-4.
             online poker, made with ❤️
-          .field.is-grouped.is-grouped-centered
-            .control
-              router-link.button.is-white.is-outlined(to="/login") Log In
-            .control
-              router-link.button.is-white.is-outlined(to="/signup") Sign Up
+          nav.breadcrumb.has-bullet-separator.is-centered
+            ul
+              li
+                router-link(to="/login")
+                  span.icon.has-text-white
+                    i.fas.fa-unlock
+                  span.has-text-white Log In
+              li
+                router-link(to="/signup")
+                  span.icon.has-text-white
+                    i.fas.fa-clone
+                  span.has-text-white Sign Up
 </template>
 
 <script>
