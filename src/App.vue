@@ -1,18 +1,12 @@
 <template lang="pug">
   #app
-    Auth
+    transition(name="fade" mode="out-in")
+      router-view
 </template>
 
 <script>
-import Auth from '@/views/Auth.vue'
-import Welcome from '@/views/Welcome.vue'
-
 export default {
   name: 'app',
-  components: {
-    Auth,
-    Welcome
-  },
   created () {
     this.$store.dispatch('user/updateAuthStatus')
   }
