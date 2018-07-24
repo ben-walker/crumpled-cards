@@ -9,7 +9,7 @@
           .column.is-one-third
             .box
               h2.subtitle.is-4.has-text-grey Create Your Account
-              SignupForm
+              SignupForm(@signup="requestSignup")
             nav.breadcrumb.has-bullet-separator.is-centered
               ul
                 li
