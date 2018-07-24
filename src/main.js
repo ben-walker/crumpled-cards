@@ -14,8 +14,10 @@ import '@fortawesome/fontawesome-free/css/all.css'
 Vue.config.productionTip = false
 Vue.use(Buefy, { defaultIconPack: 'fas' })
 Vue.use(SimpleVueValidation)
-Vue.prototype.$http = http
 promiseFinally.shim()
+
+Vue.prototype.$http = http
+Vue.prototype.$appName = 'Poker Nook'
 
 new Vue({
   router,
