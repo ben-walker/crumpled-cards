@@ -2,12 +2,13 @@ import express from 'express'
 import * as authController from '../controllers/auth'
 import * as queryController from '../controllers/query'
 import * as meController from '../controllers/me'
+import { authLimiter } from '../config/rate-limit'
 
 router = express.Router()
 
-router.post('/register', authController.register)
+router.post('/register', authLimiter, authController.register)
 
-router.post('/login', authController.login)
+router.post('/login', authLimiter, authController.login)
 
 router.post('/logout', authController.logout)
 
