@@ -13,15 +13,10 @@ import dotenv from 'dotenv'
 import passport from 'passport'
 import passportConfig from './config/passport'
 import winston from './config/winston'
-import rateLimit from 'express-rate-limit'
 
 dotenv.config()
 
 app = express()
-
-limiter = new rateLimit
-  windowMs: 5 * 60 * 1000 # 5 minutes
-app.use(limiter)
 
 mongoStore = connectMongo(session)
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
