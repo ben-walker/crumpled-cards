@@ -4,13 +4,21 @@ import bcrypt from 'bcryptjs'
 Schema = mongoose.Schema
 SALT_WORK = 12
 
-userSchema = new Schema({
-  username: { type: String, required: true, unique: true, index: true },
-  email: { type: String, required: true, unique: true, index: true },
-  password: { type: String, required: true }
-}, {
-  timestamps: true
-})
+userSchema = new Schema
+  username:
+    type: String
+    required: true
+    unique: true
+    index: true
+  email:
+    type: String
+    required: true
+    unique: true
+    index: true
+  password:
+    type: String
+    required: true
+, timestamps: true
 
 # coffeelint: disable=missing_fat_arrows
 userSchema.methods.comparePassword = (candidate, cb) ->
