@@ -1,4 +1,10 @@
 import axios from 'axios'
 import config from './config'
+import errorHandler from './error-handler'
 
-export default axios.create(config)
+const http = axios.create(config)
+
+export {
+  http as default,
+  errorHandler
+}
