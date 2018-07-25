@@ -42,7 +42,7 @@ export default {
   methods: {
     requestLogin (payload) {
       this.$store.dispatch('user/login', payload)
-        .catch(() => this.warnToast('Credentials not recognized.'))
+        .catch((err) => this.warnToast(err))
     }
   }
 }
