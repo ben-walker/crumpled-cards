@@ -4,7 +4,7 @@
     section.hero.is-fullheight.is-primary.is-bold
       .hero-head
         section.section.has-text-centered
-          h1.title.is-1 {{ $appName }}
+          TitleHead
         .columns.is-centered
           .column.is-one-third
             .box
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import TitleHead from '@/components/TitleHead.vue'
 import LoginForm from '@/components/LoginForm.vue'
 import SignupRouterLink from '@/components/SignupRouterLink.vue'
 import Toast from '@/mixins/Toast'
@@ -28,6 +29,7 @@ import Toast from '@/mixins/Toast'
 export default {
   name: 'login',
   components: {
+    TitleHead,
     LoginForm,
     SignupRouterLink
   },
