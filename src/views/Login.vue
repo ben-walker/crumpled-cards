@@ -12,11 +12,7 @@
               LoginForm(@login="requestLogin")
             nav.breadcrumb.has-bullet-separator.is-centered
               ul
-                li
-                  router-link.has-text-white(to="/signup")
-                    span.icon
-                      i.fas.fa-clone
-                    span Sign Up
+                li #[SignupRouterLink]
                 li
                   a.has-text-white
                     span.icon
@@ -26,12 +22,14 @@
 
 <script>
 import LoginForm from '@/components/LoginForm.vue'
+import SignupRouterLink from '@/components/SignupRouterLink.vue'
 import Toast from '@/mixins/Toast'
 
 export default {
   name: 'login',
   components: {
-    LoginForm
+    LoginForm,
+    SignupRouterLink
   },
   mixins: [
     Toast
