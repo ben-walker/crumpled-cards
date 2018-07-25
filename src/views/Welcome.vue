@@ -8,20 +8,19 @@
             online poker, made with ❤️
           nav.breadcrumb.has-bullet-separator.is-centered
             ul
-              li
-                router-link(to="/login")
-                  span.icon.has-text-white
-                    i.fas.fa-unlock
-                  span.has-text-white Log In
-              li
-                router-link(to="/signup")
-                  span.icon.has-text-white
-                    i.fas.fa-clone
-                  span.has-text-white Sign Up
+              li #[LoginRouterLink]
+              li #[SignupRouterLink]
 </template>
 
 <script>
+import SignupRouterLink from '@/components/SignupRouterLink.vue'
+import LoginRouterLink from '@/components/LoginRouterLink.vue'
+
 export default {
-  name: 'welcome'
+  name: 'welcome',
+  components: {
+    SignupRouterLink,
+    LoginRouterLink
+  }
 }
 </script>
