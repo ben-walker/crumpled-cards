@@ -26,12 +26,16 @@
 
 <script>
 import LoginForm from '@/components/LoginForm.vue'
+import Toast from '@/mixins/Toast'
 
 export default {
   name: 'login',
   components: {
     LoginForm
   },
+  mixins: [
+    Toast
+  ],
   computed: {
     loading () {
       return this.$store.state.user.loading
@@ -40,15 +44,7 @@ export default {
   methods: {
     requestLogin (payload) {
       this.$store.dispatch('user/login', payload)
-        .catch(() => this.danger('Credentials not recognized.'))
-    },
-    danger (message) {
-      this.$toast.open({
-        message: message,
-        position: 'is-bottom',
-        type: 'is-warning',
-        queue: false
-      })
+        .catch(() => this.warnToast('Credentials not recognized.'))
     }
   }
 }
