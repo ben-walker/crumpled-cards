@@ -1,4 +1,4 @@
-import http from '@/config/axios'
+import http, { errorHandler } from '@/config/axios'
 
 const state = {
   authenticated: false,
@@ -16,7 +16,7 @@ const actions = {
           commit('authenticate')
           resolve(res)
         })
-        .catch(err => reject(err))
+        .catch(err => errorHandler(reject, err))
         .finally(() => commit('endLoading'))
     })
   },
@@ -29,7 +29,7 @@ const actions = {
           commit('authenticate')
           resolve(res)
         })
-        .catch(err => reject(err))
+        .catch(err => errorHandler(reject, err))
         .finally(() => commit('endLoading'))
     })
   },
@@ -41,7 +41,7 @@ const actions = {
           commit('revokeAuth')
           resolve(res)
         })
-        .catch(err => reject(err))
+        .catch(err => errorHandler(reject, err))
     })
   },
 
