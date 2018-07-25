@@ -26,6 +26,7 @@
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.0.1",
+    "vue-lodash": "^2.0.0",
     "vue-template-compiler": "^2.5.16",
     "vuejs-logger": "^1.4.0"
   },
