@@ -21,12 +21,16 @@
 
 <script>
 import SignupForm from '@/components/SignupForm.vue'
+import Toast from '@/mixins/Toast'
 
 export default {
   name: 'signup',
   components: {
     SignupForm
   },
+  mixins: [
+    Toast
+  ],
   computed: {
     loading () {
       return this.$store.state.user.loading
@@ -35,15 +39,7 @@ export default {
   methods: {
     requestSignup (payload) {
       this.$store.dispatch('user/signup', payload)
-        .catch(() => this.danger('Signup failed, please try again later.'))
-    },
-    danger (message) {
-      this.$toast.open({
-        message: message,
-        position: 'is-bottom',
-        type: 'is-warning',
-        queue: false
-      })
+        .catch(() => this.warnToast('Signup failed, please try again later.'))
     }
   }
 }
