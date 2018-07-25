@@ -37,7 +37,7 @@ export default {
   methods: {
     requestSignup (payload) {
       this.$store.dispatch('user/signup', payload)
-        .catch(() => this.warnToast('Signup failed, please try again later.'))
+        .catch((err) => this.warnToast(err))
     }
   }
 }
