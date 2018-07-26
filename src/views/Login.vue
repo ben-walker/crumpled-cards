@@ -13,17 +13,14 @@
             nav.breadcrumb.has-bullet-separator.is-centered
               ul
                 li #[SignupRouterLink]
-                li
-                  a.has-text-white
-                    span.icon
-                      i.fas.fa-undo
-                    span Reset Password
+                li #[ResetRouterLink]
 </template>
 
 <script>
 import TitleHead from '@/components/TitleHead.vue'
 import LoginForm from '@/components/LoginForm.vue'
 import SignupRouterLink from '@/components/SignupRouterLink.vue'
+import ResetRouterLink from '@/components/ResetRouterLink.vue'
 import Toast from '@/mixins/Toast'
 
 export default {
@@ -31,7 +28,8 @@ export default {
   components: {
     TitleHead,
     LoginForm,
-    SignupRouterLink
+    SignupRouterLink,
+    ResetRouterLink
   },
   mixins: [
     Toast
