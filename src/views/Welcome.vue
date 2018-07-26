@@ -4,7 +4,7 @@
       .hero-body
         .container.has-text-centered
           TitleHead
-          h2.subtitle.is-4 online poker, made with ❤️
+          h2.subtitle.is-4.has-text-white online poker, made with ❤️
           nav.breadcrumb.has-bullet-separator.is-centered
             ul
               li #[LoginRouterLink]
