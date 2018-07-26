@@ -12,3 +12,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "./scss/custom";
+</style>
