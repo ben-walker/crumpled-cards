@@ -1,6 +1,6 @@
 <template lang="pug">
   #loginForm
-    form(@submit.prevent novalidate)
+    form(@submit.prevent="submit" novalidate)
 
       b-field(label="Username or Email"
       :type="fieldType('identifier')"
@@ -16,7 +16,7 @@
         b-checkbox(v-model="rememberMe") Remember me
 
       .has-text-right
-        a(@click="submit") Log In
+        button.button.is-light(type="submit") Log In
 </template>
 
 <script>
