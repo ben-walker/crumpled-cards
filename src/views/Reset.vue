@@ -15,6 +15,11 @@ import TitleHead from '@/components/TitleHead.vue'
 
 export default {
   name: 'reset',
+  data () {
+    return {
+      emailSent: false
+    }
+  },
   components: {
     TitleHead
   }
