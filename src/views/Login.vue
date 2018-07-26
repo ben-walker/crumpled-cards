@@ -12,24 +12,30 @@
               LoginForm(@login="requestLogin")
             nav.breadcrumb.has-bullet-separator.is-centered
               ul
-                li #[SignupRouterLink]
-                li #[ResetRouterLink]
+                li(v-for="link in links" :key="link.id")
+                  InternalLink(:link="link")
 </template>
 
 <script>
 import TitleHead from '@/components/TitleHead.vue'
 import LoginForm from '@/components/LoginForm.vue'
-import SignupRouterLink from '@/components/SignupRouterLink.vue'
-import ResetRouterLink from '@/components/ResetRouterLink.vue'
+import InternalLink from '@/components/InternalLink.vue'
 import Toast from '@/mixins/Toast'
 
 export default {
   name: 'login',
+  data () {
+    return {
+      links: [
+        { id: 1, route: '/signup', color: 'white', icon: 'clone', text: 'Sign Up' },
+        { id: 2, route: '/reset', color: 'white', icon: 'undo', text: 'Reset Password' }
+      ]
+    }
+  },
   components: {
     TitleHead,
     LoginForm,
-    SignupRouterLink,
-    ResetRouterLink
+    InternalLink
   },
   mixins: [
     Toast
