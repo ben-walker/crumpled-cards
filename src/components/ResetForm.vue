@@ -31,7 +31,7 @@ export default {
   methods: {
     submit () {
       this.$validate().then(success => {
-        if (success) this.$emit('sendResetLink', this.email)
+        if (success) this.$emit('reset', this.email)
       })
     },
     fieldType (field) {
