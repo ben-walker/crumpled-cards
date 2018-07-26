@@ -1,6 +1,6 @@
 <template lang="pug">
   #welcome
-    section.hero.is-fullheight.is-primary.is-bold
+    section.hero.is-fullheight
       .hero-body
         .container.has-text-centered
           TitleHead
