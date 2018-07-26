@@ -1,7 +1,7 @@
 <template lang="pug">
   #login
     b-loading(:is-full-page="true" :active.sync="loading")
-    section.hero.is-fullheight.is-primary.is-bold
+    section.hero.is-fullheight
       .hero-head
         section.section.has-text-centered
           TitleHead
