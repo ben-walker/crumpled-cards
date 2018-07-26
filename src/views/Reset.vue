@@ -15,7 +15,7 @@
                   div
                     LoginRouterLink(textColor="has-text-primary")
               div(v-else)
-                ResetForm
+                ResetForm(@reset="sendLink")
 </template>
 
 <script>
@@ -34,6 +34,11 @@ export default {
     TitleHead,
     LoginRouterLink,
     ResetForm
+  },
+  methods: {
+    sendLink (email) {
+      this.emailSent = true
+    }
   }
 }
 </script>
