@@ -11,7 +11,7 @@
               div(v-if="emailSent")
                 .has-text-centered
                   div
-                    p Password reset link sent, check your inbox!
+                    p.is-size-5.has-text-primary Password reset link sent.
                   div
                     InternalLink(:link="loginLink")
               div(v-else)
