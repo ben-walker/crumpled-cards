@@ -15,11 +15,13 @@
                   div
                     LoginRouterLink(textColor="has-text-primary")
               div(v-else)
+                ResetForm
 </template>
 
 <script>
 import TitleHead from '@/components/TitleHead.vue'
 import LoginRouterLink from '@/components/LoginRouterLink.vue'
+import ResetForm from '@/components/ResetForm.vue'
 
 export default {
   name: 'reset',
@@ -30,7 +32,8 @@ export default {
   },
   components: {
     TitleHead,
-    LoginRouterLink
+    LoginRouterLink,
+    ResetForm
   }
 }
 </script>
