@@ -13,27 +13,28 @@
                   div
                     p Password reset link sent, check your inbox!
                   div
-                    LoginRouterLink(textColor="has-text-primary")
+                    InternalLink(:link="loginLink")
               div(v-else)
                 ResetForm(@reset="sendLink")
 </template>
 
 <script>
 import TitleHead from '@/components/TitleHead.vue'
-import LoginRouterLink from '@/components/LoginRouterLink.vue'
 import ResetForm from '@/components/ResetForm.vue'
+import InternalLink from '@/components/InternalLink.vue'
 
 export default {
   name: 'reset',
   data () {
     return {
-      emailSent: false
+      emailSent: false,
+      loginLink: { route: '/login', color: 'dark', icon: 'unlock', text: 'Log In' }
     }
   },
   components: {
     TitleHead,
-    LoginRouterLink,
-    ResetForm
+    ResetForm,
+    InternalLink
   },
   methods: {
     sendLink (email) {
