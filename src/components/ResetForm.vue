@@ -30,7 +30,9 @@ export default {
   },
   methods: {
     submit () {
-      this.$validate()
+      this.$validate().then(success => {
+        if (success) this.$emit('sendResetLink', this.email)
+      })
     },
     fieldType (field) {
       return this.validation.hasError(field) ? 'is-danger' : ''
