@@ -2,7 +2,7 @@
   #loginForm
     form(@submit.prevent="submit" novalidate)
 
-      b-field(label="Username or Email"
+      b-field(label="Username or Email Address"
       :type="fieldType('identifier')"
       :message="validation.firstError('identifier')")
         b-input(v-model.trim="identifier" type="text" rounded ref="identifier")

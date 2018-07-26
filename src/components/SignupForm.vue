@@ -7,7 +7,7 @@
       :message="validation.firstError('username')")
         b-input(v-model.trim="username" type="text" rounded ref="username")
 
-      b-field(label="Email"
+      b-field(label="Email Address"
       :type="fieldType('email')"
       :message="validation.firstError('email')")
         b-input(v-model.trim="email" type="text" rounded)
