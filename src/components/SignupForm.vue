@@ -1,6 +1,6 @@
 <template lang="pug">
   #signupForm
-    form(@submit.prevent="submit" novalidate)
+    form(@submit.prevent novalidate)
 
       b-field(label="Username"
       :type="fieldType('username')"
@@ -23,7 +23,7 @@
         b-input(v-model="confirmPassword" type="password" placeholder="••••••••" rounded password-reveal)
 
       .has-text-right
-        button.button.is-primary.is-outlined(type="submit") Sign Up
+        a(@click="submit") Sign Up
 </template>
 
 <script>
