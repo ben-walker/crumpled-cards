@@ -1,10 +1,16 @@
-const state = {}
+const state = {
+  connected: false
+}
 
 const getters = {}
 
 const actions = {}
 
-const mutations = {}
+const mutations = {
+  SOCKET_CONNECT: (state) => {
+    state.connected = true
+  }
+}
 
 export default {
   namespaced: true,
