@@ -1,5 +1,5 @@
-export default (reject, error) => {
-  if (error.response) reject(error.response.statusText)
-  else if (error.request) reject('Server Connection Failed.')
-  else reject(error.message)
+export default (error) => {
+  if (error.response) return error.response.statusText
+  else if (error.request) return 'Server Connection Failed.'
+  else return error.message
 }
