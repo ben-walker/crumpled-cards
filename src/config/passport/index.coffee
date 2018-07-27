@@ -1,7 +1,4 @@
-import local from 'passport-local'
-import User from '../models/User'
-
-localStrategy = local.Strategy
+import localStrategy from './strategies/local'
 
 export default (passport) ->
 
@@ -12,12 +9,4 @@ export default (passport) ->
     User.findById id, '-password', (err, user) ->
       done(err, user)
 
-  passport.use new localStrategy({ usernameField: 'identifier' },
-    (identifier, password, done) ->
-      User.findOne { $or: [{ username: identifier }, { email: identifier }] },
-        (err, user) ->
-          return done(err) if err
-          return done(null, false) if !user
-          return done(null, false) if !user.comparePassword(password)
-          return done(null, user)
-  )
+  passport.use localStrategy
