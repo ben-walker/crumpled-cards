@@ -12,9 +12,6 @@
       :message="validation.firstError('password')")
         b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal)
 
-      .field
-        b-checkbox(v-model="rememberMe") Remember me
-
       .has-text-right
         button.button.is-light(type="submit") Log In
 </template>
@@ -29,8 +26,7 @@ export default {
   data () {
     return {
       identifier: '',
-      password: '',
-      rememberMe: false
+      password: ''
     }
   },
   computed: {
