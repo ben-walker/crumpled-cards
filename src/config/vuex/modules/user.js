@@ -16,7 +16,7 @@ const actions = {
           commit('authenticate')
           resolve(res)
         })
-        .catch(err => errorHandler(reject, err))
+        .catch(err => reject(errorHandler(err)))
         .finally(() => commit('endLoading'))
     })
   },
@@ -29,7 +29,7 @@ const actions = {
           commit('authenticate')
           resolve(res)
         })
-        .catch(err => errorHandler(reject, err))
+        .catch(err => reject(errorHandler(err)))
         .finally(() => commit('endLoading'))
     })
   },
@@ -41,7 +41,7 @@ const actions = {
           commit('revokeAuth')
           resolve(res)
         })
-        .catch(err => errorHandler(reject, err))
+        .catch(err => reject(errorHandler(err)))
     })
   },
 
