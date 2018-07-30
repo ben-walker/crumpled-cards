@@ -13,6 +13,7 @@ import dotenv from 'dotenv'
 import passport from 'passport'
 import passportConfig from './config/passport'
 import winston from './config/winston'
+import io from './config/socket.io'
 
 dotenv.config()
 
