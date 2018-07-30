@@ -47,24 +47,28 @@ export default {
     }
   },
   validators: {
-    identifier: function (value) {
-      let validator = Validator.value(value).required()
-      if (!validator.hasImmediateError()) {
-        validator.custom(() => {
-          return new Promise((resolve, reject) => {
-            this.$http.get('identifierExists', {
-              params: { identifier: this.identifier }
-            })
-              .then(res => {
-                res.data.userFound
-                  ? resolve()
-                  : resolve('Identifier does not exist.')
+    identifier: {
+      cache: true,
+      debounce: 200,
+      validator: function (value) {
+        let test = Validator.value(value).required()
+        if (!test.hasImmediateError()) {
+          test.custom(() => {
+            return new Promise((resolve, reject) => {
+              this.$http.get('identifierExists', {
+                params: { identifier: this.identifier }
               })
-              .catch(err => reject(err))
+                .then(res => {
+                  res.data.userFound
+                    ? resolve()
+                    : resolve('User not found.')
+                })
+                .catch(err => reject(err))
+            })
           })
-        })
+        }
+        return test
       }
-      return validator
     },
     password: (value) => {
       return Validator.value(value).required()
