@@ -17,11 +17,6 @@
       :message="validation.firstError('password')")
         b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal)
 
-      b-field(label="Confirm Password"
-      :type="fieldType('confirmPassword')"
-      :message="validation.firstError('confirmPassword')")
-        b-input(v-model="confirmPassword" type="password" placeholder="••••••••" rounded password-reveal)
-
       .has-text-right
         button.button.is-light(type="submit") Sign Up
 </template>
@@ -38,8 +33,7 @@ export default {
     return {
       username: '',
       email: '',
-      password: '',
-      confirmPassword: ''
+      password: ''
     }
   },
   mixins: [
@@ -95,9 +89,6 @@ export default {
     },
     password: (value) => {
       return Validator.value(value).required().minLength(8)
-    },
-    'confirmPassword, password': (value, password) => {
-      return Validator.value(value).required().match(password)
     }
   },
   methods: {
