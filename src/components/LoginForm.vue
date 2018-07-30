@@ -57,7 +57,9 @@ export default {
       })
     },
     forgotPassword () {
-
+      this.$validate('identifier').then(success => {
+        if (success) this.$emit('forgotPassword', this.identifier)
+      })
     },
     fieldType (field) {
       return this.validation.hasError(field) ? 'is-danger' : ''
