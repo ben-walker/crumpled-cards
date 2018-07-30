@@ -47,8 +47,24 @@ export default {
     }
   },
   validators: {
-    identifier: (value) => {
-      return Validator.value(value).required()
+    identifier: function (value) {
+      let validator = Validator.value(value).required()
+      if (!validator.hasImmediateError()) {
+        validator.custom(() => {
+          return new Promise((resolve, reject) => {
+            this.$http.get('identifierExists', {
+              params: { identifier: this.identifier }
+            })
+              .then(res => {
+                res.data.userFound
+                  ? resolve()
+                  : resolve('Identifier does not exist.')
+              })
+              .catch(err => reject(err))
+          })
+        })
+      }
+      return validator
     },
     password: (value) => {
       return Validator.value(value).required()
