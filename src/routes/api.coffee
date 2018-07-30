@@ -18,4 +18,6 @@ router.get('/usernameRegistered', queryController.usernameRegistered)
 
 router.get('/emailRegistered', queryController.emailRegistered)
 
+router.get('/identifierExists', queryController.identifierExists)
+
 export default router
