@@ -23,6 +23,7 @@
 
 <script>
 import SimpleVueValidator from 'simple-vue-validator'
+import FieldType from '@/mixins/FieldType'
 
 const Validator = SimpleVueValidator.Validator
 
@@ -34,6 +35,9 @@ export default {
       password: ''
     }
   },
+  mixins: [
+    FieldType
+  ],
   computed: {
     authPayload () {
       return {
@@ -60,9 +64,6 @@ export default {
       this.$validate('identifier').then(success => {
         if (success) this.$emit('forgotPassword', this.identifier)
       })
-    },
-    fieldType (field) {
-      return this.validation.hasError(field) ? 'is-danger' : ''
     }
   },
   mounted () {
