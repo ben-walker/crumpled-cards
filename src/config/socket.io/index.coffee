@@ -1,7 +1,6 @@
 import socketIO from 'socket.io'
-import server from '../../server'
 
-io = new socketIO server,
+io = new socketIO 3030,
   serveClient: false
 
 export default io
