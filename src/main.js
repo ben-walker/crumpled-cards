@@ -11,7 +11,7 @@ import '@/config/vue-lodash'
 import '@/config/vue-socket.io'
 
 Vue.config.productionTip = false
-Vue.use(SimpleVueValidation)
+Vue.use(SimpleVueValidation, { mode: 'manual' })
 promiseFinally.shim()
 
 Vue.prototype.$http = http
