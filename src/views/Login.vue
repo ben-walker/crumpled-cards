@@ -27,8 +27,7 @@ export default {
   data () {
     return {
       links: [
-        { id: 1, route: '/signup', color: 'white', icon: 'clone', text: 'Sign Up' },
-        { id: 2, route: '/reset', color: 'white', icon: 'undo', text: 'Reset Password' }
+        { id: 1, route: '/signup', color: 'white', icon: 'clone', text: 'Sign Up' }
       ]
     }
   },
