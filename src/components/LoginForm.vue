@@ -15,7 +15,7 @@
       nav.level
         .level-left
           .level-item
-            a Forgot Password?
+            a(@click="forgotPassword") Forgot Password?
         .level-right
           .level-item
             button.button.is-light(type="submit") Log In
@@ -55,6 +55,9 @@ export default {
       this.$validate().then(success => {
         if (success) this.$emit('login', this.authPayload)
       })
+    },
+    forgotPassword () {
+
     },
     fieldType (field) {
       return this.validation.hasError(field) ? 'is-danger' : ''
