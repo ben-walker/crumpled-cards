@@ -49,43 +49,51 @@ export default {
     }
   },
   validators: {
-    username: function (value) {
-      let validator = Validator.value(value).required().minLength(4).maxLength(20)
-      if (!validator.hasImmediateError()) {
-        validator.custom(() => {
-          return new Promise((resolve, reject) => {
-            this.$http.get('usernameRegistered', {
-              params: { username: this.username }
-            })
-              .then(res => {
-                res.data.userFound
-                  ? resolve('Username taken.')
-                  : resolve()
+    username: {
+      cache: true,
+      debounce: 200,
+      validator: function (value) {
+        let test = Validator.value(value).required().minLength(4).maxLength(20)
+        if (!test.hasImmediateError()) {
+          test.custom(() => {
+            return new Promise((resolve, reject) => {
+              this.$http.get('usernameRegistered', {
+                params: { username: this.username }
               })
-              .catch(err => reject(err))
+                .then(res => {
+                  res.data.userFound
+                    ? resolve('Username taken.')
+                    : resolve()
+                })
+                .catch(err => reject(err))
+            })
           })
-        })
+        }
+        return test
       }
-      return validator
     },
-    email: function (value) {
-      let validator = Validator.value(value).required().email()
-      if (!validator.hasImmediateError()) {
-        validator.custom(() => {
-          return new Promise((resolve, reject) => {
-            this.$http.get('emailRegistered', {
-              params: { email: this.email }
-            })
-              .then(res => {
-                res.data.userFound
-                  ? resolve('Email taken.')
-                  : resolve()
+    email: {
+      cache: true,
+      debounce: 200,
+      validator: function (value) {
+        let test = Validator.value(value).required().email()
+        if (!test.hasImmediateError()) {
+          test.custom(() => {
+            return new Promise((resolve, reject) => {
+              this.$http.get('emailRegistered', {
+                params: { email: this.email }
               })
-              .catch(err => reject(err))
+                .then(res => {
+                  res.data.userFound
+                    ? resolve('Email taken.')
+                    : resolve()
+                })
+                .catch(err => reject(err))
+            })
           })
-        })
+        }
+        return test
       }
-      return validator
     },
     password: (value) => {
       return Validator.value(value).required().minLength(8)
