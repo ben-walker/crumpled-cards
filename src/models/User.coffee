@@ -28,11 +28,6 @@ userSchema.pre 'save', (next) ->
   return next() if !this.isModified('password')
   this.password = bcrypt.hashSync(this.password, SALT_WORK)
   next()
-
-userSchema.statics.findByKeyValue = (k, v, cb) ->
-  query = {}
-  query[k] = v
-  return this.findOne(query, cb)
 # coffeelint: enable
 
 export default mongoose.model('User', userSchema)
