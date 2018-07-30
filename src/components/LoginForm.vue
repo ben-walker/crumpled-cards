@@ -12,8 +12,13 @@
       :message="validation.firstError('password')")
         b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal)
 
-      .has-text-right
-        button.button.is-light(type="submit") Log In
+      nav.level
+        .level-left
+          .level-item
+            a Forgot Password?
+        .level-right
+          .level-item
+            button.button.is-light(type="submit") Log In
 </template>
 
 <script>
