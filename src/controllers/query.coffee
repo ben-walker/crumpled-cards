@@ -1,16 +1,11 @@
 import User from '../models/User'
 
 export usernameRegistered = (req, res, next) ->
-  findUser 'username', req.query.username, (err, result) ->
+  User.findOne 'username': req.query.username, (err, user) ->
     if err then res.status(500).send('Request failure')
-    else res.status(200).send(result)
+    else res.status(200).send({ userFound: !!user })
 
 export emailRegistered = (req, res, next) ->
-  findUser 'email', req.query.email, (err, result) ->
+  User.findOne 'email': req.query.email, (err, user) ->
     if err then res.status(500).send('Request failure')
-    else res.status(200).send(result)
-
-findUser = (property, searchValue, cb) ->
-  User.findByKeyValue property, searchValue, (err, user) ->
-    return cb(err) if err
-    return cb(null, { userFound: !!user })
+    else res.status(200).send({ userFound: !!user })
