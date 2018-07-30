@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import createError from 'http-errors'
 import express from 'express'
 import session from 'express-session'
@@ -9,13 +11,10 @@ import helmet from 'helmet'
 import mongoose from 'mongoose'
 import connectMongo from 'connect-mongo'
 import apiRouter from './routes/api'
-import dotenv from 'dotenv'
 import passport from 'passport'
 import passportConfig from './config/passport'
 import winston from './config/winston'
 import io from './config/socket.io'
-
-dotenv.config()
 
 app = express()
 
