@@ -14,7 +14,7 @@
           .level-right
             .level-item
               button.button.is-light(type="submit") Log In
-        p.is-size-7 Need an account? #[InternalLink(:link="signupLink")]
+        p.help.has-text-centered Need an account? #[InternalLink(:link="signupLink")]
 </template>
 
 <script>
