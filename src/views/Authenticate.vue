@@ -9,7 +9,10 @@
           .column.is-one-third
             transition(name="fade" mode="out-in")
               keep-alive
-                router-view(@login="requestLogin")
+                router-view(
+                  @signup="requestSignup"
+                  @login="requestLogin"
+                )
 </template>
 
 <script>
@@ -30,6 +33,10 @@ export default {
     Toast
   ],
   methods: {
+    requestSignup (payload) {
+      this.$store.dispatch('user/signup', payload)
+        .catch(err => this.dangerToast(err))
+    },
     requestLogin (payload) {
       this.$store.dispatch('user/login', payload)
         .catch(err => this.dangerToast(err))
