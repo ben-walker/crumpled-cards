@@ -6,10 +6,7 @@
 
 <script>
 export default {
-  name: 'app',
-  created () {
-    this.$store.dispatch('user/updateAuthStatus')
-  }
+  name: 'app'
 }
 </script>
 
