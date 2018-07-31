@@ -42,7 +42,7 @@ export default {
   methods: {
     requestLogin (payload) {
       this.$store.dispatch('user/login', payload)
-        .catch((err) => this.warnToast(err))
+        .catch((err) => this.dangerToast(err))
     },
     forgotPassword (identifier) {
       this.$dialog.alert({

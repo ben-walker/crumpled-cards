@@ -42,7 +42,7 @@ export default {
   methods: {
     requestSignup (payload) {
       this.$store.dispatch('user/signup', payload)
-        .catch((err) => this.warnToast(err))
+        .catch((err) => this.dangerToast(err))
     }
   }
 }
