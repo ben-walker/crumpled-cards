@@ -12,6 +12,7 @@
                 router-view(
                   @signup="requestSignup"
                   @login="requestLogin"
+                  @forgotPassword="forgotPassword"
                 )
 </template>
 
@@ -40,6 +41,15 @@ export default {
     requestLogin (payload) {
       this.$store.dispatch('user/login', payload)
         .catch(err => this.dangerToast(err))
+    },
+    forgotPassword (identifier) {
+      this.$dialog.alert({
+        title: 'Instructions Sent',
+        message: `Password reset instructions sent to <b>${identifier}</b>, check your inbox and spam folder.`,
+        hasIcon: true,
+        icon: 'envelope',
+        iconPack: 'fa'
+      })
     }
   }
 }
