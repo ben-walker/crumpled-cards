@@ -4,7 +4,7 @@
       .hero-body
         .container.has-text-centered
           TitleHead
-          h2.subtitle.is-4.has-text-white online poker, made with ❤️
+          h2.subtitle.is-4 online poker, made with ❤️
           nav.breadcrumb.has-bullet-separator.is-centered
             ul
               li(v-for="link in links" :key="link.id")
@@ -20,8 +20,8 @@ export default {
   data () {
     return {
       links: [
-        { id: 1, route: '/login', color: 'white', icon: 'unlock', text: 'Log In' },
-        { id: 2, route: '/signup', color: 'white', icon: 'clone', text: 'Sign Up' }
+        { id: 1, route: '/login', color: 'primary', icon: 'unlock', text: 'Log In' },
+        { id: 2, route: '/signup', color: 'primary', icon: 'clone', text: 'Sign Up' }
       ]
     }
   },
