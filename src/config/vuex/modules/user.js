@@ -43,12 +43,6 @@ const actions = {
         })
         .catch(err => reject(errorHandler(err)))
     })
-  },
-
-  updateAuthStatus ({ commit }) {
-    http.get('me')
-      .then(() => commit('authenticate'))
-      .catch(() => commit('revokeAuth'))
   }
 }
 
