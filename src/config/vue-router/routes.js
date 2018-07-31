@@ -10,7 +10,7 @@ export default [
     children: [
       { path: 'login', component: Login },
       { path: 'signup', component: Signup },
-      { path: '', component: Login }
+      { path: '', redirect: '/authenticate/login' }
     ]
   },
   { path: '*', redirect: '/' }
