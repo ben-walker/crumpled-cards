@@ -1,7 +1,7 @@
 import Welcome from '@/views/Welcome.vue'
 import Authenticate from '@/views/Authenticate.vue'
 import Login from '@/components/Login.vue'
-import Signup from '@/views/Signup.vue'
+import Signup from '@/components/Signup.vue'
 
 export default [
   { path: '/', component: Welcome },
