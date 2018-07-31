@@ -1,6 +1,6 @@
 import Welcome from '@/views/Welcome.vue'
 import Authenticate from '@/views/Authenticate.vue'
-import Login from '@/views/Login.vue'
+import Login from '@/components/Login.vue'
 import Signup from '@/views/Signup.vue'
 
 export default [
