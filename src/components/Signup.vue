@@ -11,7 +11,7 @@
           b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal)
         .has-text-right
           button.button.is-light(type="submit") Sign Up
-        p.help.has-text-centered Already have an account? #[InternalLink(:link="loginLink")]
+    p Already have an account? #[InternalLink(:link="loginLink")]
 </template>
 
 <script>
