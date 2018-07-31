@@ -6,6 +6,7 @@
           TitleHead
         .columns.is-centered
           .column.is-one-third
+            router-view
 </template>
 
 <script>
