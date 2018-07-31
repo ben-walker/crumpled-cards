@@ -10,7 +10,7 @@
             .box
               h2.subtitle.is-4.has-text-grey Welcome Back
               LoginForm(@login="requestLogin" @forgotPassword="forgotPassword")
-            p.has-text-white.is-size-6 Need an account? #[InternalLink(:link="link")]
+            p.is-size-6 Need an account? #[InternalLink(:link="link")]
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
   name: 'login',
   data () {
     return {
-      link: { id: 1, route: '/signup', color: 'white', icon: 'clone', text: 'Sign Up' }
+      link: { id: 1, route: '/signup', color: 'primary', icon: 'clone', text: 'Sign Up' }
     }
   },
   components: {

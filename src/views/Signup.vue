@@ -10,7 +10,7 @@
             .box
               h2.subtitle.is-4.has-text-grey Create Your Account
               SignupForm(@signup="requestSignup")
-            p.has-text-white.is-size-6 Already have an account? #[InternalLink(:link="link")]
+            p.is-size-6 Already have an account? #[InternalLink(:link="link")]
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
   name: 'signup',
   data () {
     return {
-      link: { id: 1, route: '/login', color: 'white', icon: 'unlock', text: 'Log In' }
+      link: { id: 1, route: '/login', color: 'primary', icon: 'unlock', text: 'Log In' }
     }
   },
   components: {
