@@ -20,8 +20,8 @@ export default {
   data () {
     return {
       links: [
-        { id: 1, route: '/authenticate/login', color: 'primary', icon: 'unlock', text: 'Log In' },
-        { id: 2, route: '/authenticate/signup', color: 'primary', icon: 'clone', text: 'Sign Up' }
+        { id: 1, route: '/authenticate/login', color: 'primary', text: 'Log In' },
+        { id: 2, route: '/authenticate/signup', color: 'primary', text: 'Sign Up' }
       ]
     }
   },
