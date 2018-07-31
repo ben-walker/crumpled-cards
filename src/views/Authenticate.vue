@@ -6,7 +6,8 @@
           TitleHead
         .columns.is-centered
           .column.is-one-third
-            router-view
+            transition(name="fade" mode="out-in")
+              keep-alive #[router-view]
 </template>
 
 <script>
