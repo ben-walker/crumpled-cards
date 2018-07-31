@@ -1,16 +1,10 @@
 <template lang="pug">
   #signup
     b-loading(:is-full-page="true" :active.sync="loading")
-    section.hero.is-fullheight
-      .hero-head
-        section.section.has-text-centered
-          TitleHead
-        .columns.is-centered
-          .column.is-one-third
-            .box
-              h2.subtitle.is-4.has-text-grey Create Your Account
-              SignupForm(@signup="requestSignup")
-            p.is-size-6 Already have an account? #[InternalLink(:link="link")]
+    .box
+      h2.subtitle.is-4.has-text-grey Create Your Account
+      SignupForm(@signup="requestSignup")
+    p.is-size-6 Already have an account? #[InternalLink(:link="link")]
 </template>
 
 <script>
@@ -23,7 +17,7 @@ export default {
   name: 'signup',
   data () {
     return {
-      link: { id: 1, route: '/login', color: 'primary', icon: 'unlock', text: 'Log In' }
+      link: { id: 1, route: '/authenticate/login', color: 'primary', icon: 'unlock', text: 'Log In' }
     }
   },
   components: {
