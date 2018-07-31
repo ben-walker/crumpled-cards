@@ -15,7 +15,11 @@
 </template>
 
 <script>
+import SimpleVueValidator from 'simple-vue-validator'
+import FieldType from '@/mixins/FieldType'
 import InternalLink from '@/components/InternalLink.vue'
+
+const Validator = SimpleVueValidator.Validator
 
 export default {
   name: 'signup',
