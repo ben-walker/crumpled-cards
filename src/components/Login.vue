@@ -90,9 +90,6 @@ export default {
         if (success) this.$emit('forgotPassword', this.identifier)
       })
     }
-  },
-  mounted () {
-    this.$refs.identifier.focus()
   }
 }
 </script>

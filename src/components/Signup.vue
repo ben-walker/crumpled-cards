@@ -109,9 +109,6 @@ export default {
         if (success) this.$emit('signup', this.authPayload)
       })
     }
-  },
-  mounted () {
-    this.$refs.username.focus()
   }
 }
 </script>
