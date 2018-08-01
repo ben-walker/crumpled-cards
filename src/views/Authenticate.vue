@@ -7,7 +7,7 @@
           TitleHead
         .columns.is-centered
           .column.is-one-third
-            transition(name="fade" mode="out-in")
+            transition(name="bounce" mode="out-in")
               keep-alive
                 router-view(
                   @signup="requestSignup"
