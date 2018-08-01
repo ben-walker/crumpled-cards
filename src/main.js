@@ -8,6 +8,7 @@ import '@/config/vuejs-logger'
 import '@/config/buefy'
 import '@/config/vue-lodash'
 import '@/config/vue-socket.io'
+import '@/config/css'
 import promiseFinally from 'promise.prototype.finally'
 
 Vue.config.productionTip = false
