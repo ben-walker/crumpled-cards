@@ -1,5 +1,6 @@
 Todos:
   ☐ Migrate to Vuelidate
   ☐ Autofocus on login/signup first input
-  ☐ Remove vue2-animate support/transitions
   ☐ Use animate.css for login/signup component transitions
+  Done:
+    ✔ Remove vue2-animate support/transitions @done(18-08-01 15:53)
