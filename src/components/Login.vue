@@ -3,13 +3,9 @@
     .box
       h2.subtitle.is-4.has-text-grey Welcome Back
       form(@submit.prevent="submit" novalidate)
-        b-field(label="Username or Email"
-        :type="fieldType('identifier')"
-        :message="validation.firstError('identifier')")
+        b-field(label="Username or Email")
           b-input(v-model.trim="identifier" type="text" rounded v-focus)
-        b-field(label="Password"
-        :type="fieldType('password')"
-        :message="validation.firstError('password')")
+        b-field(label="Password")
           b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal)
         nav.level
           .level-left
@@ -22,11 +18,9 @@
 </template>
 
 <script>
-import SimpleVueValidator from 'simple-vue-validator'
-import FieldType from '@/mixins/FieldType'
+import { validationMixin } from 'vuelidate'
+import { required } from 'vuelidate/lib/validators'
 import InternalLink from '@/components/InternalLink.vue'
-
-const Validator = SimpleVueValidator.Validator
 
 export default {
   name: 'login',
@@ -49,9 +43,17 @@ export default {
     InternalLink
   },
   mixins: [
-    FieldType
+    validationMixin
   ],
-  validators: {
+  validations: {
+    identifier: {
+      required
+    },
+    password: {
+      required
+    }
+  },
+  /* validators: {
     identifier: {
       cache: true,
       debounce: 200,
@@ -78,17 +80,17 @@ export default {
     password: (value) => {
       return Validator.value(value).required()
     }
-  },
+  }, */
   methods: {
     submit () {
-      this.$validate().then(success => {
+      /* this.$validate().then(success => {
         if (success) this.$emit('login', this.authPayload)
-      })
+      }) */
     },
     forgotPassword () {
-      this.$validate('identifier').then(success => {
+      /* this.$validate('identifier').then(success => {
         if (success) this.$emit('forgotPassword', this.identifier)
-      })
+      }) */
     }
   }
 }

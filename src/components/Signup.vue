@@ -3,17 +3,11 @@
     .box
       h2.subtitle.is-4.has-text-grey Create Your Account
       form(@submit.prevent="submit" novalidate)
-        b-field(label="Username"
-        :type="fieldType('username')"
-        :message="validation.firstError('username')")
+        b-field(label="Username")
           b-input(v-model.trim="username" type="text" rounded v-focus)
-        b-field(label="Email"
-        :type="fieldType('email')"
-        :message="validation.firstError('email')")
+        b-field(label="Email")
           b-input(v-model.trim="email" type="text" rounded)
-        b-field(label="Password"
-        :type="fieldType('password')"
-        :message="validation.firstError('password')")
+        b-field(label="Password")
           b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal)
         .has-text-right
           button.button.is-light(type="submit") Sign Up
@@ -21,11 +15,9 @@
 </template>
 
 <script>
-import SimpleVueValidator from 'simple-vue-validator'
-import FieldType from '@/mixins/FieldType'
+import { validationMixin } from 'vuelidate'
+import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
 import InternalLink from '@/components/InternalLink.vue'
-
-const Validator = SimpleVueValidator.Validator
 
 export default {
   name: 'signup',
@@ -50,9 +42,24 @@ export default {
     InternalLink
   },
   mixins: [
-    FieldType
+    validationMixin
   ],
-  validators: {
+  validations: {
+    username: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(20)
+    },
+    email: {
+      required,
+      email
+    },
+    password: {
+      required,
+      minLength: minLength(8)
+    }
+  },
+  /* validators: {
     username: {
       cache: true,
       debounce: 200,
@@ -102,12 +109,12 @@ export default {
     password: (value) => {
       return Validator.value(value).required().minLength(8)
     }
-  },
+  }, */
   methods: {
     submit () {
-      this.$validate().then(success => {
+      /* this.$validate().then(success => {
         if (success) this.$emit('signup', this.authPayload)
-      })
+      }) */
     }
   }
 }
