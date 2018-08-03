@@ -9,6 +9,7 @@ import '@/config/buefy'
 import '@/config/vue-lodash'
 import '@/config/vue-socket.io'
 import '@/config/css'
+import '@/directives'
 import promiseFinally from 'promise.prototype.finally'
 
 Vue.config.productionTip = false
