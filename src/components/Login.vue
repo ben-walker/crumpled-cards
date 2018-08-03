@@ -67,34 +67,6 @@ export default {
       required
     }
   },
-  /* validators: {
-    identifier: {
-      cache: true,
-      debounce: 200,
-      validator: function (value) {
-        let test = Validator.value(value).required()
-        if (!test.hasImmediateError()) {
-          test.custom(() => {
-            return new Promise((resolve, reject) => {
-              this.$http.get('identifierExists', {
-                params: { identifier: this.identifier }
-              })
-                .then(res => {
-                  res.data.userFound
-                    ? resolve()
-                    : resolve('User not found.')
-                })
-                .catch(err => reject(err))
-            })
-          })
-        }
-        return test
-      }
-    },
-    password: (value) => {
-      return Validator.value(value).required()
-    }
-  }, */
   methods: {
     submit () {
       this.$v.$touch()
