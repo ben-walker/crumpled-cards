@@ -73,9 +73,8 @@ export default {
       if (!this.$v.$invalid) this.$emit('login', this.authPayload)
     },
     forgotPassword () {
-      /* this.$validate('identifier').then(success => {
-        if (success) this.$emit('forgotPassword', this.identifier)
-      }) */
+      this.$v.identifier.$touch()
+      if (!this.$v.identifier.$invalid) this.$emit('forgotPassword', this.identifier)
     }
   }
 }
