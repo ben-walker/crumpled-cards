@@ -47,7 +47,21 @@ export default {
   ],
   validations: {
     identifier: {
-      required
+      required,
+      exists (value) {
+        if (value === '') return true
+        return new Promise((resolve, reject) => {
+          this.$http.get('identifierExists', {
+            params: { identifier: this.identifier }
+          })
+            .then(res => {
+              res.data.userFound
+                ? resolve(true)
+                : resolve(false)
+            })
+            .catch(err => reject(err))
+        })
+      }
     },
     password: {
       required
