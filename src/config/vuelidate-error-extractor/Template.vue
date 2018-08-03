@@ -17,16 +17,12 @@ export default {
     type () {
       return this.hasErrors
         ? 'is-danger'
-        : this.isValid
-          ? 'is-success'
-          : null
+        : null
     },
     customClass () {
       return this.hasErrors
         ? 'has-text-danger'
-        : this.isValid
-          ? 'has-text-success'
-          : null
+        : null
     }
   }
 }
