@@ -1,7 +1,7 @@
 Todos:
   ☐ Migrate to Vuelidate @started(18-08-03 12:26)
   ☐ Move Welcome page to /welcome route for auth purposes
-  ☐ Use vue-axios to simplify axios setup
+  ☐ Use vue-axios to simplify axios setup @started(18-08-03 16:43)
   ☐ Merge backend/frontend repos into one project
   ☐ Debounce vuelidations @started(18-08-03 16:21)
   Done:
