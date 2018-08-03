@@ -1,5 +1,4 @@
 Todos:
-  ☐ Migrate to Vuelidate @started(18-08-03 12:26)
   ☐ Move Welcome page to /welcome route for auth purposes
   ☐ Merge backend/frontend repos into one project
   ☐ Debounce vuelidations @started(18-08-03 16:21)
@@ -10,3 +9,4 @@ Todos:
     ✔ Wait for async Vuelidate validators on form submit @done(18-08-03 16:36)
     ✔ Change exists validation to `resolve(res.data.userFound)` @done(18-08-03 16:41)
     ✔ Use vue-axios to simplify axios setup @started(18-08-03 16:43) @done(18-08-03 16:50) @lasted(7m38s)
+    ✔ Migrate to Vuelidate @started(18-08-03 12:26) @done(18-08-03 17:03) @lasted(4h37m27s)
