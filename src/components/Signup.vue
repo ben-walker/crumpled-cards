@@ -112,9 +112,8 @@ export default {
   }, */
   methods: {
     submit () {
-      /* this.$validate().then(success => {
-        if (success) this.$emit('signup', this.authPayload)
-      }) */
+      this.$v.$touch()
+      if (!this.$v.$invalid) this.$emit('signup', this.authPayload)
     }
   }
 }

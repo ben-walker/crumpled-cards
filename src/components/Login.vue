@@ -97,9 +97,8 @@ export default {
   }, */
   methods: {
     submit () {
-      /* this.$validate().then(success => {
-        if (success) this.$emit('login', this.authPayload)
-      }) */
+      this.$v.$touch()
+      if (!this.$v.$invalid) this.$emit('login', this.authPayload)
     },
     forgotPassword () {
       /* this.$validate('identifier').then(success => {
