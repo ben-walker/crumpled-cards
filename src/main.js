@@ -8,6 +8,7 @@ import '@/config/buefy'
 import '@/config/vue-lodash'
 import '@/config/vue-socket.io'
 import '@/config/css'
+import '@/config/vuelidate-error-extractor'
 import '@/directives'
 import promiseFinally from 'promise.prototype.finally'
 
