@@ -6,7 +6,7 @@
         b-field(label="Username or Email"
         :type="fieldType('identifier')"
         :message="validation.firstError('identifier')")
-          b-input(v-model.trim="identifier" type="text" rounded ref="identifier")
+          b-input(v-model.trim="identifier" type="text" rounded ref="identifier" v-focus)
         b-field(label="Password"
         :type="fieldType('password')"
         :message="validation.firstError('password')")
