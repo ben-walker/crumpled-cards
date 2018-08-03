@@ -3,10 +3,10 @@
     .box
       h2.subtitle.is-4.has-text-grey Welcome Back
       form(@submit.prevent="submit" novalidate)
-        b-field(label="Username or Email")
-          b-input(v-model.trim="$v.identifier.$model" type="text" rounded v-focus)
-        b-field(label="Password")
-          b-input(v-model="$v.password.$model" type="password" placeholder="••••••••" rounded password-reveal)
+        form-group(:validator="$v.identifier" label="Username or Email" attribute="Identifier")
+          b-input(v-model.trim="identifier" @input="$v.identifier.$touch()" type="text" rounded v-focus)
+        form-group(:validator="$v.password" label="Password")
+          b-input(v-model="password" @input="$v.password.$touch()" type="password" placeholder="••••••••" rounded)
         nav.level
           .level-left
             .level-item
