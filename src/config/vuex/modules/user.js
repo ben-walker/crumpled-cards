@@ -1,4 +1,5 @@
-import http, { errorHandler } from '@/config/axios'
+import Vue from 'vue'
+import errorHandler from '@/config/axios/error-handler'
 
 const state = {
   authenticated: false,
@@ -11,7 +12,7 @@ const actions = {
   signup ({ commit }, authPayload) {
     commit('startLoading')
     return new Promise((resolve, reject) => {
-      http.post('register', authPayload)
+      Vue.axios.post('register', authPayload)
         .then(res => {
           commit('authenticate')
           resolve(res)
@@ -24,7 +25,7 @@ const actions = {
   login ({ commit }, authPayload) {
     commit('startLoading')
     return new Promise((resolve, reject) => {
-      http.post('login', authPayload)
+      Vue.axios.post('login', authPayload)
         .then(res => {
           commit('authenticate')
           resolve(res)
@@ -36,7 +37,7 @@ const actions = {
 
   logout ({ commit }) {
     return new Promise((resolve, reject) => {
-      http.post('logout')
+      Vue.axios.post('logout')
         .then(res => {
           commit('revokeAuth')
           resolve(res)
