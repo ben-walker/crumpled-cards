@@ -4,9 +4,9 @@
       h2.subtitle.is-4.has-text-grey Welcome Back
       form(@submit.prevent="submit" novalidate)
         b-field(label="Username or Email")
-          b-input(v-model.trim="identifier" type="text" rounded v-focus)
+          b-input(v-model.trim="$v.identifier.$model" type="text" rounded v-focus)
         b-field(label="Password")
-          b-input(v-model="password" type="password" placeholder="••••••••" rounded password-reveal)
+          b-input(v-model="$v.password.$model" type="password" placeholder="••••••••" rounded password-reveal)
         nav.level
           .level-left
             .level-item
