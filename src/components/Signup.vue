@@ -55,11 +55,7 @@ export default {
           this.$http.get('usernameRegistered', {
             params: { username: this.username }
           })
-            .then(res => {
-              res.data.userFound
-                ? resolve(false)
-                : resolve(true)
-            })
+            .then(res => resolve(!res.data.userFound))
             .catch(err => reject(err))
         })
       }
@@ -73,11 +69,7 @@ export default {
           this.$http.get('emailRegistered', {
             params: { email: this.email }
           })
-            .then(res => {
-              res.data.userFound
-                ? resolve(false)
-                : resolve(true)
-            })
+            .then(res => resolve(!res.data.userFound))
             .catch(err => reject(err))
         })
       }
