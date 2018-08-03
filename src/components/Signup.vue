@@ -8,7 +8,7 @@
         b-field(label="Email")
           b-input(v-model.trim="$v.email.$model" type="text" rounded)
         b-field(label="Password")
-          b-input(v-model="$v.password$.model" type="password" placeholder="••••••••" rounded password-reveal)
+          b-input(v-model="$v.password.$model" type="password" placeholder="••••••••" rounded password-reveal)
         .has-text-right
           button.button.is-light(type="submit") Sign Up
     p Already have an account? #[InternalLink(:link="loginLink")]
