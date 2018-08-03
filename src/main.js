@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from '@/config/vue-router'
 import store from '@/config/vuex'
-import http from '@/config/axios'
+import '@/config/axios'
 import '@/config/vuejs-logger'
 import '@/config/buefy'
 import '@/config/vue-lodash'
@@ -14,7 +14,6 @@ import promiseFinally from 'promise.prototype.finally'
 
 Vue.config.productionTip = false
 
-Vue.prototype.$http = http
 Vue.prototype.$appName = 'Poker Nook'
 promiseFinally.shim()
 
