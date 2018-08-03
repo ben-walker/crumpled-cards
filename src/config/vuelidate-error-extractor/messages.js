@@ -1,3 +1,4 @@
 export default {
-  required: '{attribute} is required'
+  required: '{attribute} is required',
+  exists: 'User not found'
 }
