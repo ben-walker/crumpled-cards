@@ -1,7 +1,6 @@
 Coffee Casino:
 Vue Poker:
   ☐ Move Welcome page to /welcome route for auth purposes
-  ☐ Merge backend/frontend repos into one project
   ☐ Debounce vuelidations
   ☐ Separate validations from components
   Done:
@@ -12,3 +11,4 @@ Vue Poker:
     ✔ Change exists validation to `resolve(res.data.userFound)` @done(18-08-03 16:41)
     ✔ Use vue-axios to simplify axios setup @started(18-08-03 16:43) @done(18-08-03 16:50) @lasted(7m38s)
     ✔ Migrate to Vuelidate @started(18-08-03 12:26) @done(18-08-03 17:03) @lasted(4h37m27s)
+    ✔ Merge backend/frontend repos into one project @done(18-08-04 18:05)
