@@ -1,4 +1,5 @@
-Todos:
+Coffee Casino:
+Vue Poker:
   ☐ Move Welcome page to /welcome route for auth purposes
   ☐ Merge backend/frontend repos into one project
   ☐ Debounce vuelidations
