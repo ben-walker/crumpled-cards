@@ -52,7 +52,7 @@ export default {
         if (value === '') return true
         return new Promise((resolve, reject) => {
           this.$http.get('identifierExists', {
-            params: { identifier: this.identifier }
+            params: { identifier: value }
           })
             .then(res => resolve(res.data.userFound))
             .catch(err => reject(err))
