@@ -53,7 +53,7 @@ export default {
         if (value === '') return true
         return new Promise((resolve, reject) => {
           this.$http.get('usernameRegistered', {
-            params: { username: this.username }
+            params: { username: value }
           })
             .then(res => resolve(!res.data.userFound))
             .catch(err => reject(err))
@@ -67,7 +67,7 @@ export default {
         if (value === '') return true
         return new Promise((resolve, reject) => {
           this.$http.get('emailRegistered', {
-            params: { email: this.email }
+            params: { email: value }
           })
             .then(res => resolve(!res.data.userFound))
             .catch(err => reject(err))
