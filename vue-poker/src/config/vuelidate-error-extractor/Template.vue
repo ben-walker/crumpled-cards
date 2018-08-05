@@ -3,7 +3,7 @@
     :label="label"
     :custom-class="customClass"
     :type="type"
-    :message="firstErrorMessage"
+    :message="errorMessage"
   )
     slot
 </template>
@@ -22,6 +22,11 @@ export default {
     customClass () {
       return this.hasErrors
         ? 'has-text-danger'
+        : null
+    },
+    errorMessage () {
+      return this.hasErrors
+        ? this.firstErrorMessage
         : null
     }
   }
