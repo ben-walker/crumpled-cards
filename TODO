@@ -2,6 +2,7 @@ Coffee Casino:
 Vue Poker:
   ☐ Move Welcome page to /welcome route for auth purposes
   ☐ Debounce vuelidations
+  ☐ Ensure validations work when credentials input automatically (https://github.com/monterail/vuelidate/issues/179)
   ☐ Separate validations from components
   Done:
     ✔ Remove vue2-animate support/transitions @done(18-08-01 15:53)
