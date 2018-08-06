@@ -3,10 +3,9 @@ import bcrypt from 'bcryptjs'
 import userSchema from './schemas/user'
 import userValidationSchema from './validations/user'
 
-Schema = mongoose.Schema
 SALT_WORK = 12
 
-UserSchema = new Schema(userSchema, timestamps: true)
+UserSchema = new mongoose.Schema(userSchema, timestamps: true)
 
 # coffeelint: disable=missing_fat_arrows
 UserSchema.methods.comparePassword = (candidate, cb) ->
