@@ -1,4 +1,5 @@
 Coffee Casino:
+  ☐ Create 'schemas' and 'validations' models/ subdirs, include in relevant model
 Vue Poker:
   ☐ Move Welcome page to /welcome route for auth purposes
   ☐ Debounce vuelidations
