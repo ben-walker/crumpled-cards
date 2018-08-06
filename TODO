@@ -1,5 +1,6 @@
 Coffee Casino:
-  ☐ Create 'schemas' and 'validations' models/ subdirs, include in relevant model
+  Done:
+    ✔ Create 'schemas' and 'validations' models/ subdirs, include in relevant model @started(18-08-06 13:08) @done(18-08-06 13:24) @lasted(16m32s)
 Vue Poker:
   ☐ Move Welcome page to /welcome route for auth purposes
   ☐ Debounce vuelidations
