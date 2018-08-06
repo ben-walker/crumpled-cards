@@ -1,41 +1,12 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
+import userSchema from './schemas/user'
+import userValidationSchema from './validations/user'
 
 Schema = mongoose.Schema
 SALT_WORK = 12
 
-UserSchema = new Schema
-  username:
-    type: String
-    required: true
-    unique: true
-    index: true
-  email:
-    type: String
-    required: true
-    unique: true
-    index: true
-  password:
-    type: String
-    required: true
-, timestamps: true
-
-UserValidationSchema =
-  username:
-    isLength:
-      options:
-        min: 4
-        max: 20
-    trim: true
-    escape: true
-  email:
-    trim: true
-    isEmail: true
-    normalizeEmail: true
-  password:
-    isLength:
-      options:
-        min: 8
+UserSchema = new Schema(userSchema, timestamps: true)
 
 # coffeelint: disable=missing_fat_arrows
 UserSchema.methods.comparePassword = (candidate, cb) ->
@@ -49,4 +20,4 @@ UserSchema.pre 'save', (next) ->
 
 UserModel = mongoose.model('User', UserSchema)
 
-export { UserModel as default, UserValidationSchema }
+export { UserModel as default, userValidationSchema }
