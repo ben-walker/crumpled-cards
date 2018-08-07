@@ -6,6 +6,7 @@ Vue Poker:
   ☐ Ensure validations work when credentials input automatically (https://github.com/monterail/vuelidate/issues/179)
   ☐ Separate validations from components
   ☐ Be able to specify when a validation form-group should show success state
+  ☐ Async validator delay should be in a more reusable form
   Done:
     ✔ Remove vue2-animate support/transitions @done(18-08-01 15:53)
     ✔ Use animate.css for login/signup component transitions @done(18-08-01 17:04)
