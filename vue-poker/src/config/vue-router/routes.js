@@ -4,7 +4,7 @@ import Login from '@/components/Login.vue'
 import Signup from '@/components/Signup.vue'
 
 export default [
-  { path: '/', component: Welcome },
+  { path: '/welcome', component: Welcome },
   { path: '/authenticate',
     component: Authenticate,
     children: [
