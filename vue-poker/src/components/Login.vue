@@ -4,7 +4,7 @@
       h2.subtitle.is-4.has-text-grey Welcome Back
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.identifier" label="Username or Email" attribute="Identifier")
-          b-input(:value="$v.identifier.$model" @input="debounceInput('identifier', $event)" rounded v-focus)
+          b-input(v-model="identifier" @input="$v.identifier.$touch()" rounded v-focus :loading="$v.identifier.$pending")
         form-group(:validator="$v.password" label="Password")
           b-input(v-model="password" @input="$v.password.$touch()" type="password" placeholder="••••••••" rounded)
         nav.level
@@ -19,7 +19,7 @@
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import InternalLink from '@/components/InternalLink.vue'
-import _ from 'lodash'
+import minDelay from 'p-min-delay'
 
 export default {
   name: 'login',
@@ -49,13 +49,13 @@ export default {
       required,
       exists (value) {
         if (value === '') return true
-        return new Promise((resolve, reject) => {
+        return minDelay(new Promise((resolve, reject) => {
           this.$http.get('identifierExists', {
             params: { identifier: value }
           })
             .then(res => resolve(res.data.userFound))
             .catch(err => reject(err))
-        })
+        }), 1000)
       }
     },
     password: {
@@ -70,10 +70,7 @@ export default {
     forgotPassword () {
       this.$v.identifier.$touch()
       if (!this.$v.identifier.$invalid) this.$emit('forgotPassword', this.identifier)
-    },
-    debounceInput: _.debounce(function (model, value) {
-      this.$v[model].$model = value
-    }, 400)
+    }
   }
 }
 </script>
