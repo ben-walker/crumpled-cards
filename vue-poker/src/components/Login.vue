@@ -4,7 +4,7 @@
       h2.subtitle.is-4.has-text-grey Welcome Back
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.identifier" label="Username or Email" attribute="Identifier")
-          b-input(v-model.trim="identifier" @input="$v.identifier.$touch()" type="text" rounded v-focus)
+          b-input(:value="$v.identifier.$model" @input="debounceInput" type="text" rounded v-focus)
         form-group(:validator="$v.password" label="Password")
           b-input(v-model="password" @input="$v.password.$touch()" type="password" placeholder="••••••••" rounded)
         nav.level
@@ -21,6 +21,7 @@
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import InternalLink from '@/components/InternalLink.vue'
+import _ from 'lodash'
 
 export default {
   name: 'login',
@@ -71,7 +72,10 @@ export default {
     forgotPassword () {
       this.$v.identifier.$touch()
       if (!this.$v.identifier.$invalid) this.$emit('forgotPassword', this.identifier)
-    }
+    },
+    debounceInput: _.debounce(function (value) {
+      this.$v.identifier.$model = value
+    }, 300)
   }
 }
 </script>
