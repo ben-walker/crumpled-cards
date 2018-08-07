@@ -4,7 +4,7 @@
       h2.subtitle.is-4.has-text-grey Welcome Back
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.identifier" label="Username or Email" attribute="Identifier")
-          b-input(:value="$v.identifier.$model" @input="debounceInput" rounded v-focus)
+          b-input(:value="$v.identifier.$model" @input="debounceInput('identifier', $event)" rounded v-focus)
         form-group(:validator="$v.password" label="Password")
           b-input(v-model="password" @input="$v.password.$touch()" type="password" placeholder="••••••••" rounded)
         nav.level
@@ -71,8 +71,8 @@ export default {
       this.$v.identifier.$touch()
       if (!this.$v.identifier.$invalid) this.$emit('forgotPassword', this.identifier)
     },
-    debounceInput: _.debounce(function (value) {
-      this.$v.identifier.$model = value
+    debounceInput: _.debounce(function (model, value) {
+      this.$v[model].$model = value
     }, 400)
   }
 }
