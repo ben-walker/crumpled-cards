@@ -73,7 +73,7 @@ export default {
     },
     debounceInput: _.debounce(function (value) {
       this.$v.identifier.$model = value
-    }, 300)
+    }, 400)
   }
 }
 </script>
