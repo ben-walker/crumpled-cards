@@ -3,7 +3,7 @@ Coffee Casino:
     ✔ Create 'schemas' and 'validations' models/ subdirs, include in relevant model @started(18-08-06 13:08) @done(18-08-06 13:24) @lasted(16m32s)
 Vue Poker:
   ☐ Move Welcome page to /welcome route for auth purposes
-  ☐ Debounce vuelidations
+  ☐ Make vuelidate debouncer into a directive, or some kind of reusable component
   ☐ Ensure validations work when credentials input automatically (https://github.com/monterail/vuelidate/issues/179)
   ☐ Separate validations from components
   Done:
