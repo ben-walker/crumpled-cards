@@ -4,7 +4,7 @@
       h2.subtitle.is-4.has-text-grey Welcome Back
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.identifier" label="Username or Email" attribute="Identifier")
-          b-input(:value="$v.identifier.$model" @input="debounceInput" type="text" rounded v-focus)
+          b-input(:value="$v.identifier.$model" @input="debounceInput" rounded v-focus)
         form-group(:validator="$v.password" label="Password")
           b-input(v-model="password" @input="$v.password.$touch()" type="password" placeholder="••••••••" rounded)
         nav.level
