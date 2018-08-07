@@ -4,9 +4,9 @@
       h2.subtitle.is-4.has-text-grey Create Your Account
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.username" label="Username")
-          b-input(v-model.trim="username" @input="$v.username.$touch()" rounded v-focus)
+          b-input(:value="$v.username.$model" @input="debounceInput('username', $event)" rounded v-focus)
         form-group(:validator="$v.email" label="Email")
-          b-input(v-model.trim="email" @input="$v.email.$touch()" rounded)
+          b-input(:value="$v.email.$model" @input="debounceInput('email', $event)" rounded)
         form-group(:validator="$v.password" label="Password")
           b-input(v-model="password" @input="$v.password.$touch()" type="password" placeholder="••••••••" rounded password-reveal)
         .has-text-right
@@ -18,6 +18,7 @@
 import { validationMixin } from 'vuelidate'
 import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
 import InternalLink from '@/components/InternalLink.vue'
+import _ from 'lodash'
 
 export default {
   name: 'signup',
@@ -83,7 +84,10 @@ export default {
     submit () {
       this.$v.$touch()
       if (!this.$v.$invalid) this.$emit('signup', this.authPayload)
-    }
+    },
+    debounceInput: _.debounce(function (model, value) {
+      this.$v[model].$model = value
+    }, 400)
   }
 }
 </script>
