@@ -9,11 +9,9 @@
           b-input(v-model="password" @input="$v.password.$touch()" type="password" placeholder="••••••••" rounded)
         nav.level
           .level-left
-            .level-item
-              a(@click="forgotPassword") Forgot your password?
+            a.level-item(@click="forgotPassword") Forgot your password?
           .level-right
-            .level-item
-              button.button.is-light(type="submit") Log In
+            button.level-item.button.is-light(type="submit") Log In
     p Need an account? #[InternalLink(:link="signupLink")]
 </template>
 
