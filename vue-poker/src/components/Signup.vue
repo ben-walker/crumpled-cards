@@ -4,9 +4,9 @@
       h2.subtitle.is-4.has-text-grey Create Your Account
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.username" label="Username")
-          b-input(v-model.trim="username" @input="$v.username.$touch()" type="text" rounded v-focus)
+          b-input(v-model.trim="username" @input="$v.username.$touch()" rounded v-focus)
         form-group(:validator="$v.email" label="Email")
-          b-input(v-model.trim="email" @input="$v.email.$touch()" type="text" rounded)
+          b-input(v-model.trim="email" @input="$v.email.$touch()" rounded)
         form-group(:validator="$v.password" label="Password")
           b-input(v-model="password" @input="$v.password.$touch()" type="password" placeholder="••••••••" rounded password-reveal)
         .has-text-right
