@@ -3,9 +3,9 @@ Coffee Casino:
     ✔ Create 'schemas' and 'validations' models/ subdirs, include in relevant model @started(18-08-06 13:08) @done(18-08-06 13:24) @lasted(16m32s)
 Vue Poker:
   ☐ Check if user authenticated for certain routes (i.e. go from /welcome to / if authenticated, and vice versa)
-  ☐ Make vuelidate debouncer into a directive, or some kind of reusable component
   ☐ Ensure validations work when credentials input automatically (https://github.com/monterail/vuelidate/issues/179)
   ☐ Separate validations from components
+  ☐ Be able to specify when a validation form-group should show success state
   Done:
     ✔ Remove vue2-animate support/transitions @done(18-08-01 15:53)
     ✔ Use animate.css for login/signup component transitions @done(18-08-01 17:04)
@@ -17,3 +17,5 @@ Vue Poker:
     ✔ Merge backend/frontend repos into one project @done(18-08-04 18:05)
     ✔ Setup vuejs devtools @done(18-08-07 14:37)
     ✔ Move Welcome page to /welcome route for auth purposes @done(18-08-07 17:05)
+  Cancelled:
+    ✘ Make vuelidate debouncer into a directive, or some kind of reusable component @cancelled(18-08-07 17:31)
