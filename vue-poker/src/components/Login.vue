@@ -4,9 +4,9 @@
       h2.subtitle.is-4.has-text-grey Welcome Back
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.identifier" label="Username or Email" attribute="Identifier")
-          b-input(v-model.trim="identifier" @input="$v.identifier.$touch()" rounded v-focus :loading="$v.identifier.$pending")
+          b-input(v-model.trim="identifier" @input="$v.identifier.$touch()" v-focus :loading="$v.identifier.$pending")
         form-group(:validator="$v.password" label="Password")
-          b-input(v-model="password" @input="$v.password.$touch()" type="password" placeholder="••••••••" rounded)
+          b-input(v-model="password" @input="$v.password.$touch()" type="password" placeholder="••••••••")
         nav.level
           .level-left
             a.level-item(@click="forgotPassword") Forgot your password?
