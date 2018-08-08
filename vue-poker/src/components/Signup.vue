@@ -4,11 +4,11 @@
       h2.subtitle.is-4.has-text-grey Create Your Account
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.username" label="Username")
-          b-input(v-model.trim="username" @input="$v.username.$touch()" rounded v-focus :loading="$v.username.$pending")
+          b-input(v-model.trim="username" @input="$v.username.$touch()" v-focus :loading="$v.username.$pending")
         form-group(:validator="$v.email" label="Email")
-          b-input(v-model.trim="email" @input="$v.email.$touch()" rounded :loading="$v.email.$pending")
+          b-input(v-model.trim="email" @input="$v.email.$touch()" :loading="$v.email.$pending")
         form-group(:validator="$v.password" label="Password")
-          b-input(v-model="password" @input="$v.password.$touch()" type="password" placeholder="••••••••" rounded password-reveal)
+          b-input(v-model="password" @input="$v.password.$touch()" type="password" placeholder="••••••••" password-reveal)
         .has-text-right
           button.button.is-light(type="submit") Sign Up
     p Already have an account? #[InternalLink(:link="loginLink")]
