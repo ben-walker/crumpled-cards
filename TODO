@@ -1,4 +1,5 @@
 Coffee Casino:
+  ☐ Use Mongo Store for rate limiter
   Done:
     ✔ Create 'schemas' and 'validations' models/ subdirs, include in relevant model @started(18-08-06 13:08) @done(18-08-06 13:24) @lasted(16m32s)
     ✔ 'Question' query endpoints should just send a boolean @done(18-08-08 16:26)
