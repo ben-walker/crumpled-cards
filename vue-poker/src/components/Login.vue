@@ -53,7 +53,7 @@ export default {
           this.$http.get('identifierExists', {
             params: { identifier: value }
           })
-            .then(res => resolve(res.data.userFound))
+            .then(res => resolve(res.data))
             .catch(err => reject(err))
         }), 1000)
       }
