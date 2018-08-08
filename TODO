@@ -6,7 +6,7 @@ Vue Poker:
   ☐ Check if user authenticated for certain routes (i.e. go from /welcome to / if authenticated, and vice versa)
   ☐ Ensure validations work when credentials input automatically (https://github.com/monterail/vuelidate/issues/179)
   ☐ Separate validations from components
-  ☐ Be able to specify when a validation form-group should show success state
+  ☐ Debounce async validations
   ☐ Async validator delay should be in a more reusable form
   ☐ Mobile design
   ☐ Make app accessible across local network
