@@ -5,7 +5,6 @@ Coffee Casino:
     ✔ 'Question' query endpoints should just send a boolean @done(18-08-08 16:26)
 Vue Poker:
   ☐ Check if user authenticated for certain routes (i.e. go from /welcome to / if authenticated, and vice versa)
-  ☐ Ensure validations work when credentials input automatically (https://github.com/monterail/vuelidate/issues/179)
   ☐ Separate validations from components
   ☐ Debounce async validations
   ☐ Async validator delay should be in a more reusable form
@@ -23,5 +22,6 @@ Vue Poker:
     ✔ Merge backend/frontend repos into one project @done(18-08-04 18:05)
     ✔ Setup vuejs devtools @done(18-08-07 14:37)
     ✔ Move Welcome page to /welcome route for auth purposes @done(18-08-07 17:05)
+    ✔ Ensure validations work when credentials input automatically (https://github.com/monterail/vuelidate/issues/179) @done(18-08-09 09:52)
   Cancelled:
     ✘ Make vuelidate debouncer into a directive, or some kind of reusable component @cancelled(18-08-07 17:31)
