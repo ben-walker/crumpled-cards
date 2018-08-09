@@ -18,7 +18,7 @@
 
 <script>
 import TitleHead from '@/components/TitleHead.vue'
-import Toast from '@/mixins/Toast'
+import { toast } from '@/mixins'
 
 export default {
   name: 'authenticate',
@@ -31,7 +31,7 @@ export default {
     TitleHead
   },
   mixins: [
-    Toast
+    toast
   ],
   methods: {
     requestSignup (payload) {
