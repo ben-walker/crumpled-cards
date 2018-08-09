@@ -1,5 +1,7 @@
 import minDelay from 'p-min-delay'
 
+const DELAY_MS = 1000
+
 const userExists = (value, vm) => {
   if (value === '') return true
   return minDelay(new Promise((resolve, reject) => {
@@ -8,7 +10,7 @@ const userExists = (value, vm) => {
     })
       .then(res => resolve(res.data))
       .catch(err => reject(err))
-  }), 1000)
+  }), DELAY_MS)
 }
 
 const unique = (field) => (value, vm) => {
@@ -19,7 +21,7 @@ const unique = (field) => (value, vm) => {
     })
       .then(res => resolve(!res.data))
       .catch(err => reject(err))
-  }), 1000)
+  }), DELAY_MS)
 }
 
 export { userExists, unique }
