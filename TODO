@@ -9,6 +9,7 @@ Vue Poker:
   ☐ Separate validations from components
   ☐ Debounce async validations
   ☐ Async validator delay should be in a more reusable form
+  ☐ Show error on password field if it does not match user
   ☐ Mobile design
   ☐ Make app accessible across local network
   Done:
