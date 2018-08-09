@@ -17,19 +17,8 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
+import { unique } from '@/validators'
 import InternalLink from '@/components/InternalLink.vue'
-import minDelay from 'p-min-delay'
-
-const unique = (field) => (value, vm) => {
-  if (value === '') return true
-  return minDelay(new Promise((resolve, reject) => {
-    vm.$http.get(`${field}Registered`, {
-      params: { [field]: value }
-    })
-      .then(res => resolve(!res.data))
-      .catch(err => reject(err))
-  }), 1000)
-}
 
 export default {
   name: 'signup',
