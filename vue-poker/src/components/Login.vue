@@ -4,7 +4,7 @@
       h2.subtitle.is-4.has-text-grey Welcome Back
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.identifier" label="Username or Email" attribute="Identifier")
-          b-input(v-model.trim="$v.identifier.$model" v-focus :loading="$v.identifier.$pending")
+          b-input(:value="$v.identifier.$model" @input="debounceInput('identifier', $event)" v-focus :loading="$v.identifier.$pending")
         form-group(:validator="$v.password" label="Password")
           b-input(v-model="$v.password.$model" type="password" placeholder="••••••••")
         nav.level
@@ -17,6 +17,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
+import DebounceInput from '@/mixins/DebounceInput'
 import { required } from 'vuelidate/lib/validators'
 import { userExists } from '@/validators'
 import InternalLink from '@/components/InternalLink.vue'
@@ -42,7 +43,8 @@ export default {
     InternalLink
   },
   mixins: [
-    validationMixin
+    validationMixin,
+    DebounceInput
   ],
   validations: {
     identifier: {
