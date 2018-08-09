@@ -4,9 +4,9 @@
       h2.subtitle.is-4.has-text-grey Create Your Account
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.username" label="Username")
-          b-input(v-model.trim="$v.username.$model" v-focus :loading="$v.username.$pending")
+          b-input(:value="$v.username.$model" @input="debounceInput('username', $event)" v-focus :loading="$v.username.$pending")
         form-group(:validator="$v.email" label="Email")
-          b-input(v-model.trim="$v.email.$model" :loading="$v.email.$pending")
+          b-input(:value="$v.email.$model" @input="debounceInput('email', $event)" :loading="$v.email.$pending")
         form-group(:validator="$v.password" label="Password")
           b-input(v-model="$v.password.$model" type="password" placeholder="••••••••" password-reveal)
         .has-text-right
@@ -16,6 +16,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
+import DebounceInput from '@/mixins/DebounceInput'
 import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
 import { unique } from '@/validators'
 import InternalLink from '@/components/InternalLink.vue'
@@ -43,7 +44,8 @@ export default {
     InternalLink
   },
   mixins: [
-    validationMixin
+    validationMixin,
+    DebounceInput
   ],
   validations: {
     username: {
