@@ -18,19 +18,8 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
+import { userExists } from '@/validators'
 import InternalLink from '@/components/InternalLink.vue'
-import minDelay from 'p-min-delay'
-
-const userExists = (value, vm) => {
-  if (value === '') return true
-  return minDelay(new Promise((resolve, reject) => {
-    vm.$http.get('identifierExists', {
-      params: { identifier: value }
-    })
-      .then(res => resolve(res.data))
-      .catch(err => reject(err))
-  }), 1000)
-}
 
 export default {
   name: 'login',
