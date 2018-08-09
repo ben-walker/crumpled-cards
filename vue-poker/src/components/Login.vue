@@ -21,6 +21,17 @@ import { required } from 'vuelidate/lib/validators'
 import InternalLink from '@/components/InternalLink.vue'
 import minDelay from 'p-min-delay'
 
+const userExists = (value, vm) => {
+  if (value === '') return true
+  return minDelay(new Promise((resolve, reject) => {
+    vm.$http.get('identifierExists', {
+      params: { identifier: value }
+    })
+      .then(res => resolve(res.data))
+      .catch(err => reject(err))
+  }), 1000)
+}
+
 export default {
   name: 'login',
   data () {
@@ -47,16 +58,7 @@ export default {
   validations: {
     identifier: {
       required,
-      exists (value) {
-        if (value === '') return true
-        return minDelay(new Promise((resolve, reject) => {
-          this.$http.get('identifierExists', {
-            params: { identifier: value }
-          })
-            .then(res => resolve(res.data))
-            .catch(err => reject(err))
-        }), 1000)
-      }
+      userExists
     },
     password: {
       required
