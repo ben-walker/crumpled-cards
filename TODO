@@ -1,5 +1,6 @@
 Coffee Casino:
   ☐ Use Mongo Store for rate limiter
+  ☐ Deploy to heroku
   Done:
     ✔ Create 'schemas' and 'validations' models/ subdirs, include in relevant model @started(18-08-06 13:08) @done(18-08-06 13:24) @lasted(16m32s)
     ✔ 'Question' query endpoints should just send a boolean @done(18-08-08 16:26)
@@ -8,6 +9,7 @@ Vue Poker:
   ☐ Show error on password field if it does not match user (should only show on submit, and be subject to rate limiting)
   ☐ Mobile design
   ☐ Make app accessible across local network
+  ☐ Deploy to heroku
   Done:
     ✔ Remove vue2-animate support/transitions @done(18-08-01 15:53)
     ✔ Use animate.css for login/signup component transitions @done(18-08-01 17:04)
