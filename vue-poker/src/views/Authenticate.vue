@@ -10,7 +10,6 @@
               keep-alive
                 router-view(
                   @signup="requestSignup"
-                  @login="requestLogin"
                   @forgotPassword="forgotPassword"
                 )
 </template>
@@ -30,10 +29,6 @@ export default {
   methods: {
     requestSignup (payload) {
       this.$store.dispatch('user/signup', payload)
-        .catch(err => this.dangerToast(err))
-    },
-    requestLogin (payload) {
-      this.$store.dispatch('user/login', payload)
         .catch(err => this.dangerToast(err))
     },
     forgotPassword (identifier) {

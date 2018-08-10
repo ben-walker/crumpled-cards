@@ -28,7 +28,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { debounceInput } from '@/mixins'
+import { debounceInput, toast } from '@/mixins'
 import { required } from 'vuelidate/lib/validators'
 import { userExists } from '@/validators'
 import InternalLink from '@/components/InternalLink.vue'
@@ -58,7 +58,8 @@ export default {
   },
   mixins: [
     validationMixin,
-    debounceInput
+    debounceInput,
+    toast
   ],
   validations: {
     identifier: {
@@ -72,7 +73,10 @@ export default {
   methods: {
     submit () {
       this.$v.$touch()
-      if (!this.$v.$invalid) this.$emit('login', this.authPayload)
+      if (!this.$v.$invalid) {
+        this.$store.dispatch('user/login', this.authPayload)
+          .catch(err => this.dangerToast(err))
+      }
     },
     forgotPassword () {
       this.$v.identifier.$touch()
