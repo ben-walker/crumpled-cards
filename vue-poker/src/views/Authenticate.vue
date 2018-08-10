@@ -9,28 +9,19 @@
             transition(enter-active-class="animated bounceIn" leave-active-class="animated bounceOut" mode="out-in")
               keep-alive
                 router-view(
-                  @signup="requestSignup"
                   @forgotPassword="forgotPassword"
                 )
 </template>
 
 <script>
 import TitleHead from '@/components/TitleHead.vue'
-import { toast } from '@/mixins'
 
 export default {
   name: 'authenticate',
   components: {
     TitleHead
   },
-  mixins: [
-    toast
-  ],
   methods: {
-    requestSignup (payload) {
-      this.$store.dispatch('user/signup', payload)
-        .catch(err => this.dangerToast(err))
-    },
     forgotPassword (identifier) {
       this.$dialog.alert({
         title: 'Instructions Sent',
