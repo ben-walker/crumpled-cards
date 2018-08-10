@@ -1,6 +1,5 @@
 <template lang="pug">
   #authenticate
-    b-loading(:is-full-page="true" :active.sync="loading")
     section.hero.is-fullheight
       .hero-head
         section.section.has-text-centered
@@ -22,11 +21,6 @@ import { toast } from '@/mixins'
 
 export default {
   name: 'authenticate',
-  computed: {
-    loading () {
-      return this.$store.state.user.loading
-    }
-  },
   components: {
     TitleHead
   },
