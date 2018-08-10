@@ -75,6 +75,7 @@ export default {
       this.$v.$touch()
       if (!this.$v.$invalid) {
         this.$store.dispatch('user/login', this.authPayload)
+          .then(() => this.$router.push('/'))
           .catch(err => this.dangerToast(err))
       }
     },
