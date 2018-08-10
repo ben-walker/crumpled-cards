@@ -4,13 +4,30 @@
       h2.subtitle.is-4.has-text-grey Create Your Account
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.username" label="Username")
-          b-input(:value="$v.username.$model" @input="debounceInput('username', $event)" v-focus :loading="$v.username.$pending")
+          b-input(
+            :value="$v.username.$model"
+            @input="debounceInput('username', $event)"
+            v-focus
+            :loading="$v.username.$pending"
+            :disabled="loading"
+          )
         form-group(:validator="$v.email" label="Email")
-          b-input(:value="$v.email.$model" @input="debounceInput('email', $event)" :loading="$v.email.$pending")
+          b-input(
+            :value="$v.email.$model"
+            @input="debounceInput('email', $event)"
+            :loading="$v.email.$pending"
+            :disabled="loading"
+          )
         form-group(:validator="$v.password" label="Password")
-          b-input(v-model="$v.password.$model" type="password" placeholder="••••••••" password-reveal)
+          b-input(
+            v-model="$v.password.$model"
+            type="password"
+            placeholder="••••••••"
+            password-reveal
+            :disabled="loading"
+          )
         .has-text-right
-          button.button.is-light(type="submit") Sign Up
+          button.button.is-light(type="submit" :class="{ 'is-loading': loading }") Sign Up
     p Already have an account? #[InternalLink(:link="loginLink")]
 </template>
 
@@ -38,6 +55,9 @@ export default {
         email: this.email,
         password: this.password
       }
+    },
+    loading () {
+      return this.$store.state.user.loading
     }
   },
   components: {

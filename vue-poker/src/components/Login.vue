@@ -4,14 +4,25 @@
       h2.subtitle.is-4.has-text-grey Welcome Back
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.identifier" label="Username or Email" attribute="Identifier")
-          b-input(:value="$v.identifier.$model" @input="debounceInput('identifier', $event)" v-focus :loading="$v.identifier.$pending")
+          b-input(
+            :value="$v.identifier.$model"
+            @input="debounceInput('identifier', $event)"
+            v-focus
+            :loading="$v.identifier.$pending"
+            :disabled="loading"
+          )
         form-group(:validator="$v.password" label="Password")
-          b-input(v-model="$v.password.$model" type="password" placeholder="••••••••")
+          b-input(
+            v-model="$v.password.$model"
+            type="password"
+            placeholder="••••••••"
+            :disabled="loading"
+          )
         nav.level
           .level-left
             a.level-item(@click="forgotPassword") Forgot your password?
           .level-right
-            button.level-item.button.is-light(type="submit") Log In
+            button.level-item.button.is-light(type="submit" :class="{ 'is-loading': loading }") Log In
     p Need an account? #[InternalLink(:link="signupLink")]
 </template>
 
@@ -37,6 +48,9 @@ export default {
         identifier: this.identifier,
         password: this.password
       }
+    },
+    loading () {
+      return this.$store.state.user.loading
     }
   },
   components: {
