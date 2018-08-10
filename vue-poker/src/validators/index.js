@@ -1,6 +1,6 @@
 import minDelay from 'p-min-delay'
 
-const DELAY_MS = 1000
+const DELAY_MS = 500
 
 const userExists = (value, vm) => {
   if (value === '') return true
