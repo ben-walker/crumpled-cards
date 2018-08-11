@@ -35,7 +35,7 @@
 import { validationMixin } from 'vuelidate'
 import { debounceInput, toast } from '@/mixins'
 import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
-import { unique } from '@/validators'
+import { unique } from '@/validators/async'
 import InternalLink from '@/components/InternalLink.vue'
 
 export default {

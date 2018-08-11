@@ -30,7 +30,7 @@
 import { validationMixin } from 'vuelidate'
 import { debounceInput, toast } from '@/mixins'
 import { required } from 'vuelidate/lib/validators'
-import { userExists } from '@/validators'
+import { userExists } from '@/validators/async'
 import InternalLink from '@/components/InternalLink.vue'
 
 export default {
