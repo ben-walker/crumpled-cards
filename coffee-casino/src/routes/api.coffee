@@ -20,4 +20,6 @@ router.get('/emailRegistered', queryController.emailRegistered)
 
 router.get('/identifierExists', queryController.identifierExists)
 
+router.post('/passwordMatches', authLimiter, queryController.passwordMatches)
+
 export default router
