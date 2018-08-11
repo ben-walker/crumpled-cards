@@ -15,3 +15,10 @@ export identifierExists = (req, res, next) ->
   User.findOne $or: [{ username: id }, { email: id }], (err, user) ->
     if err then res.status(500).send('Request failure')
     else res.status(200).send(!!user)
+
+export passwordMatches = (req, res, next) ->
+  id = req.body.identifier
+  password = req.body.password
+  User.findOne $or: [{ username: id }, { email: id }], (err, user) ->
+    if err then res.status(500).send('Request failure')
+    else res.status(200).send(user.comparePassword(password))
