@@ -24,4 +24,16 @@ const unique = (field) => (value, vm) => {
   }), DELAY_MS)
 }
 
-export { userExists, unique }
+const passwordMatches = (identifier) => (value, vm) => {
+  if (value === '') return true
+  return minDelay(new Promise((resolve, reject) => {
+    vm.$http.post('passwordMatches', {
+      identifier,
+      password: value
+    })
+      .then(res => resolve(res.data))
+      .catch(err => reject(err))
+  }), DELAY_MS)
+}
+
+export { userExists, unique, passwordMatches }
