@@ -18,7 +18,8 @@
     "vue-socket.io": "^2.1.1-b",
     "vuelidate": "^0.7.4",
     "vuelidate-error-extractor": "^2.2.2",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-rc.8",
