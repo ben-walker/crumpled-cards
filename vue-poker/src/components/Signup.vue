@@ -25,8 +25,11 @@
             placeholder="••••••••"
             password-reveal
             :disabled="loading"
+            @focus="showPasswordStrength = true"
+            @blur="showPasswordStrength = false"
           )
-        PasswordStrengthMeter(:password="password")
+        transition(name="fade")
+          PasswordStrengthMeter(v-if="showPasswordStrength" :password="password")
         .has-text-right
           button.button.is-light(type="submit" :class="{ 'is-loading': loading }") Sign Up
     p Already have an account? #[InternalLink(:link="loginLink")]
@@ -47,7 +50,8 @@ export default {
       username: '',
       email: '',
       password: '',
-      loginLink: { route: '/authenticate/login', color: 'primary', text: 'Log In' }
+      loginLink: { route: '/authenticate/login', color: 'primary', text: 'Log In' },
+      showPasswordStrength: false
     }
   },
   computed: {
