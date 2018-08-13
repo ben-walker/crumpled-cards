@@ -7,7 +7,6 @@ Coffee Casino:
 Vue Poker:
   ☐ Check if user authenticated for certain routes (i.e. go from /welcome to / if authenticated, and vice versa)
   ☐ Show error on password field if it does not match user (should only show on submit, and be subject to rate limiting)
-  ☐ Create password strength meter component (for signup; password success not dependent on zxcvbn score)
   ☐ Only show password strength meter when user typing in password field
   ☐ Only validate forms on submit? This would require waiting on async validators/removing debouncing
   ☐ Mobile design
@@ -27,6 +26,7 @@ Vue Poker:
     ✔ Ensure validations work when credentials input automatically (https://github.com/monterail/vuelidate/issues/179) @done(18-08-09 09:52)
     ✔ Separate validations from components @done(18-08-09 10:36)
     ✔ Debounce async validations @done(18-08-09 15:12)
+    ✔ Create password strength meter component (for signup) @done(18-08-13 12:15)
   Cancelled:
     ✘ Make vuelidate debouncer into a directive, or some kind of reusable component @cancelled(18-08-07 17:31)
     ✘ Async validator delay should be in a more reusable form @cancelled(18-08-09 15:18)
