@@ -1,6 +1,6 @@
 <template lang="pug">
   .passwordStrengthMeter
-    label.label Password Strength #[ToolTip(:text="helpText")]
+    label.label Password Strength
     progress.progress.is-marginless.is-small(:value="strengthScore" :class="strengthColor" max="4")
     p.help.label {{ warning }}
 </template>
