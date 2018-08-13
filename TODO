@@ -9,6 +9,7 @@ Vue Poker:
   ☐ Check if user authenticated for certain routes (i.e. go from /welcome to / if authenticated, and vice versa)
   ☐ Show error on password field if it does not match user (should only show on submit, and be subject to rate limiting)
   ☐ Only validate forms on submit? This would require waiting on async validators/removing debouncing
+  ☐ Persist vuex state between refreshes
   ☐ Mobile design
   ☐ Make app accessible across local network
   ☐ Deploy to heroku
