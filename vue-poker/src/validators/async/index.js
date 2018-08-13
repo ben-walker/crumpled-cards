@@ -25,7 +25,7 @@ const unique = (field) => (value, vm) => {
 }
 
 const passwordMatches = (identifier) => (value, vm) => {
-  if (value === '') return true
+  if (value === '' || vm.$v.identifier.$invalid) return true
   return minDelay(new Promise((resolve, reject) => {
     vm.$http.post('passwordMatches', {
       identifier,
