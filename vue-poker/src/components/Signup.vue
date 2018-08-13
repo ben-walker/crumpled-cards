@@ -76,22 +76,24 @@ export default {
     debounceInput,
     toast
   ],
-  validations: {
-    username: {
-      required,
-      minLength: minLength(4),
-      maxLength: maxLength(20),
-      unique: unique('username')
-    },
-    email: {
-      required,
-      email,
-      unique: unique('email')
-    },
-    password: {
-      required,
-      minLength: minLength(8),
-      securePassword
+  validations () {
+    return {
+      username: {
+        required,
+        minLength: minLength(4),
+        maxLength: maxLength(20),
+        unique: unique('username')
+      },
+      email: {
+        required,
+        email,
+        unique: unique('email')
+      },
+      password: {
+        required,
+        minLength: minLength(8),
+        securePassword
+      }
     }
   },
   methods: {

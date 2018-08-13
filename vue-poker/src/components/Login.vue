@@ -61,13 +61,15 @@ export default {
     debounceInput,
     toast
   ],
-  validations: {
-    identifier: {
-      required,
-      userExists
-    },
-    password: {
-      required
+  validations () {
+    return {
+      identifier: {
+        required,
+        userExists
+      },
+      password: {
+        required
+      }
     }
   },
   methods: {
