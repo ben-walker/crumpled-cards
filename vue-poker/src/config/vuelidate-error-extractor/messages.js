@@ -5,5 +5,6 @@ export default {
   maxLength: '{attribute} is too long',
   unique: '{attribute} is already taken',
   email: 'Email is invalid',
-  passwordMatches: 'Password does not match'
+  passwordMatches: 'Password does not match',
+  securePassword: 'Password is not strong enough'
 }
