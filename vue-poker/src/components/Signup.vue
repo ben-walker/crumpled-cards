@@ -26,6 +26,7 @@
             password-reveal
             :disabled="loading"
           )
+        PasswordStrengthMeter(:password="password")
         .has-text-right
           button.button.is-light(type="submit" :class="{ 'is-loading': loading }") Sign Up
     p Already have an account? #[InternalLink(:link="loginLink")]
@@ -37,6 +38,7 @@ import { debounceInput, toast } from '@/mixins'
 import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
 import { unique } from '@/validators/async'
 import InternalLink from '@/components/InternalLink.vue'
+import PasswordStrengthMeter from '@/components/PasswordStrengthMeter.vue'
 
 export default {
   name: 'signup',
@@ -61,7 +63,8 @@ export default {
     }
   },
   components: {
-    InternalLink
+    InternalLink,
+    PasswordStrengthMeter
   },
   mixins: [
     validationMixin,
