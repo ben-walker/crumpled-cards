@@ -27,8 +27,9 @@ export default {
     strengthColor () {
       switch (this.strengthScore) {
         case 0: case 1: return 'is-danger'
-        case 2: case 3: return 'is-warning'
-        case 4: return 'is-success'
+        case 2: return 'is-warning'
+        case 3: return 'is-success'
+        case 4: return 'is-primary'
       }
     },
     warning () {
