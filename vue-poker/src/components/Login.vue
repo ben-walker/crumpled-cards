@@ -17,6 +17,7 @@
             @input="passwordError = false"
             type="password"
             placeholder="••••••••"
+            password-reveal
             :disabled="loading"
           )
         nav.level
