@@ -25,3 +25,4 @@ gulp.task 'watch', (done) ->
   done()
 
 gulp.task('default', gulp.series('clean', 'dist-coffee', 'watch', 'nodemon'))
+gulp.task('production', gulp.series('clean', 'dist-coffee'))
