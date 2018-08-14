@@ -8,6 +8,9 @@
     "lint": "vue-cli-service lint",
     "heroku-publish": "npm run build && cd ../ && git subtree push --prefix vue-poker heroku-vue-poker master || true"
   },
+  "engines": {
+    "node": "10.8.0"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
     "animate.css": "^3.7.0",
