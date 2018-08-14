@@ -11,9 +11,10 @@
             :loading="$v.identifier.$pending"
             :disabled="loading"
           )
-        form-group(:validator="$v.password" label="Password")
+        form-group(:validator="$v.password" label="Password" :messages="{ manualError: 'Password does not match' }")
           b-input(
             v-model="$v.password.$model"
+            @input="passwordError = false"
             type="password"
             placeholder="••••••••"
             :disabled="loading"
@@ -31,6 +32,7 @@ import { validationMixin } from 'vuelidate'
 import { debounceInput, toast } from '@/mixins'
 import { required } from 'vuelidate/lib/validators'
 import { userExists } from '@/validators/async'
+import { manualError } from '@/validators/sync'
 import InternalLink from '@/components/InternalLink.vue'
 
 export default {
@@ -39,7 +41,8 @@ export default {
     return {
       identifier: '',
       password: '',
-      signupLink: { route: '/authenticate/signup', color: 'primary', text: 'Sign Up' }
+      signupLink: { route: '/authenticate/signup', color: 'primary', text: 'Sign Up' },
+      passwordError: false
     }
   },
   computed: {
@@ -68,7 +71,8 @@ export default {
         userExists
       },
       password: {
-        required
+        required,
+        manualError: manualError(this.passwordError)
       }
     }
   },
@@ -78,7 +82,10 @@ export default {
       if (!this.$v.$invalid) {
         this.$store.dispatch('user/login', this.authPayload)
           .then(() => this.$router.push('/'))
-          .catch(err => this.dangerToast(err))
+          .catch(err => {
+            this.passwordError = true
+            this.dangerToast(err)
+          })
       }
     },
     forgotPassword () {
