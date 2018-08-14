@@ -1,4 +1,4 @@
 export default {
-  baseURL: 'http://localhost:3000/api/',
+  baseURL: process.env.VUE_APP_SERVER_URL,
   withCredentials: true
 }
