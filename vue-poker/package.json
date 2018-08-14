@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "heroku-publish": "npm run build && cd ../ && git subtree push --prefix vue-poker heroku-vue-poker master || true"
+    "heroku-publish": "cd ../ && git subtree push --prefix vue-poker heroku-vue-poker master || true"
   },
   "engines": {
     "node": "10.8.0"
