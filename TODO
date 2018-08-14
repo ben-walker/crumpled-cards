@@ -2,15 +2,17 @@ Coffee Casino:
   ☐ Use Mongo Store for rate limiter
   ☐ Set up email functionality
   ☐ Add vue poker heroku as ORIGIN config var
-  ☐ Create prod gulp task, run on heroku deploy (heroku npm fails when looking for dist dir)
   Done:
     ✔ Create 'schemas' and 'validations' models/ subdirs, include in relevant model @started(18-08-06 13:08) @done(18-08-06 13:24) @lasted(16m32s)
     ✔ 'Question' query endpoints should just send a boolean @done(18-08-08 16:26)
     ✔ Deploy to heroku @done(18-08-14 12:43)
+    ✔ Create prod gulp task, run on heroku deploy (heroku npm fails when looking for dist dir) @done(18-08-14 13:24)
 
 Vue Poker:
   ☐ Mobile design
   ☐ Deploy to heroku
+  ☐ Reduce webpack bundle size (`npm run build` to see warnings)
+  ☐ Incorporate env variables (for things like api server location)
   Done:
     ✔ Remove vue2-animate support/transitions @done(18-08-01 15:53)
     ✔ Use animate.css for login/signup component transitions @done(18-08-01 17:04)
