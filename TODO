@@ -7,8 +7,6 @@ Coffee Casino:
     ✔ 'Question' query endpoints should just send a boolean @done(18-08-08 16:26)
 
 Vue Poker:
-  ☐ Show error on password field if it does not match user (should only show on submit, and be subject to rate limiting)
-  ☐ Only validate forms on submit? This would require waiting on async validators/removing debouncing
   ☐ Mobile design
   ☐ Make app accessible across local network
   ☐ Deploy to heroku
@@ -30,6 +28,8 @@ Vue Poker:
     ✔ Only show password strength meter when user typing in password field @done(18-08-13 12:24)
     ✔ Persist vuex state between refreshes @done(18-08-13 16:39)
     ✔ Check if user authenticated for certain routes (i.e. go from /welcome to / if authenticated, and vice versa) @done(18-08-13 16:41)
+    ✔ Show error on password field if it does not match user (should only show on submit, and be subject to rate limiting) @done(18-08-14 11:03)
   Cancelled:
     ✘ Make vuelidate debouncer into a directive, or some kind of reusable component @cancelled(18-08-07 17:31)
     ✘ Async validator delay should be in a more reusable form @cancelled(18-08-09 15:18)
+    ✘ Only validate forms on submit? This would require waiting on async validators/removing debouncing @cancelled(18-08-14 11:02)
