@@ -8,7 +8,6 @@ Coffee Casino:
 
 Vue Poker:
   ☐ Mobile design
-  ☐ Make app accessible across local network
   ☐ Deploy to heroku
   Done:
     ✔ Remove vue2-animate support/transitions @done(18-08-01 15:53)
@@ -29,6 +28,7 @@ Vue Poker:
     ✔ Persist vuex state between refreshes @done(18-08-13 16:39)
     ✔ Check if user authenticated for certain routes (i.e. go from /welcome to / if authenticated, and vice versa) @done(18-08-13 16:41)
     ✔ Show error on password field if it does not match user (should only show on submit, and be subject to rate limiting) @done(18-08-14 11:03)
+    ✔ Make app accessible across local network (make sure Firewall disabled) @done(18-08-14 11:30)
   Cancelled:
     ✘ Make vuelidate debouncer into a directive, or some kind of reusable component @cancelled(18-08-07 17:31)
     ✘ Async validator delay should be in a more reusable form @cancelled(18-08-09 15:18)
