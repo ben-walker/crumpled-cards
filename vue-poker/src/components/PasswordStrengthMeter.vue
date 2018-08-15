@@ -6,21 +6,10 @@
 </template>
 
 <script>
-import zxcvbn from 'zxcvbn'
-import ToolTip from './ToolTip.vue'
-
 export default {
   name: 'passwordStrengthMeter',
-  data () {
-    return {
-      helpText: 'Measured in bits of entropy, compared against common passwords.'
-    }
-  },
-  props: ['password'],
+  props: ['zxcvbnResult'],
   computed: {
-    zxcvbnResult () {
-      return zxcvbn(this.password)
-    },
     strengthScore () {
       return this.zxcvbnResult.score
     },
@@ -35,9 +24,6 @@ export default {
     warning () {
       return this.zxcvbnResult.feedback.warning
     }
-  },
-  components: {
-    ToolTip
   }
 }
 </script>
