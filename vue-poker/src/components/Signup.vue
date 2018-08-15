@@ -29,7 +29,7 @@
             @blur="showPasswordStrength = false"
           )
         transition(name="fade")
-          PasswordStrengthMeter(v-if="showPasswordStrength" :password="password")
+          PasswordStrengthMeter(v-if="showPasswordStrength" :zxcvbnResult="zxcvbnResult")
         .has-text-right
           button.button.is-light(type="submit" :class="{ 'is-loading': loading }") Sign Up
     p Already have an account? #[InternalLink(:link="loginLink")]
@@ -37,7 +37,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { debounceInput, toast } from '@/mixins'
+import { debounceInput, toast, zxcvbn } from '@/mixins'
 import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
 import { securePassword } from '@/validators/sync'
 import { unique } from '@/validators/async'
@@ -74,7 +74,8 @@ export default {
   mixins: [
     validationMixin,
     debounceInput,
-    toast
+    toast,
+    zxcvbn
   ],
   validations () {
     return {
@@ -92,7 +93,7 @@ export default {
       password: {
         required,
         minLength: minLength(8),
-        securePassword
+        securePassword: securePassword(this.zxcvbnResult.score)
       }
     }
   },
