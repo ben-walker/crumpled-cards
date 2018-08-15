@@ -1,4 +1,4 @@
-import { extend } from 'lodash'
+import { extend } from 'lodash-es'
 
 export default {
   data () {
