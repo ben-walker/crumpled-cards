@@ -17,6 +17,7 @@
     "axios": "^0.18.0",
     "buefy": "^0.6.6",
     "express": "^4.16.3",
+    "lodash": "^4.17.10",
     "node-sass": "^4.9.2",
     "p-min-delay": "^2.0.0",
     "promise.prototype.finally": "^3.1.0",
