@@ -1,3 +1,5 @@
+import { extend } from 'lodash'
+
 export default {
   data () {
     return {
@@ -11,19 +13,19 @@ export default {
   },
   methods: {
     toast (message, options = {}) {
-      this._.extend(options, { message })
+      extend(options, { message })
       this.openToast(options)
     },
     warnToast (message, options = {}) {
-      this._.extend(options, { type: 'is-warning', message })
+      extend(options, { type: 'is-warning', message })
       this.openToast(options)
     },
     dangerToast (message, options = {}) {
-      this._.extend(options, { type: 'is-danger', message })
+      extend(options, { type: 'is-danger', message })
       this.openToast(options)
     },
     openToast (options = {}) {
-      const toastOpts = this._.extend({}, this.$data, options)
+      const toastOpts = extend({}, this.$data, options)
       this.$toast.open(toastOpts)
     }
   }
