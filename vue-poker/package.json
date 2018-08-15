@@ -17,7 +17,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.1",
     "animate.css": "^3.7.0",
     "axios": "^0.18.0",
-    "buefy": "^0.6.6",
+    "buefy": "^0.6.7-beta.0",
     "express": "^4.16.3",
     "lodash-es": "^4.17.10",
     "node-sass": "^4.9.2",
