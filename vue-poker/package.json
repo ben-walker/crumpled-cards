@@ -35,6 +35,7 @@
     "vuelidate-error-extractor": "^2.2.2",
     "vuex": "^3.0.1",
     "vuex-persistedstate": "^2.5.4",
+    "webpack-bundle-analyzer": "^2.13.1",
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
