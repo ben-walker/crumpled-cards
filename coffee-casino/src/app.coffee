@@ -17,6 +17,11 @@ import io from './config/socket.io'
 
 app = express()
 
+corsOpts =
+  origin: '*' # process.env.ORIGIN
+  credentials: true
+app.use(cors(corsOpts))
+
 mongoStore = connectMongo(session)
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
 
@@ -30,11 +35,6 @@ app.use(session({
 passportConfig(passport)
 app.use(passport.initialize())
 app.use(passport.session())
-
-corsOpts =
-  origin: '*' # process.env.ORIGIN
-  credentials: true
-app.use(cors(corsOpts))
 
 app.use(helmet())
 app.use(morgan('combined', { stream: winston.stream }))
