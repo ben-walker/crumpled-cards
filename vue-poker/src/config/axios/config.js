@@ -1,4 +1,4 @@
 export default {
-  baseURL: process.env.VUE_APP_API,
-  withCredentials: true
+  baseURL: process.env.VUE_APP_API/* ,
+  withCredentials: true */
 }
