@@ -58,8 +58,6 @@ app.use (err, req, res, next) ->
   errorMessage = "#{status} - #{err.message} -
                   #{req.originalUrl} - #{req.method} - #{req.ip}"
   winston.error(errorMessage)
-  console.log(req)
-  console.log(res)
   res.status(status).send(error)
 
 export default app
