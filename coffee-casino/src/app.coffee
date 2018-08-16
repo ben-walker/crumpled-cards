@@ -29,7 +29,10 @@ app.use(session({
   secret: process.env.SECRET,
   store: new mongoStore({ mongooseConnection: mongoose.connection }),
   saveUninitialized: false,
-  resave: false
+  resave: false,
+  cookie: {
+    secure: process.env.NODE_ENV == 'production'
+  }
 }))
 
 passportConfig(passport)
