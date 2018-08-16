@@ -8,7 +8,7 @@
     "heroku-publish": "cd ../ && git subtree push --prefix coffee-casino heroku-coffee-casino master || true"
   },
   "engines": {
-    "node": "10.9.0"
+    "node": "10.8.0"
   },
   "dependencies": {
     "app-root-path": "^2.1.0",

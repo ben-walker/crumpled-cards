@@ -9,7 +9,7 @@
     "heroku-publish": "cd ../ && git subtree push --prefix vue-poker heroku-vue-poker master || true"
   },
   "engines": {
-    "node": "10.9.0"
+    "node": "10.8.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
