@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import measureEntropy from 'fast-password-entropy'
+
 export default {
   name: 'passwordStrengthMeter',
   data () {
@@ -12,8 +14,11 @@ export default {
       MAX: 128
     }
   },
-  props: ['strength'],
+  props: ['password'],
   computed: {
+    strength () {
+      return measureEntropy(this.password)
+    },
     strengthColor () {
       const quotient = this.strength / this.MAX
       if (quotient < 0.2) return 'is-danger'
