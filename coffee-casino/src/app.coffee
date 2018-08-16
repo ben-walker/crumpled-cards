@@ -18,7 +18,7 @@ import io from './config/socket.io'
 app = express()
 
 corsOpts =
-  origin: '*' # process.env.ORIGIN
+  origin: process.env.ORIGIN
   credentials: true
 app.use(cors(corsOpts))
 
