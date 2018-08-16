@@ -1,5 +1,7 @@
 import app from './app'
 import http from 'http'
+import socketIo from 'socket.io'
+import mongoAdapter from 'socket.io-adapter-mongo'
 
 normalizePort = (val) ->
   port = parseInt(val, 10)
@@ -12,4 +14,8 @@ app.set('port', port)
 server = http.createServer(app)
 server.listen(port)
 
-export default server
+io = socketIo server,
+  serveClient: false
+  adapter: mongoAdapter(process.env.MONGODB_URI)
+
+export { server as default, io }
