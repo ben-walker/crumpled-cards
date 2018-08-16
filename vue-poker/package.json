@@ -22,7 +22,6 @@
     "fast-password-entropy": "^1.1.0",
     "lodash-es": "^4.17.10",
     "node-sass": "^4.9.2",
-    "p-min-delay": "^2.0.0",
     "promise.prototype.finally": "^3.1.0",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
