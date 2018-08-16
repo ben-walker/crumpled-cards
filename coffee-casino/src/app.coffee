@@ -21,6 +21,7 @@ corsOpts =
   origin: process.env.ORIGIN
   credentials: true
 app.use(cors(corsOpts))
+console.log('setting up')
 
 mongoStore = connectMongo(session)
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
