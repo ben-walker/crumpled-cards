@@ -31,6 +31,7 @@ sessionConfig =
   store: new mongoStore(mongooseConnection: mongoose.connection)
   saveUninitialized: false
   resave: false
+  unset: 'destroy'
   cookie: {}
 
 if process.env.NODE_ENV == 'production'
@@ -56,7 +57,6 @@ app.use (req, res, next) ->
   next(createError(404))
 
 app.use (err, req, res, next) ->
-  console.log(req)
   error = if req.app.get('env') == 'development' then err else {}
   status = err.status || 500
   errorMessage = "#{status} - #{err.message} -
