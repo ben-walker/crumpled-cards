@@ -1,7 +1,8 @@
 <template lang="pug">
   .passwordStrengthMeter
     label.label Password Strength
-    progress.progress.is-small(:value="strength" :class="strengthColor" :max="MAX")
+    progress.progress.is-marginless.is-small(:value="quotient" :class="color" max="1")
+    p.label.help {{ message }}
 </template>
 
 <script>
@@ -16,15 +17,21 @@ export default {
   },
   props: ['password'],
   computed: {
-    strength () {
-      return measureEntropy(this.password)
+    quotient () {
+      return measureEntropy(this.password) / this.MAX
     },
-    strengthColor () {
-      const quotient = this.strength / this.MAX
-      if (quotient < 0.2) return 'is-danger'
-      else if (quotient > 0.2 && quotient < 0.6) return 'is-warning'
-      else if (quotient > 0.6 && quotient < 0.8) return 'is-success'
-      else if (quotient > 0.8) return 'is-primary'
+    color () {
+      if (this.quotient < 0.2) return 'is-danger'
+      else if (this.quotient > 0.2 && this.quotient < 0.6) return 'is-warning'
+      else if (this.quotient > 0.6 && this.quotient < 0.8) return 'is-success'
+      else if (this.quotient > 0.8) return 'is-primary'
+    },
+    message () {
+      if (this.quotient === 0) return ''
+      else if (this.quotient < 0.2) return 'Weak'
+      else if (this.quotient > 0.2 && this.quotient < 0.6) return 'Risky'
+      else if (this.quotient > 0.6 && this.quotient < 0.8) return 'Strong'
+      else if (this.quotient > 0.8) return 'Secure'
     }
   }
 }
