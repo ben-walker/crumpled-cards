@@ -2,6 +2,7 @@ Coffee Casino:
   ☐ Use Mongo Store for rate limiter
   ☐ Set up email functionality
   Production:
+    ☐ Bump connections to https automatically
     ☐ Enable CORS & cookies over https
     ☐ Reconfigure socket.io setup to not explicitly bind to a port
   Done:
