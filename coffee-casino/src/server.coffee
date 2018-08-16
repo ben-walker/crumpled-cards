@@ -8,6 +8,7 @@ normalizePort = (val) ->
 
 port = normalizePort(process.env.PORT || '3000')
 app.set('port', port)
+console.log(port)
 
 server = http.createServer(app)
 server.listen(port)
