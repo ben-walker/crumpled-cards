@@ -3,12 +3,12 @@ import unique from './async/unique'
 import userExists from './async/userExists'
 
 import manualError from './sync/manualError'
-import securePassword from './sync/securePassword'
+import minEntropy from './sync/minEntropy'
 
 export {
   passwordMatches,
   unique,
   userExists,
   manualError,
-  securePassword
+  minEntropy
 }
