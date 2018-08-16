@@ -38,7 +38,7 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
-import { securePassword, unique } from '@/validators'
+import { minEntropy, unique } from '@/validators'
 import InternalLink from '@/components/InternalLink.vue'
 import PasswordStrengthMeter from '@/components/PasswordStrengthMeter.vue'
 import { debounceInput, toast } from '@/mixins'
@@ -95,7 +95,7 @@ export default {
       password: {
         required,
         minLength: minLength(8),
-        securePassword: securePassword(this.password)
+        minEntropy: minEntropy(40)
       }
     }
   },
