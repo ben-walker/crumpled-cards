@@ -9,7 +9,10 @@ const userExists = (value, vm) => {
       params: { identifier: value }
     })
       .then(res => resolve(res.data))
-      .catch(err => reject(err))
+      .catch(err => {
+        console.log(err)
+        reject(err)
+      })
   }), DELAY_MS)
 }
 
