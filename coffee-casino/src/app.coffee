@@ -32,7 +32,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 corsOpts =
-  origin: process.env.ORIGIN
+  origin: '*' # process.env.ORIGIN
   credentials: true
 app.use(cors(corsOpts))
 
