@@ -42,7 +42,6 @@ import { securePassword, unique } from '@/validators'
 import InternalLink from '@/components/InternalLink.vue'
 import PasswordStrengthMeter from '@/components/PasswordStrengthMeter.vue'
 import { debounceInput, toast } from '@/mixins'
-import measureEntropy from 'fast-password-entropy'
 
 export default {
   name: 'signup',
@@ -93,7 +92,7 @@ export default {
       password: {
         required,
         minLength: minLength(8),
-        securePassword: securePassword(this.zxcvbnResult.score)
+        securePassword: securePassword(this.password)
       }
     }
   },
