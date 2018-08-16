@@ -26,15 +26,18 @@ app.use(cors(corsOpts))
 mongoStore = connectMongo(session)
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
 
-app.use(session({
-  secret: process.env.SECRET,
-  store: new mongoStore({ mongooseConnection: mongoose.connection }),
-  saveUninitialized: false,
-  resave: false,
-  cookie: {
-    #secure: process.env.NODE_ENV == 'production'
-  }
-}))
+sessionConfig =
+  secret: process.env.SECRET
+  store: new mongoStore(mongooseConnection: mongoose.connection)
+  saveUninitialized: false
+  resave: false
+  cookie: {}
+
+if process.env.NODE_ENV == 'production'
+  app.set('trust proxy', 1)
+  sessionConfig.cookie.secure = true
+
+app.use(session(sessionConfig))
 
 passportConfig(passport)
 app.use(passport.initialize())
