@@ -19,7 +19,7 @@ app = express()
 
 corsOpts =
   origin: process.env.ORIGIN
-  credentials: true
+  credentials: false
 app.options('*', cors(corsOpts))
 app.use(cors(corsOpts))
 
