@@ -4,13 +4,13 @@ Coffee Casino:
   Production:
     ☐ Bump connections to https automatically
     ☐ Enable CORS & cookies over https
-    ☐ Reconfigure socket.io setup to not explicitly bind to a port
   Done:
     ✔ Create 'schemas' and 'validations' models/ subdirs, include in relevant model @started(18-08-06 13:08) @done(18-08-06 13:24) @lasted(16m32s)
     ✔ 'Question' query endpoints should just send a boolean @done(18-08-08 16:26)
     ✔ Deploy to heroku @done(18-08-14 12:43)
     ✔ Create prod gulp task, run on heroku deploy (heroku npm fails when looking for dist dir) @done(18-08-14 13:24)
     ✔ Add vue poker heroku as ORIGIN config var @done(18-08-14 15:47)
+    ✔ Reconfigure socket.io setup to not explicitly bind to a port @done(18-08-16 14:47)
 
 Vue Poker:
   ☐ Mobile design
