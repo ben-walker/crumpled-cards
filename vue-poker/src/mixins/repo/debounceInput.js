@@ -1,6 +1,6 @@
 import { debounce } from 'lodash-es'
 
-const DELAY_MS = 300
+const DELAY_MS = 500
 
 export default {
   methods: {
