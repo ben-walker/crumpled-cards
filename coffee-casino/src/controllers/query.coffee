@@ -11,6 +11,8 @@ export emailRegistered = (req, res, next) ->
     else res.status(200).send(!!user)
 
 export identifierExists = (req, res, next) ->
+  console.log(req)
+  console.log(res)
   id = req.query.identifier
   User.findOne $or: [{ username: id }, { email: id }], (err, user) ->
     if err then res.status(500).send('Request failure')
