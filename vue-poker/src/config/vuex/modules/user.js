@@ -25,7 +25,7 @@ const actions = {
   login ({ commit }, authPayload) {
     commit('startLoading')
     return new Promise((resolve, reject) => {
-      Vue.axios.post('login', authPayload)
+      Vue.axios.post('login', authPayload, { withCredentials: true })
         .then(res => {
           commit('authenticate')
           resolve(res)
