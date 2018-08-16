@@ -29,7 +29,7 @@
             @blur="showPasswordStrength = false"
           )
         transition(name="fade")
-          PasswordStrengthMeter(v-if="showPasswordStrength" :strength="entropy")
+          PasswordStrengthMeter(v-if="showPasswordStrength" :password="password")
         .has-text-right
           button.button.is-light(type="submit" :class="{ 'is-loading': loading }") Sign Up
     p Already have an account? #[InternalLink(:link="loginLink")]
@@ -42,7 +42,6 @@ import { minEntropy, unique } from '@/validators'
 import InternalLink from '@/components/InternalLink.vue'
 import PasswordStrengthMeter from '@/components/PasswordStrengthMeter.vue'
 import { debounceInput, toast } from '@/mixins'
-import measureEntropy from 'fast-password-entropy'
 
 export default {
   name: 'signup',
@@ -65,9 +64,6 @@ export default {
     },
     loading () {
       return this.$store.state.user.loading
-    },
-    entropy () {
-      return measureEntropy(this.password)
     }
   },
   components: {
