@@ -82,8 +82,19 @@ export default {
       if (!this.$v.$invalid) {
         this.$store.dispatch('user/login', this.authPayload)
           .then(() => this.$router.push('/'))
-          .catch(() => {
+          .catch((err) => {
             this.passwordError = true
+            if (err.response) {
+              switch (err.response.status) {
+                case 401: // unauthorized
+                  break
+                case 429: // rate limited
+                  this.dangerToast('Please try again later')
+                  break
+                case 500: // internal server error
+                  this.dangerToast('Internal server error')
+              }
+            }
           })
       }
     },
