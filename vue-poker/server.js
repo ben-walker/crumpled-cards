@@ -1,10 +1,12 @@
 const express = require('express')
 const serveStatic = require('serve-static')
 const path = require('path')
+const secure = require('express-force-https')
 
 const app = express()
 const port = process.env.PORT || 5000
 
+app.use(secure)
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
 // allows vue-router to parse routes correctly when in 'history' mode
