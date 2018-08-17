@@ -83,10 +83,10 @@ export default {
         this.$store.dispatch('user/login', this.authPayload)
           .then(() => this.$router.push('/'))
           .catch((err) => {
-            this.passwordError = true
             if (err.response) {
               switch (err.response.status) {
                 case 401: // unauthorized
+                  this.passwordError = true
                   break
                 case 429: // rate limited
                   this.dangerToast('Please try again later')
