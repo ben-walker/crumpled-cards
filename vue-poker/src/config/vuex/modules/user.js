@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { AUTHENTICATE, REVOKE_AUTH } from '../mutations'
 
 const state = {
   authenticated: false,
@@ -13,7 +14,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       Vue.axios.post('register', authPayload)
         .then(res => {
-          commit('authenticate')
+          commit(AUTHENTICATE)
           resolve(res)
         })
         .catch(err => reject(err))
@@ -26,7 +27,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       Vue.axios.post('login', authPayload)
         .then(res => {
-          commit('authenticate')
+          commit(AUTHENTICATE)
           resolve(res)
         })
         .catch(err => reject(err))
@@ -38,7 +39,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       Vue.axios.post('logout')
         .then(res => {
-          commit('revokeAuth')
+          commit(REVOKE_AUTH)
           resolve(res)
         })
         .catch(err => reject(err))
@@ -47,11 +48,11 @@ const actions = {
 }
 
 const mutations = {
-  authenticate (state) {
+  [AUTHENTICATE] (state) {
     state.authenticated = true
   },
 
-  revokeAuth (state) {
+  [REVOKE_AUTH] (state) {
     state.authenticated = false
   },
 
