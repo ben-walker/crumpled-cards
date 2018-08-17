@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from '@/config/router'
 import store from '@/config/vuex'
+import wait from '@/config/wait'
 import '@/config/fontawesome'
 import '@/config/axios'
 import '@/config/logger'
@@ -20,5 +21,6 @@ promiseFinally.shim()
 new Vue({
   router,
   store,
+  wait,
   render: h => h(App)
 }).$mount('#app')
