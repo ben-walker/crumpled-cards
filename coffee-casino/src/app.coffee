@@ -13,8 +13,10 @@ import apiRouter from './routes/api'
 import passport from 'passport'
 import passportConfig from './config/passport'
 import winston from './config/winston'
+import secure from 'express-force-https'
 
 app = express()
+app.use(secure)
 
 corsOpts =
   origin: process.env.ORIGIN
