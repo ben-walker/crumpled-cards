@@ -8,4 +8,3 @@ Vue Poker:
   ☐ Some sort of global server error handling/message repo
   Production:
     ☐ Reduce webpack bundle size (`npm run build` to see warnings)
-    ☐ Redirect to https
