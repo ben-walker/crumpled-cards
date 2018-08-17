@@ -101,7 +101,20 @@ export default {
       if (!this.$v.$invalid) {
         this.$store.dispatch('user/signup', this.authPayload)
           .then(() => this.$router.push('/'))
-          .catch(err => this.dangerToast(err))
+          .catch(err => {
+            if (err.response) {
+              switch (err.response.status) {
+                case 422: // unprocessable
+                  this.dangerToast('User data is invalid')
+                  break
+                case 429: // rate limited
+                  this.dangerToast('Please try again later')
+                  break
+                case 500: // internal server error
+                  this.dangerToast('Internal server error')
+              }
+            }
+          })
       }
     }
   }
