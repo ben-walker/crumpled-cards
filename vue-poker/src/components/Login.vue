@@ -82,9 +82,8 @@ export default {
       if (!this.$v.$invalid) {
         this.$store.dispatch('user/login', this.authPayload)
           .then(() => this.$router.push('/'))
-          .catch(err => {
+          .catch(() => {
             this.passwordError = true
-            this.dangerToast(err)
           })
       }
     },
