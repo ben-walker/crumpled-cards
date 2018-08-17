@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import errorHandler from '@/config/axios/error-handler'
 
 const state = {
   authenticated: false,
@@ -17,7 +16,7 @@ const actions = {
           commit('authenticate')
           resolve(res)
         })
-        .catch(err => reject(errorHandler(err)))
+        .catch(err => reject(err))
         .finally(() => commit('endLoading'))
     })
   },
@@ -30,7 +29,7 @@ const actions = {
           commit('authenticate')
           resolve(res)
         })
-        .catch(err => reject(errorHandler(err)))
+        .catch(err => reject(err))
         .finally(() => commit('endLoading'))
     })
   },
@@ -42,7 +41,7 @@ const actions = {
           commit('revokeAuth')
           resolve(res)
         })
-        .catch(err => reject(errorHandler(err)))
+        .catch(err => reject(err))
     })
   }
 }
