@@ -15,6 +15,8 @@ import passportConfig from './config/passport'
 import winston from './config/winston'
 import secure from 'express-force-https'
 
+# TODO: setup mail functionality
+
 app = express()
 app.use(secure)
 
