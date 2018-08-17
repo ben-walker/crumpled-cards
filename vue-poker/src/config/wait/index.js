@@ -4,6 +4,4 @@ import config from './config'
 
 Vue.use(VueWait)
 
-const wait = new VueWait(config)
-
-export default wait
+export default new VueWait(config)
