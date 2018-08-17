@@ -6,5 +6,6 @@ Coffee Casino:
 Vue Poker:
   ☐ Mobile design
   ☐ Some sort of global server error handling/message repo
+  ☐ Use vue-wait in components and vuex
   Production:
     ☐ Reduce webpack bundle size (`npm run build` to see warnings)
