@@ -4,6 +4,7 @@ Coffee Casino:
   Production:
 
 Vue Poker:
+  ☐ Move to typescript?
   ☐ Mobile design
   ☐ Some sort of global server error handling/message repo
   ☐ Use vue-wait in components and vuex
