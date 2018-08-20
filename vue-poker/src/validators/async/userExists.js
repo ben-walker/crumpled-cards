@@ -1,7 +1,9 @@
+import axios from '@/config/axios'
+
 export default (value, vm) => {
   if (value === '') return true
   return new Promise((resolve, reject) => {
-    vm.$http.get('identifierExists', {
+    axios.get('identifierExists', {
       params: { identifier: value }
     })
       .then(res => resolve(res.data))

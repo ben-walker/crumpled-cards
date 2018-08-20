@@ -1,7 +1,9 @@
+import axios from '@/config/axios'
+
 export default (identifier) => (value, vm) => {
   if (value === '' || vm.$v.identifier.$invalid) return true
   return new Promise((resolve, reject) => {
-    vm.$http.post('passwordMatches', {
+    axios.post('passwordMatches', {
       identifier,
       password: value
     })
