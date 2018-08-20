@@ -20,11 +20,13 @@ export default Vue.extend({
         ? 'is-danger'
         : null
     },
+
     customClass (): string {
       return this.hasErrors
         ? 'has-text-danger'
         : null
     },
+
     errorMessage (): string {
       return this.hasErrors
         ? this.firstErrorMessage
