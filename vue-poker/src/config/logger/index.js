@@ -1,5 +1,14 @@
 import Vue from 'vue'
 import VueLogger from 'vuejs-logger'
-import options from './config'
 
-Vue.use(VueLogger, options)
+const debug = process.env.NODE_ENV !== 'production'
+
+Vue.use(VueLogger, {
+  isEnabled: debug,
+  logLevel: 'debug',
+  stringifyArguments: false,
+  showLogLevel: true,
+  showMethodName: true,
+  separator: '||',
+  showConsoleColors: true
+})
