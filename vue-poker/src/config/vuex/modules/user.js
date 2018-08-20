@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import { AUTHENTICATE, REVOKE_AUTH } from '../mutations'
 import axios from '@/config/axios'
 
