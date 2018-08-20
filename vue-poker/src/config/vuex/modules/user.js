@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { AUTHENTICATE, REVOKE_AUTH } from '../mutations'
+import axios from '@/config/axios'
 
 const state = {
   authenticated: false,
@@ -12,7 +13,7 @@ const actions = {
   signup ({ commit }, authPayload) {
     commit('startLoading')
     return new Promise((resolve, reject) => {
-      Vue.axios.post('register', authPayload)
+      axios.post('register', authPayload)
         .then(res => {
           commit(AUTHENTICATE)
           resolve(res)
@@ -25,7 +26,7 @@ const actions = {
   login ({ commit }, authPayload) {
     commit('startLoading')
     return new Promise((resolve, reject) => {
-      Vue.axios.post('login', authPayload)
+      axios.post('login', authPayload)
         .then(res => {
           commit(AUTHENTICATE)
           resolve(res)
@@ -37,7 +38,7 @@ const actions = {
 
   logout ({ commit }) {
     return new Promise((resolve, reject) => {
-      Vue.axios.post('logout')
+      axios.post('logout')
         .then(res => {
           commit(REVOKE_AUTH)
           resolve(res)
