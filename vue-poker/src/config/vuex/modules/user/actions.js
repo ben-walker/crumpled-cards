@@ -2,7 +2,7 @@ import axios from '@/config/axios'
 import { AUTHENTICATE, REVOKE_AUTH, START_LOADING, STOP_LOADING } from './mutations'
 
 export default {
-  signup ({ commit }, authPayload) {
+  async signup ({ commit }, authPayload) {
     commit(START_LOADING)
     return new Promise((resolve, reject) => {
       axios.post('register', authPayload)
@@ -15,7 +15,7 @@ export default {
     })
   },
 
-  login ({ commit }, authPayload) {
+  async login ({ commit }, authPayload) {
     commit(START_LOADING)
     return new Promise((resolve, reject) => {
       axios.post('login', authPayload)
@@ -28,7 +28,7 @@ export default {
     })
   },
 
-  logout ({ commit }) {
+  async logout ({ commit }) {
     return new Promise((resolve, reject) => {
       axios.post('logout')
         .then(res => {
