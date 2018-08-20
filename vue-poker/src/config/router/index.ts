@@ -7,6 +7,7 @@ Vue.use(Router)
 
 const mode: RouterMode = 'history'
 
+// TODO: lazy load route components (check ts scaffold vue project)
 const router = new Router({
   mode,
   linkActiveClass: 'is-active',
