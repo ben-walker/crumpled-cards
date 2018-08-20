@@ -14,6 +14,7 @@ import '@/directives'
 import promiseFinally from 'promise.prototype.finally'
 
 Vue.config.productionTip = false
+
 Vue.prototype.$appName = 'Poker Nook'
 promiseFinally.shim()
 

@@ -8,30 +8,27 @@
     slot
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script>
 import { singleErrorExtractorMixin } from 'vuelidate-error-extractor'
 
-export default Vue.extend({
+export default {
   extends: singleErrorExtractorMixin,
   computed: {
-    type (): string {
+    type () {
       return this.hasErrors
         ? 'is-danger'
         : null
     },
-
-    customClass (): string {
+    customClass () {
       return this.hasErrors
         ? 'has-text-danger'
         : null
     },
-
-    errorMessage (): string {
+    errorMessage () {
       return this.hasErrors
         ? this.firstErrorMessage
         : null
     }
   }
-})
+}
 </script>
