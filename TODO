@@ -1,11 +1,9 @@
 Coffee Casino:
   ☐ Use Mongo Store for rate limiter
   ☐ Set up email functionality
-  ☐ Move to ts?
   Production:
 
 Vue Poker:
-  ☐ Move to ts?
   ☐ Mobile design
   ☐ Color scheme/layout changes
   ☐ Some sort of global server error handling/message repo
