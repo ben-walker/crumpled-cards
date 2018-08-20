@@ -1,7 +1,13 @@
 import Vue from 'vue'
 import VueWait from 'vue-wait'
-import config from './config'
 
 Vue.use(VueWait)
 
-export default new VueWait(config)
+export default new VueWait({
+  useVuex: true,
+  vuexModuleName: 'wait',
+  registerComponent: true,
+  componentName: 'v-wait',
+  registerDirective: true,
+  directiveName: 'wait'
+})
