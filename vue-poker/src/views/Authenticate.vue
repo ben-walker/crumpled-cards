@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { TitleHead } from '@/components'
+import TitleHead from '@/components/TitleHead.vue'
 
 export default {
   name: 'authenticate',

@@ -12,7 +12,8 @@
 </template>
 
 <script>
-import { TitleHead, InternalLink } from '@/components'
+import TitleHead from '@/components/TitleHead.vue'
+import InternalLink from '@/components/InternalLink.vue'
 
 export default {
   name: 'welcome',
