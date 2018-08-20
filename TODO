@@ -5,7 +5,6 @@ Coffee Casino:
 
 Vue Poker:
   ☐ Mobile design
-  ☐ Color scheme/layout changes
   ☐ Some sort of global server error handling/message repo
   ☐ Use vue-wait in components and vuex
   Production:
