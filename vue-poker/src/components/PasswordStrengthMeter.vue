@@ -20,18 +20,29 @@ export default {
     quotient () {
       return measureEntropy(this.password) / this.MAX
     },
+    index () {
+      if (this.quotient === 0) return 0
+      else if (this.quotient < 0.2) return 1
+      else if (this.quotient < 0.6) return 2
+      else if (this.quotient < 0.8) return 3
+      else return 4
+    },
     color () {
-      if (this.quotient < 0.2) return 'is-danger'
-      else if (this.quotient > 0.2 && this.quotient < 0.6) return 'is-warning'
-      else if (this.quotient > 0.6 && this.quotient < 0.8) return 'is-success'
-      else if (this.quotient > 0.8) return 'is-primary'
+      switch (this.index) {
+        case 0: case 1: return 'is-danger'
+        case 2: return 'is-warning'
+        case 3: return 'is-success'
+        case 4: return 'is-primary'
+      }
     },
     message () {
-      if (this.quotient === 0) return ''
-      else if (this.quotient < 0.2) return 'Weak'
-      else if (this.quotient > 0.2 && this.quotient < 0.6) return 'Risky'
-      else if (this.quotient > 0.6 && this.quotient < 0.8) return 'Strong'
-      else if (this.quotient > 0.8) return 'Secure'
+      switch (this.index) {
+        case 0: return ''
+        case 1: return 'Weak'
+        case 2: return 'Risky'
+        case 3: return 'Strong'
+        case 4: return 'Secure'
+      }
     }
   }
 }
