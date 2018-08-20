@@ -4,11 +4,13 @@ const Signup = () => import(/* webpackChunkName: "auth" */ '@/components/Signup.
 
 export const login = {
   path: 'login',
+  name: 'login',
   component: Login
 }
 
 export const signup = {
   path: 'signup',
+  name: 'signup',
   component: Signup
 }
 
@@ -19,7 +21,6 @@ const redirect = {
 
 export default {
   path: '/authenticate',
-  name: 'authenticate',
   component: Authenticate,
   children: [
     login,
