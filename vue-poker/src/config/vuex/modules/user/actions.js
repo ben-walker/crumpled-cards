@@ -1,16 +1,9 @@
-import { AUTHENTICATE, REVOKE_AUTH } from '../mutations'
 import axios from '@/config/axios'
+import { AUTHENTICATE, REVOKE_AUTH, START_LOADING, STOP_LOADING } from './mutations'
 
-const state = {
-  authenticated: false,
-  loading: false
-}
-
-const getters = {}
-
-const actions = {
+export default {
   signup ({ commit }, authPayload) {
-    commit('startLoading')
+    commit(START_LOADING)
     return new Promise((resolve, reject) => {
       axios.post('register', authPayload)
         .then(res => {
@@ -18,12 +11,12 @@ const actions = {
           resolve(res)
         })
         .catch(err => reject(err))
-        .finally(() => commit('endLoading'))
+        .finally(() => commit(STOP_LOADING))
     })
   },
 
   login ({ commit }, authPayload) {
-    commit('startLoading')
+    commit(START_LOADING)
     return new Promise((resolve, reject) => {
       axios.post('login', authPayload)
         .then(res => {
@@ -31,7 +24,7 @@ const actions = {
           resolve(res)
         })
         .catch(err => reject(err))
-        .finally(() => commit('endLoading'))
+        .finally(() => commit(STOP_LOADING))
     })
   },
 
@@ -45,30 +38,4 @@ const actions = {
         .catch(err => reject(err))
     })
   }
-}
-
-const mutations = {
-  [AUTHENTICATE] (state) {
-    state.authenticated = true
-  },
-
-  [REVOKE_AUTH] (state) {
-    state.authenticated = false
-  },
-
-  startLoading (state) {
-    state.loading = true
-  },
-
-  endLoading (state) {
-    state.loading = false
-  }
-}
-
-export default {
-  namespaced: true,
-  state,
-  getters,
-  actions,
-  mutations
 }
