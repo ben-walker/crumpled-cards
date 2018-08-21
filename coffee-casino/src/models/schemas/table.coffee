@@ -1,10 +1,12 @@
 import mongoose from 'mongoose'
 
+object = mongoose.Schema.Types.ObjectId
+
 export default tableSchema =
   title:
     type: String
     required: true
   players: [
-    type: mongoose.Schema.Types.ObjectId,
+    type: object,
     ref: 'User'
   ]
