@@ -5,22 +5,17 @@ import * as meController from '../controllers/me'
 import * as tableController from '../controllers/table'
 import { authLimiter } from '../config/rate-limit'
 
-router = express.Router()
+let router = express.Router()
 
 router.post('/register', authLimiter, authController.register)
-
 router.post('/login', authLimiter, authController.login)
-
 router.post('/logout', authController.logout)
 
 router.get('/me', meController.getUserInfo)
 
 router.get('/usernameRegistered', queryController.usernameRegistered)
-
 router.get('/emailRegistered', queryController.emailRegistered)
-
 router.get('/identifierExists', queryController.identifierExists)
-
 router.post('/passwordMatches', authLimiter, queryController.passwordMatches)
 
 router.post('/createTable', tableController.create)
