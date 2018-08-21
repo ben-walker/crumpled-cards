@@ -23,6 +23,7 @@
     "fast-password-entropy": "^1.1.0",
     "lodash-es": "^4.17.10",
     "node-sass": "^4.9.3",
+    "project-name-generator": "^2.1.5",
     "promise.prototype.finally": "^3.1.0",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
