@@ -1,6 +1,6 @@
 <template lang="pug">
   #titleHead
-    h1.title.is-1(:class="textColor") {{ $appName }}
+    h1.title.is-2.is-unselectable(:class="textColor") {{ $appName }}
 </template>
 
 <script>
