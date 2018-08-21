@@ -1,14 +1,14 @@
-import User, { userValidationSchema } from '../models/User'
+import { userModel, userValidation } from '../models/user'
 import passport from 'passport'
 import { checkSchema, validationResult } from 'express-validator/check'
 
 export register = [
-  checkSchema(userValidationSchema),
+  checkSchema(userValidation),
   (req, res, next) ->
     errs = validationResult(req)
     return res.status(422).json(errors: errs.array()) if !errs.isEmpty()
 
-    User.create req.body, (err, user) ->
+    userModel.create req.body, (err, user) ->
       return res.status(500).send('User registration failure') if err
       req.logIn user, (err) ->
         return next(err) if err
