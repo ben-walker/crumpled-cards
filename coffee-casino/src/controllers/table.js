@@ -8,7 +8,7 @@ export const create = [
     if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
 
     table.create(req.body, (err, table) => {
-      return res.status(500).send('Table creation failure')
+      if (err) return res.status(500).send('Table creation failure')
       res.status(200).send(table)
     })
   }
