@@ -1,5 +1,5 @@
 import localStrategy from './strategies/local'
-import { userModel } from '../../../models'
+import { userModel } from '../../models'
 
 export default (passport) ->
 
