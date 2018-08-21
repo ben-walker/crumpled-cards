@@ -5,7 +5,7 @@ import validation from './validation'
 
 SALT_WORK = 12
 
-userSchema = new mongoose.schema(schema, timestamps: true)
+userSchema = new mongoose.Schema(schema, timestamps: true)
 
 # coffeelint: disable=missing_fat_arrows
 userSchema.methods.comparePassword = (candidate, cb) ->
