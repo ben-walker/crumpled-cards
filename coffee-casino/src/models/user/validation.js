@@ -1,19 +1,19 @@
 export default {
   username: {
     isLength: {
-      options: { min: 4, max: 20 }
+      options: { min: 4, max: 20 },
     },
     trim: true,
-    escape: true
+    escape: true,
   },
   email: {
     trim: true,
     isEmail: true,
-    normalizeEmail: true
+    normalizeEmail: true,
   },
   password: {
     isLength: {
-      options: { min: 8 }
-    }
-  }
-}
+      options: { min: 8 },
+    },
+  },
+};

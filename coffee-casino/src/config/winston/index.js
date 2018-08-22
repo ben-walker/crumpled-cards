@@ -1,29 +1,29 @@
-import winston from 'winston'
-import fs from 'fs'
-import { LOG_DIR, combinedOptions, errorOptions } from './options'
+import winston from 'winston';
+import fs from 'fs';
+import { LOG_DIR, combinedOptions, errorOptions } from './options';
 
-if (!fs.existsSync(LOG_DIR)) fs.mkdirSync(LOG_DIR)
+if (!fs.existsSync(LOG_DIR)) fs.mkdirSync(LOG_DIR);
 
-let logger = winston.createLogger({
+const logger = winston.createLogger({
   transports: [
     new winston.transports.File(errorOptions),
-    new winston.transports.File(combinedOptions)
+    new winston.transports.File(combinedOptions),
   ],
-  exitOnError: false
-})
+  exitOnError: false,
+});
 
 logger.stream = {
   write: (msg, encoding) => {
-    logger.info(msg)
-  }
-}
+    logger.info(msg);
+  },
+};
 
 const consoleTransport = new winston.transports.Console({
-  format: winston.format.simple()
-})
+  format: winston.format.simple(),
+});
 
 if (process.env.NODE_ENV !== 'production') {
-  logger.add(consoleTransport)
+  logger.add(consoleTransport);
 }
 
-export default logger
+export default logger;

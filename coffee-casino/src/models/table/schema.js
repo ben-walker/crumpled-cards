@@ -1,14 +1,14 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const objId = mongoose.Schema.Types.ObjectId
+const objId = mongoose.Schema.Types.ObjectId;
 
 export default {
   title: {
     type: String,
-    required: true
+    required: true,
   },
   players: {
     type: [objId],
-    ref: 'user'
-  }
-}
+    ref: 'user',
+  },
+};

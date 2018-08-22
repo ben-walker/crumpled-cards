@@ -1,4 +1,4 @@
-import user from './user'
-import table from './table'
+import user from './user';
+import table from './table';
 
-export { user, table }
+export { user, table };

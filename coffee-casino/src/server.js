@@ -1,26 +1,26 @@
-import app from './app'
-import http from 'http'
-import socketIo from 'socket.io'
-import mongoAdapter from 'socket.io-adapter-mongo'
+import http from 'http';
+import socketIo from 'socket.io';
+import mongoAdapter from 'socket.io-adapter-mongo';
+import app from './app';
 
 function normalizePort(val) {
-  const port = parseInt(val, 10)
+  const port = parseInt(val, 10);
   return isNaN(port)
     ? val
     : port >= 0
       ? port
-      : val
+      : val;
 }
 
-const PORT = normalizePort(process.env.PORT || '3000')
-app.set('port', port)
+const PORT = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
 
-let server = http.createServer(app)
-server.listen(PORT)
+const server = http.createServer(app);
+server.listen(PORT);
 
 export const io = socketIo(server, {
   serveClient: false,
-  adapter: mongoAdapter(process.env.MONGODB_URI)
-})
+  adapter: mongoAdapter(process.env.MONGODB_URI),
+});
 
-export default server
+export default server;

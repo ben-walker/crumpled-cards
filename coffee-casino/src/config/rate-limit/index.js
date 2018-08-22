@@ -1,3 +1,3 @@
-import authLimiter from './limiters/auth'
+import authLimiter from './limiters/auth';
 
-export { authLimiter }
+export { authLimiter };
