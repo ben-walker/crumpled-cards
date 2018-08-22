@@ -5,15 +5,13 @@ import app from './app';
 
 function normalizePort(val) {
   const port = parseInt(val, 10);
-  return isNaN(port)
-    ? val
-    : port >= 0
-      ? port
-      : val;
+  if (Number.isNaN(port)) return val;
+  if (port >= 0) return port;
+  return false;
 }
 
 const PORT = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+app.set('port', PORT);
 
 const server = http.createServer(app);
 server.listen(PORT);
