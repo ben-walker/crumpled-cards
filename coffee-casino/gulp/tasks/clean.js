@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const plugins = require('../plugins');
 const config = require('../config');
 
-module.exports = () => (done) => {
+module.exports = (done) => {
   gulp.src(config.paths.build_dir, {
     read: false,
     allowEmpty: true,
