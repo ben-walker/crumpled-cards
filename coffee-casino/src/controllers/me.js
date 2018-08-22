@@ -1,5 +1,4 @@
-export const getUserInfo = (req, res, next) => {
-  req.isAuthenticated()
-    ? res.status(200).send({ user: req.user })
-    : res.status(404).send({ user: null });
+export default (req, res) => {
+  if (req.isAuthenticated()) res.status(200).send({ user: req.user });
+  else res.status(404).send({ user: null });
 };
