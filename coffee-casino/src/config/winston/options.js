@@ -6,14 +6,14 @@ const MAX_FILES = 5;
 
 export const errorOptions = {
   level: 'error',
-  filename: `${appRoot}/#{LOG_DIR}/error.log`,
+  filename: `${appRoot}/${LOG_DIR}/error.log`,
   handleExceptions: true,
   maxsize: FILE_SIZE,
   maxFiles: MAX_FILES,
 };
 
 export const combinedOptions = {
-  filename: `${appRoot}/#{LOG_DIR}/combined.log`,
+  filename: `${appRoot}/${LOG_DIR}/combined.log`,
   handleExceptions: true,
   maxsize: FILE_SIZE,
   maxFiles: MAX_FILES,
