@@ -6,7 +6,7 @@
     "start": "(cd gulp && gulp production) && node ./dist/server.js",
     "watch": "(cd gulp && gulp production) && nodemon ./dist/server.js",
     "eslint": "eslint",
-    "lint": "eslint ./src",
+    "lint": "eslint ./",
     "heroku-publish": "cd ../ && git subtree push --prefix coffee-casino heroku-coffee-casino master || true"
   },
   "engines": {
