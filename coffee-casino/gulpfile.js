@@ -22,7 +22,7 @@ function loadTasks() {
 
 loadTasks()
 
-gulp.task('build', gulp.series())
+gulp.task('build', gulp.series('clean'))
 gulp.task('watch', (done) => {
   gulp.watch(GLOBS.src_files, gulp.series('build'))
   done()
