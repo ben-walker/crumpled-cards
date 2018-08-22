@@ -71,4 +71,4 @@ app.use((err, req, res, next) => {
   res.status(status).send(error)
 })
 
-export default app
+exports = app
