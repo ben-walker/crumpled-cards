@@ -17,6 +17,7 @@ function getTask(task) {
 
 function loadTasks() {
   const TASKS = fs.readdirSync(PATHS.task_dir).map(file => stripExt(file))
+  TASKS.forEach((task) => gulp.task(task, getTask(task)))
 }
 
 loadTasks()
