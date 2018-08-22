@@ -4,7 +4,7 @@ const config = require('./config')
 
 utilities.loadTasks(gulp)
 
-gulp.task('build', gulp.series('babel'))
+gulp.task('build', gulp.series('eslint', 'babel'))
 gulp.task('watch', done => {
   gulp.watch(config.globs.src_files, gulp.series('build'))
   done()
