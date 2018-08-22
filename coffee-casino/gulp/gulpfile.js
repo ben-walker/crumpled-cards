@@ -1,14 +1,14 @@
-const gulp = require('gulp')
-const utilities = require('./utilities')
-const config = require('./config')
+const gulp = require('gulp');
+const utilities = require('./utilities');
+const config = require('./config');
 
-utilities.loadTasks(gulp)
+utilities.loadTasks(gulp);
 
-gulp.task('build', gulp.series('eslint', 'babel'))
-gulp.task('watch', done => {
-  gulp.watch(config.globs.src_files, gulp.series('build'))
-  done()
-})
+gulp.task('build', gulp.series('eslint', 'babel'));
+gulp.task('watch', (done) => {
+  gulp.watch(config.globs.src_files, gulp.series('build'));
+  done();
+});
 
-gulp.task('default', gulp.series('clean', 'build', 'watch', 'nodemon'))
-gulp.task('production', gulp.series('clean', 'build'))
+gulp.task('default', gulp.series('clean', 'build', 'watch', 'nodemon'));
+gulp.task('production', gulp.series('clean', 'build'));
