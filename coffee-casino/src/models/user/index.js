@@ -21,10 +21,10 @@ userSchema.pre('save', function (next) {
 });
 /* eslint-enable */
 
-const user = mongoose.model('user', userSchema);
+const User = mongoose.model('User', userSchema);
 
 export {
-  user,
+  User,
   schema as userSchema,
   validation as userValidation,
 };

@@ -9,6 +9,6 @@ export default {
   },
   players: {
     type: [objId],
-    ref: 'user',
+    ref: 'User',
   },
 };

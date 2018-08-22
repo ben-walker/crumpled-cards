@@ -6,10 +6,10 @@ const tableSchema = new mongoose.Schema(schema, {
   timestamps: true,
 });
 
-const table = mongoose.model('table', tableSchema);
+const Table = mongoose.model('Table', tableSchema);
 
 export {
-  table,
+  Table,
   schema as tableSchema,
   validation as tableValidation,
 };
