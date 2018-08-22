@@ -1,11 +1,9 @@
-const plugins = require('../plugins')
-const config = require('../config')
+const plugins = require('../plugins');
+const config = require('../config');
 
-module.exports = () => {
-  return (done) => {
-    plugins.nodemon({
-      script: config.paths.node_entry,
-      delay: 2500
-    }).on('start', () => done())
-  }
-}
+module.exports = () => (done) => {
+  plugins.nodemon({
+    script: config.paths.node_entry,
+    delay: 2500,
+  }).on('start', () => done());
+};
