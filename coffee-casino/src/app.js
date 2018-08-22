@@ -1,19 +1,19 @@
-require('dotenv/config')
-const createError = require('http-errors')
-const express = require('express')
-const session = require('express-session')
-const cors = require('cors')
-const path = require('path')
-const cookieParser = require('cookie-parser')
-const morgan = require('morgan')
-const helmet = require('helmet')
-const mongoose = require('mongoose')
-const connectMongo = require('connect-mongo')
-const apiRouter = require('./routes/api')
-const passport = require('passport')
-const passportConfig = require('./config/passport')
-const winston = require('./config/winston')
-const secure = require('express-force-https')
+import 'dotenv/config'
+import createError from 'http-errors'
+import express from 'express'
+import session from 'express-session'
+import cors from 'cors'
+import path from 'path'
+import cookieParser from 'cookie-parser'
+import morgan from 'morgan'
+import helmet from 'helmet'
+import mongoose from 'mongoose'
+import connectMongo from 'connect-mongo'
+import apiRouter from './routes/api'
+import passport from 'passport'
+import passportConfig from './config/passport'
+import winston from './config/winston'
+import secure from 'express-force-https'
 
 let app = express()
 app.use(secure)
@@ -71,4 +71,4 @@ app.use((err, req, res, next) => {
   res.status(status).send(error)
 })
 
-exports = app
+export default app
