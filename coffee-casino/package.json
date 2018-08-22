@@ -43,5 +43,8 @@
     "socket.io": "^2.1.1",
     "socket.io-adapter-mongo": "^2.0.3",
     "winston": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.4.0"
   }
 }
