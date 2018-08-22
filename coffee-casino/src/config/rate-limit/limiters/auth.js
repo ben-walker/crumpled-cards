@@ -1,6 +1,6 @@
-import rateLimit from 'express-rate-limit';
+import RateLimit from 'express-rate-limit';
 
-export default new rateLimit({
+export default new RateLimit({
   windowMs: 1 * 60 * 1000,
   max: 5,
 });
