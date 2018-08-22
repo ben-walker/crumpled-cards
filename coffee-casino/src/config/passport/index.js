@@ -1,5 +1,5 @@
 import localLogin from './strategies/local';
-import { user } from '../../models';
+import { User } from '../../models';
 
 export default (passport) => {
   passport.serializeUser((user, done) => {
@@ -7,7 +7,7 @@ export default (passport) => {
   });
 
   passport.deserializeUser((id, done) => {
-    user.findById(id, '-password', (err, user) => {
+    User.findById(id, '-password', (err, user) => {
       done(err, user);
     });
   });

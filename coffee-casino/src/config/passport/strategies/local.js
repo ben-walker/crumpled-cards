@@ -1,13 +1,13 @@
 import local from 'passport-local';
-import { user } from '../../../models';
+import { User } from '../../../models';
 
-localStrategy = local.Strategy;
+const LocalStrategy = local.Strategy;
 
-const localLogin = new localStrategy({
+const localLogin = new LocalStrategy({
   usernameField: 'identifier',
 },
 ((identifier, password, done) => {
-  user.findOne({
+  User.findOne({
     $or: [
       { username: identifier },
       { email: identifier },
