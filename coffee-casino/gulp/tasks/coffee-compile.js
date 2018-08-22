@@ -1,14 +1,16 @@
-module.exports = (gulp, plugins, config) => {
-  PATHS = config.paths
-  GLOBS = config.globs
+const gulp = require('gulp')
+const plugins = require('../plugins')
+const config = require('../config')
+
+module.exports = () => {
   return () => {
-    gulp.src(GLOBS.src_files)
+    gulp.src(config.globs.src_files)
       .pipe(plugins.sourcemaps.init({ loadMaps: true }))
       .pipe(plugins.coffee({ bare: true }))
       .pipe(plugins.babel({
         presets: ['env']
       }))
       .pipe(plugins.sourcemaps.write('./'))
-      .pipe(gulp.dest(PATHS.build_dir))
+      .pipe(gulp.dest(config.paths.build_dir))
   }
 }
