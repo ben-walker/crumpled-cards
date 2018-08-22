@@ -25,12 +25,12 @@ const corsOpts = {
 app.options('*', cors(corsOpts));
 app.use(cors(corsOpts));
 
-const mongoStore = connectMongo(session);
+const MongoStore = connectMongo(session);
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 const sessionConfig = {
   secret: process.env.SECRET,
-  store: new mongoStore({ mongooseConnection: mongoose.Connection }),
+  store: new MongoStore({ mongooseConnection: mongoose.Connection }),
   saveUninitialized: false,
   resave: false,
   unset: 'destroy',
@@ -60,7 +60,7 @@ app.use((req, res, next) => {
   next(createError(404));
 });
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   const error = req.app.get('env') === 'development'
     ? err
     : {};
