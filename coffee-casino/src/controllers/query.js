@@ -1,22 +1,22 @@
-import { user } from '../models';
+import { User } from '../models';
 
-export const usernameRegistered = (req, res, next) => {
-  user.findOne({ username: req.query.username }, (err, user) => {
+export const usernameRegistered = (req, res) => {
+  User.findOne({ username: req.query.username }, (err, user) => {
     if (err) res.status(500).send('Request failure');
     else res.status(200).send(!!user);
   });
 };
 
-export const emailRegistered = (req, res, next) => {
-  user.findOne({ email: req.query.email }, (err, user) => {
+export const emailRegistered = (req, res) => {
+  User.findOne({ email: req.query.email }, (err, user) => {
     if (err) res.status(500).send('Request failure');
     else res.status(200).send(!!user);
   });
 };
 
-export const identifierExists = (req, res, next) => {
+export const identifierExists = (req, res) => {
   const id = req.query.identifier;
-  user.findOne({
+  User.findOne({
     $or: [
       { username: id },
       { email: id },
@@ -27,17 +27,16 @@ export const identifierExists = (req, res, next) => {
   });
 };
 
-export const passwordMatches = (req, res, next) => {
-  const id = req.body.identifier;
-  const password = req.body.password;
-  user.findOne({
+export const passwordMatches = (req, res) => {
+  const { identifier, password } = req.body;
+  User.findOne({
     $or: [
-      { username: id },
-      { email: id },
+      { username: identifier },
+      { email: identifier },
     ],
   }, (err, user) => {
     if (err) return res.status(500).send('Request failure');
-    if (!user) res.status(200).send(true);
-    else res.status(200).send(user.comparePassword(password));
+    if (!user) return res.status(200).send(true);
+    return res.status(200).send(user.comparePassword(password));
   });
 };
