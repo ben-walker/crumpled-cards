@@ -1,7 +1,7 @@
-const plugins = require('../plugins');
-const config = require('../config');
+import plugins from '../plugins';
+import config from '../config';
 
-module.exports = (done) => {
+export default (done) => {
   plugins.nodemon({
     script: config.paths.node_entry,
     delay: 2500,
