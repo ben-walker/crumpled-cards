@@ -1,9 +1,9 @@
-const babel = require('./babel');
-const clean = require('./clean');
-const eslint = require('./eslint');
-const nodemon = require('./nodemon');
+import babel from './babel';
+import clean from './clean';
+import eslint from './eslint';
+import nodemon from './nodemon';
 
-module.exports = {
+export {
   babel,
   clean,
   eslint,
