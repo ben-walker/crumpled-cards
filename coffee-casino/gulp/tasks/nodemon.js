@@ -4,6 +4,8 @@ import config from '../config';
 export default (done) => {
   plugins.nodemon({
     script: config.paths.node_entry,
-    delay: 2500,
+    watch: [
+      config.paths.build_dir,
+    ],
   }).on('start', () => done());
 };
