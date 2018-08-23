@@ -1,6 +1,5 @@
 export default {
   paths: {
-    task_dir: './tasks/',
     build_dir: '../dist',
     node_entry: '../dist/server.js',
   },
