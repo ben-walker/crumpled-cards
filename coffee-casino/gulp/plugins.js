@@ -1,3 +1,3 @@
-const plugins = require('gulp-load-plugins')();
+import gulpLoadPlugins from 'gulp-load-plugins';
 
-module.exports = plugins;
+export default gulpLoadPlugins();
