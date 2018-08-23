@@ -1,8 +1,8 @@
-const gulp = require('gulp');
-const plugins = require('../plugins');
-const config = require('../config');
+import gulp from 'gulp';
+import plugins from '../plugins';
+import config from '../config';
 
-module.exports = () => gulp.src(config.paths.build_dir, {
+export default () => gulp.src(config.paths.build_dir, {
   read: false,
   allowEmpty: true,
 })
