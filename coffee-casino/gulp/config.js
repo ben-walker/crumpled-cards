@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   paths: {
     task_dir: './tasks/',
     build_dir: '../dist',
