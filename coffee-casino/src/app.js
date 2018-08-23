@@ -30,7 +30,7 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 const sessionConfig = {
   secret: process.env.SECRET,
-  store: new MongoStore({ mongooseConnection: mongoose.Connection }),
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
   saveUninitialized: false,
   resave: false,
   unset: 'destroy',
