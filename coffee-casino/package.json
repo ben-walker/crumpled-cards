@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "(cd gulp && gulp) && node ./dist/server.js",
-    "watch": "(cd gulp && gulp) && nodemon ./dist/server.js",
+    "start": "gulp production && node ./dist/server.js",
+    "watch": "nodemon ./dist/server.js",
     "eslint": "eslint",
     "lint": "eslint ./",
     "heroku-publish": "cd ../ && git subtree push --prefix coffee-casino heroku-coffee-casino master || true"
