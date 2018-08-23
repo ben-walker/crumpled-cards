@@ -7,5 +7,8 @@ export default (done) => {
     watch: [
       config.paths.build_dir,
     ],
+    ignore: [
+      config.paths.sourcemaps,
+    ],
   }).on('start', () => done());
 };
