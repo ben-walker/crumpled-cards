@@ -4,7 +4,7 @@ const config = require('../config');
 
 module.exports = () => gulp.src(config.globs.src_files)
   .pipe(plugins.changed(config.paths.build_dir))
-  .pipe(plugins.sourcemaps.init())
+  .pipe(plugins.sourcemaps.init({ loadMaps: true }))
   .pipe(plugins.babel({
     presets: ['env'],
   }))
