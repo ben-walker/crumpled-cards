@@ -1,6 +1,6 @@
 <template lang="pug">
   #tableModal
-    b-modal(:active.sync="active")
+    b-modal(:active.sync="active" :width="500")
       .box
         h2.subtitle.is-4.has-text-grey.is-unselectable Create Your Table
         form(@submit.prevent="submit" novalidate)
