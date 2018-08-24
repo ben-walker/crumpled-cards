@@ -10,5 +10,8 @@ export default (done) => {
     ignore: [
       config.paths.sourcemaps,
     ],
+    env: {
+      DEBUG: 'debug',
+    },
   }).on('start', () => done());
 };
