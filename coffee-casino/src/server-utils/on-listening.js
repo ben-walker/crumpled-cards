@@ -1,6 +1,6 @@
 import logger from '../config/debugger';
 
-export default (server) => {
+export default server => () => {
   const address = server.address();
   const bind = typeof address === 'string'
     ? `pipe ${address}`

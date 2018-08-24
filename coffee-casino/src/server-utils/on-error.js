@@ -1,6 +1,6 @@
 import logger from '../config/debugger';
 
-export default (error, port) => {
+export default (error, port) => () => {
   if (error.syscall !== 'listen') throw error;
 
   const bind = typeof port === 'string'
