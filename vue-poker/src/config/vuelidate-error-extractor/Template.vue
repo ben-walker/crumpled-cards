@@ -1,5 +1,5 @@
 <template lang="pug">
-  b-field(
+  b-field.is-unselectable(
     :label="label"
     :custom-class="customClass"
     :type="type"
