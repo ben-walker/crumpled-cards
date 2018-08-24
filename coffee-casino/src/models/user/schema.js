@@ -1,3 +1,7 @@
+import mongoose from 'mongoose';
+
+const objId = mongoose.Schema.Types.ObjectId;
+
 export default {
   username: {
     type: String,
@@ -14,5 +18,9 @@ export default {
   password: {
     type: String,
     required: true,
+  },
+  friends: {
+    type: [objId],
+    ref: 'User',
   },
 };
