@@ -1,7 +1,7 @@
 <template lang="pug">
   #login
     .box
-      h2.subtitle.is-4.has-text-grey Welcome Back
+      h2.subtitle.is-4.has-text-grey.is-unselectable Welcome Back
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.identifier" label="Username or Email" attribute="Identifier")
           b-input(
@@ -22,10 +22,10 @@
           )
         nav.level
           .level-left
-            a.level-item(@click="forgotPassword") Forgot your password?
+            a.level-item.is-unselectable(@click="forgotPassword") Forgot your password?
           .level-right
             button.level-item.button.is-light(type="submit" :class="{ 'is-loading': loading }") Log In
-    p Need an account? #[InternalLink(:link="signupLink")]
+    p.is-unselectable Need an account? #[InternalLink(:link="signupLink")]
 </template>
 
 <script>

@@ -5,7 +5,7 @@
         section.section.is-medium
           .container.has-text-centered
             TitleHead
-            h2.subtitle.is-4 online poker, made with ❤️
+            h2.subtitle.is-4.is-unselectable online poker, made with ❤️
             nav.breadcrumb.has-bullet-separator.is-centered
               ul
                 li(v-for="link in links" :key="link.id")

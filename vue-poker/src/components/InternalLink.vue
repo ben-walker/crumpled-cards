@@ -1,5 +1,5 @@
 <template lang="pug">
-  router-link(:to="link.route" :class="'has-text-' + link.color")
+  router-link.is-unselectable(:to="link.route" :class="'has-text-' + link.color")
     span {{ link.text }}
 </template>
 
