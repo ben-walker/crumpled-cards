@@ -1,6 +1,4 @@
-import debug from 'debug';
-
-const logger = debug('debug');
+import logger from '../config/debugger';
 
 export default (server) => {
   const address = server.address();
