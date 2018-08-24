@@ -2,8 +2,10 @@
   #tableModal
     b-modal(:active.sync="active")
       .box
+        h2.subtitle.is-4.has-text-grey.is-unselectable Create Your Table
         form(@submit.prevent="submit" novalidate)
-          a.is-size-3.is-unselectable(@click="newTitle") {{ titleize }}
+          label.label.is-unselectable(@click="newTitle") Title
+          span.tag.is-primary.is-large.is-unselectable(@click="newTitle") {{ titleize }}
           .has-text-right
             button.button.is-light(type="submit") Create Table
 </template>
