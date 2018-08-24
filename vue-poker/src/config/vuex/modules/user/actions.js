@@ -43,7 +43,10 @@ export default {
     return new Promise((resolve, reject) => {
       axios.get('me')
         .then(res => resolve(res.data.user))
-        .catch(err => reject(err))
+        .catch(err => {
+          if (err.response && err.response.status === 404) commit(REVOKE_AUTH)
+          reject(err)
+        })
     })
   }
 }
