@@ -5,6 +5,8 @@
         .navbar-brand
           TitleHead
         .navbar-menu
+          .navbar-start
+          .navbar-end
 </template>
 
 <script>
