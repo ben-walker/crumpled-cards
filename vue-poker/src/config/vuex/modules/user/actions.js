@@ -37,5 +37,13 @@ export default {
         })
         .catch(err => reject(err))
     })
+  },
+
+  async getMe ({ commit }) {
+    return new Promise((resolve, reject) => {
+      axios.get('me')
+        .then(res => resolve(res.data.user))
+        .catch(err => reject(err))
+    })
   }
 }
