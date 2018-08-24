@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "gulp production && node ./dist/server.js",
-    "watch": "DEBUG=debug nodemon ./dist/server.js",
+    "watch": "gulp",
     "eslint": "eslint",
     "lint": "eslint ./",
     "heroku-publish": "cd ../ && git subtree push --prefix coffee-casino heroku-coffee-casino master || true"
