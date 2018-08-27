@@ -19,7 +19,7 @@ const app = express();
 app.use(secure);
 
 const corsOpts = {
-  origin: process.env.ORIGIN,
+  origin: process.env.ORIGINS.split(','),
   credentials: true,
 };
 app.options('*', cors(corsOpts));
