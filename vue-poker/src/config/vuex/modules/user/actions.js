@@ -1,34 +1,32 @@
 import axios from '@/config/axios'
+import to from 'await-to-js'
 import { AUTHENTICATE, REVOKE_AUTH, START_LOADING, STOP_LOADING } from './mutations'
 
 export default {
   async signUp ({ commit }, authPayload) {
     commit(START_LOADING)
-    await axios.post('signUp', authPayload)
-      .then(() => commit(AUTHENTICATE))
-      .catch(err => { throw err })
-      .finally(() => commit(STOP_LOADING))
+    const [ err ] = await to(axios.post('signUp', authPayload))
+    if (err) throw err
+    commit(AUTHENTICATE)
+    commit(STOP_LOADING)
   },
 
   async logIn ({ commit }, authPayload) {
     commit(START_LOADING)
-    await axios.post('logIn', authPayload)
-      .then(() => commit(AUTHENTICATE))
-      .catch(err => { throw err })
-      .finally(() => commit(STOP_LOADING))
+    const [ err ] = await to(axios.post('logIn', authPayload))
+    if (err) throw err
+    commit(AUTHENTICATE)
+    commit(STOP_LOADING)
   },
 
   async logOut ({ commit }) {
-    await axios.post('logOut')
-      .then(() => commit(REVOKE_AUTH))
-      .catch(err => { throw err })
+    const [ err ] = await to(axios.post('logOut'))
+    if (err) throw err
+    commit(REVOKE_AUTH)
   },
 
   async checkAuth ({ commit }) {
-    await axios.get('me')
-      .catch(err => {
-        if (err.response && err.response.status === 404) commit(REVOKE_AUTH)
-        else throw err
-      })
+    const [ err ] = await to(axios.get('me'))
+    if (err) commit(REVOKE_AUTH)
   }
 }
