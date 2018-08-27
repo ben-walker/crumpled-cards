@@ -4,15 +4,10 @@ import { AUTHENTICATE, REVOKE_AUTH, START_LOADING, STOP_LOADING } from './mutati
 export default {
   async signUp ({ commit }, authPayload) {
     commit(START_LOADING)
-    return new Promise((resolve, reject) => {
-      axios.post('register', authPayload)
-        .then(res => {
-          commit(AUTHENTICATE)
-          resolve(res)
-        })
-        .catch(err => reject(err))
-        .finally(() => commit(STOP_LOADING))
-    })
+    await axios.post('signUp', authPayload)
+      .then(() => commit(AUTHENTICATE))
+      .catch(err => { throw err })
+      .finally(() => commit(STOP_LOADING))
   },
 
   async logIn ({ commit }, authPayload) {

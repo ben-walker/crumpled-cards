@@ -96,25 +96,31 @@ export default {
     }
   },
   methods: {
-    submit () {
+    async submit () {
       this.$v.$touch()
       if (!this.$v.$invalid) {
-        this.$store.dispatch('user/signUp', this.authPayload)
-          .then(() => this.$router.push('/'))
-          .catch(err => {
-            if (err.response) {
-              switch (err.response.status) {
-                case 422: // unprocessable
-                  this.dangerToast('User data is invalid')
-                  break
-                case 429: // rate limited
-                  this.dangerToast('Please try again later')
-                  break
-                case 500: // internal server error
-                  this.dangerToast('Internal server error')
-              }
-            }
-          })
+        try {
+          await this.$store.dispatch('user/signUp', this.authPayload)
+          this.$router.push('/')
+        } catch (err) {
+          this.handleError(err)
+        }
+      }
+    },
+    handleError (err) {
+      if (err.response) {
+        switch (err.response.status) {
+          case 422: // unprocessable
+            this.dangerToast('User data is invalid')
+            break
+          case 429: // rate limited
+            this.dangerToast('Please try again later')
+            break
+          case 500: // internal server error
+            this.dangerToast('Internal server error')
+        }
+      } else {
+        this.dangerToast('Unexpected error')
       }
     }
   }
