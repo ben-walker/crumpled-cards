@@ -24,20 +24,16 @@ export default {
   },
 
   async logOut ({ commit }) {
-    return new Promise((resolve, reject) => {
-      axios.post('logOut')
-        .then(res => {
-          commit(REVOKE_AUTH)
-          resolve(res)
-        })
-        .catch(err => reject(err))
-    })
+    await axios.post('logOut')
+      .then(() => commit(REVOKE_AUTH))
+      .catch(err => { throw err })
   },
 
   async checkAuth ({ commit }) {
     await axios.get('me')
       .catch(err => {
         if (err.response && err.response.status === 404) commit(REVOKE_AUTH)
+        else throw err
       })
   }
 }
