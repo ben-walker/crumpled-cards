@@ -77,30 +77,36 @@ export default {
     }
   },
   methods: {
-    submit () {
+    async submit () {
       this.$v.$touch()
       if (!this.$v.$invalid) {
-        this.$store.dispatch('user/logIn', this.authPayload)
-          .then(() => this.$router.push('/'))
-          .catch((err) => {
-            if (err.response) {
-              switch (err.response.status) {
-                case 401: // unauthorized
-                  this.passwordError = true
-                  break
-                case 429: // rate limited
-                  this.dangerToast('Please try again later')
-                  break
-                case 500: // internal server error
-                  this.dangerToast('Internal server error')
-              }
-            }
-          })
+        try {
+          await this.$store.dispatch('user/logIn', this.authPayload)
+          this.$router.push('/')
+        } catch (err) {
+          this.handleError(err)
+        }
       }
     },
     forgotPassword () {
       this.$v.identifier.$touch()
       if (!this.$v.identifier.$invalid) this.$emit('forgotPassword', this.identifier)
+    },
+    handleError (err) {
+      if (err.response) {
+        switch (err.response.status) {
+          case 401: // unauthorized
+            this.passwordError = true
+            break
+          case 429: // rate limited
+            this.dangerToast('Please try again later')
+            break
+          case 500: // internal server error
+            this.dangerToast('Internal server error')
+        }
+      } else {
+        this.dangerToast('Unexpected error')
+      }
     }
   }
 }

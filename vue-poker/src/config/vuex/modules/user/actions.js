@@ -17,15 +17,10 @@ export default {
 
   async logIn ({ commit }, authPayload) {
     commit(START_LOADING)
-    return new Promise((resolve, reject) => {
-      axios.post('logIn', authPayload)
-        .then(res => {
-          commit(AUTHENTICATE)
-          resolve(res)
-        })
-        .catch(err => reject(err))
-        .finally(() => commit(STOP_LOADING))
-    })
+    await axios.post('logIn', authPayload)
+      .then(() => commit(AUTHENTICATE))
+      .catch(err => { throw err })
+      .finally(() => commit(STOP_LOADING))
   },
 
   async logOut ({ commit }) {
