@@ -20,4 +20,6 @@ router.post('/passwordMatches', authLimiter, queryController.passwordMatches);
 
 router.post('/createTable', create);
 
+router.all('*', (req, res) => res.status(404).end());
+
 export default router;
