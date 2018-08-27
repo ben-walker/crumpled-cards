@@ -2,7 +2,7 @@ import axios from '@/config/axios'
 import { AUTHENTICATE, REVOKE_AUTH, START_LOADING, STOP_LOADING } from './mutations'
 
 export default {
-  async signup ({ commit }, authPayload) {
+  async signUp ({ commit }, authPayload) {
     commit(START_LOADING)
     return new Promise((resolve, reject) => {
       axios.post('register', authPayload)

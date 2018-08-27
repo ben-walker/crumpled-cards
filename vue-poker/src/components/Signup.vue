@@ -99,7 +99,7 @@ export default {
     submit () {
       this.$v.$touch()
       if (!this.$v.$invalid) {
-        this.$store.dispatch('user/signup', this.authPayload)
+        this.$store.dispatch('user/signUp', this.authPayload)
           .then(() => this.$router.push('/'))
           .catch(err => {
             if (err.response) {
