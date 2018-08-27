@@ -28,9 +28,9 @@ export default {
     })
   },
 
-  async logout ({ commit }) {
+  async logOut ({ commit }) {
     return new Promise((resolve, reject) => {
-      axios.post('logout')
+      axios.post('logOut')
         .then(res => {
           commit(REVOKE_AUTH)
           resolve(res)
