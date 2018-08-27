@@ -2,7 +2,7 @@ import passport from 'passport';
 import { checkSchema, validationResult } from 'express-validator/check';
 import { User, userValidation } from '../models/user';
 
-export const register = [
+export const signUp = [
   checkSchema(userValidation),
   (req, res, next) => {
     const errors = validationResult(req);

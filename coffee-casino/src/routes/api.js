@@ -7,7 +7,7 @@ import authLimiter from '../config/rate-limit';
 
 const router = express.Router();
 
-router.post('/register', authLimiter, authController.register);
+router.post('/signUp', authLimiter, authController.signUp);
 router.post('/logIn', authLimiter, authController.logIn);
 router.post('/logOut', authController.logOut);
 
