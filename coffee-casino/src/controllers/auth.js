@@ -18,7 +18,7 @@ export const register = [
   },
 ];
 
-export const login = [
+export const logIn = [
   passport.authenticate('local'),
   (req, res) => {
     req.session.save();
@@ -26,7 +26,7 @@ export const login = [
   },
 ];
 
-export const logout = (req, res) => {
+export const logOut = (req, res) => {
   req.logOut();
   req.session.destroy((err) => {
     if (err) res.status(500).send('Session destruction failure');
