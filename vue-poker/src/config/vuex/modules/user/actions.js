@@ -15,10 +15,10 @@ export default {
     })
   },
 
-  async login ({ commit }, authPayload) {
+  async logIn ({ commit }, authPayload) {
     commit(START_LOADING)
     return new Promise((resolve, reject) => {
-      axios.post('login', authPayload)
+      axios.post('logIn', authPayload)
         .then(res => {
           commit(AUTHENTICATE)
           resolve(res)
