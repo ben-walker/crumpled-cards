@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import to from 'await-to-js'
 import { validationMixin } from 'vuelidate'
 import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
 import { minEntropy, unique } from '@/validators'
@@ -99,12 +100,9 @@ export default {
     async submit () {
       this.$v.$touch()
       if (!this.$v.$invalid) {
-        try {
-          await this.$store.dispatch('user/signUp', this.authPayload)
-          this.$router.push('/')
-        } catch (err) {
-          this.handleError(err)
-        }
+        const [ err ] = await to(this.$store.dispatch('user/signUp', this.authPayload))
+        if (err) return this.handleError(err)
+        this.$router.push('/')
       }
     },
     handleError (err) {

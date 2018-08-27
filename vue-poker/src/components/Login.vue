@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import to from 'await-to-js'
 import { validationMixin } from 'vuelidate'
 import { debounceInput, toast } from '@/mixins'
 import { required } from 'vuelidate/lib/validators'
@@ -80,12 +81,9 @@ export default {
     async submit () {
       this.$v.$touch()
       if (!this.$v.$invalid) {
-        try {
-          await this.$store.dispatch('user/logIn', this.authPayload)
-          this.$router.push('/')
-        } catch (err) {
-          this.handleError(err)
-        }
+        const [ err ] = await to(this.$store.dispatch('user/logIn', this.authPayload))
+        if (err) return this.handleError(err)
+        this.$router.push('/')
       }
     },
     forgotPassword () {
