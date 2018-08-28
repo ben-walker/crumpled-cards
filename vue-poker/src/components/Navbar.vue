@@ -8,7 +8,7 @@
           .navbar-start
           .navbar-end
             .navbar-item.has-dropdown.is-hoverable
-              a #[avatar.is-unselectable(:username="$store.state.user.data.username")]
+              a #[avatar.is-unselectable(:username="$store.state.user.data.username" color="white")]
               .navbar-dropdown.is-boxed.is-right
                 .navbar-item
                   strong.is-unselectable {{ $store.state.user.data.username }}
