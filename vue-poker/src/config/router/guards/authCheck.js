@@ -1,10 +1,9 @@
-import toAsync from 'await-to-js'
 import store from '@/config/vuex'
 
 export default async (to, from, next) => {
-  const [ err ] = await toAsync(store.dispatch('user/getMe'))
+  await store.dispatch('user/getMe')
   const authRequired = to.matched.some((route) => route.meta.auth)
-  const authenticated = err === null
+  const authenticated = store.getters['user/authenticated']
 
   if (authRequired && !authenticated) next('/welcome')
   else if (!authRequired && authenticated) next('/')
