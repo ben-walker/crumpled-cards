@@ -1,12 +1,11 @@
+import to from 'await-to-js'
 import axios from '@/config/axios'
 
-export default (field) => (value, vm) => {
+export default (field) => async (value, vm) => {
   if (value === '') return true
-  return new Promise((resolve, reject) => {
-    axios.get(`${field}Registered`, {
-      params: { [field]: value }
-    })
-      .then(res => resolve(!res.data))
-      .catch(err => reject(err))
-  })
+  const [ err, res ] = await to(axios.get(`${field}Registered`, {
+    params: { [field]: value }
+  }))
+  if (err) throw err
+  return Boolean(!res.data)
 }
