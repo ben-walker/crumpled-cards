@@ -13,10 +13,10 @@
                 .navbar-item
                   strong.is-unselectable {{ username }}
                 hr.navbar-divider
-                a.navbar-item
+                router-link(to="/profile").navbar-item
                   span.icon.has-text-primary
                     i.fas.fa-user
-                  strong.is-unselectable View Account
+                  strong.is-unselectable View Profile
                 a.navbar-item(@click="logout")
                   span.icon.has-text-danger
                     i.fas.fa-sign-out-alt
