@@ -7,15 +7,31 @@
         .navbar-menu
           .navbar-start
           .navbar-end
+            .navbar-item.has-dropdown.is-hoverable
+              a #[avatar.is-unselectable(username="test account")]
+              .navbar-dropdown.is-boxed.is-right
+                a.navbar-item(@click="logout")
+                  span.icon.has-text-danger
+                    i.fas.fa-sign-out-alt
+                  strong Log Out
 </template>
 
 <script>
+import to from 'await-to-js'
 import TitleHead from '@/components/TitleHead.vue'
+import Avatar from 'vue-avatar'
 
 export default {
   name: 'navbar',
   components: {
-    TitleHead
+    TitleHead,
+    Avatar
+  },
+  methods: {
+    async logout () {
+      const [ err ] = await to(this.$store.dispatch('user/logOut'))
+      if (!err) this.$router.push('/welcome')
+    }
   }
 }
 </script>
