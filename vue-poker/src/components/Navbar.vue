@@ -10,10 +10,17 @@
             .navbar-item.has-dropdown.is-hoverable
               a #[avatar.is-unselectable(:username="$store.state.user.data.username")]
               .navbar-dropdown.is-boxed.is-right
+                .navbar-item
+                  strong.is-unselectable {{ $store.state.user.data.username }}
+                hr.navbar-divider
+                a.navbar-item
+                  span.icon.has-text-success
+                    i.fas.fa-user
+                  strong.is-unselectable View Account
                 a.navbar-item(@click="logout")
                   span.icon.has-text-danger
                     i.fas.fa-sign-out-alt
-                  strong Log Out
+                  strong.is-unselectable Log Out
 </template>
 
 <script>
