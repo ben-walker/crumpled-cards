@@ -1,6 +1,6 @@
 import axios from '@/config/axios'
 import to from 'await-to-js'
-import { AUTHENTICATE, REVOKE_AUTH, START_LOADING, STOP_LOADING, POPULATE } from './mutations'
+import { AUTHENTICATE, START_LOADING, STOP_LOADING, POPULATE, RESET } from './mutations'
 
 export default {
   async signUp ({ commit }, authPayload) {
@@ -22,13 +22,13 @@ export default {
   async logOut ({ commit }) {
     const [ err ] = await to(axios.post('logOut'))
     if (err) throw err
-    commit(REVOKE_AUTH)
+    commit(RESET)
   },
 
   async getMe ({ commit }) {
     const [ err, res ] = await to(axios.get('me'))
     if (err) {
-      commit(REVOKE_AUTH)
+      commit(RESET)
       throw err
     }
     commit(POPULATE, res.data.user)
