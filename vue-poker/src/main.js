@@ -10,12 +10,9 @@ import '@/config/socket.io'
 import '@/config/css'
 import '@/config/vuelidate-error-extractor'
 import '@/directives'
-import promiseFinally from 'promise.prototype.finally'
 
 Vue.config.productionTip = false
-
 Vue.prototype.$appName = 'Poker Nook'
-promiseFinally.shim()
 
 new Vue({
   router,
