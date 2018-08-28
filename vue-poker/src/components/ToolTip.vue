@@ -1,6 +1,6 @@
 <template lang="pug">
   b-tooltip(:label="text" animated multilined)
-    i.has-text-primary.far.fa-question-circle.fa-lg
+    i.has-text-primary.fas.fa-question-circle.fa-lg
 </template>
 
 <script>

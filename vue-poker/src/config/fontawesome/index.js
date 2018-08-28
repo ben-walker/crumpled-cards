@@ -6,7 +6,8 @@ import {
   faEyeSlash,
   faExclamationCircle,
   faSignOutAlt,
-  faUser
+  faUser,
+  faQuestionCircle
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -15,7 +16,8 @@ library.add(
   faEyeSlash,
   faExclamationCircle,
   faSignOutAlt,
-  faUser
+  faUser,
+  faQuestionCircle
 )
 
 dom.watch()
