@@ -8,7 +8,7 @@
           .navbar-start
           .navbar-end
             .navbar-item.has-dropdown.is-hoverable
-              a #[avatar.is-unselectable(username="test account")]
+              a #[avatar.is-unselectable(:username="$store.state.user.data.username")]
               .navbar-dropdown.is-boxed.is-right
                 a.navbar-item(@click="logout")
                   span.icon.has-text-danger
