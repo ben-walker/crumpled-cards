@@ -6,17 +6,17 @@ export default {
   async signUp ({ commit }, authPayload) {
     commit(START_LOADING)
     const [ err ] = await to(axios.post('signUp', authPayload))
+    commit(STOP_LOADING)
     if (err) throw err
     commit(AUTHENTICATE)
-    commit(STOP_LOADING)
   },
 
   async logIn ({ commit }, authPayload) {
     commit(START_LOADING)
     const [ err ] = await to(axios.post('logIn', authPayload))
+    commit(STOP_LOADING)
     if (err) throw err
     commit(AUTHENTICATE)
-    commit(STOP_LOADING)
   },
 
   async logOut ({ commit }) {
