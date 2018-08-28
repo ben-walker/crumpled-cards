@@ -8,10 +8,10 @@
           .navbar-start
           .navbar-end
             .navbar-item.has-dropdown.is-hoverable
-              a #[avatar.is-unselectable(:username="$store.state.user.data.username" color="white")]
+              a #[avatar.is-unselectable(:username="username" color="white")]
               .navbar-dropdown.is-boxed.is-right
                 .navbar-item
-                  strong.is-unselectable {{ $store.state.user.data.username }}
+                  strong.is-unselectable {{ username }}
                 hr.navbar-divider
                 a.navbar-item
                   span.icon.has-text-primary
@@ -30,6 +30,11 @@ import Avatar from 'vue-avatar'
 
 export default {
   name: 'navbar',
+  data () {
+    return {
+      username: this.$store.getters['user/username']
+    }
+  },
   components: {
     TitleHead,
     Avatar
