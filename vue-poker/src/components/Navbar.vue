@@ -14,7 +14,7 @@
                   strong.is-unselectable {{ $store.state.user.data.username }}
                 hr.navbar-divider
                 a.navbar-item
-                  span.icon.has-text-success
+                  span.icon.has-text-primary
                     i.fas.fa-user
                   strong.is-unselectable View Account
                 a.navbar-item(@click="logout")
