@@ -27,6 +27,9 @@ export default {
 
   async getMe ({ commit }) {
     const [ err ] = await to(axios.get('me'))
-    if (err) commit(REVOKE_AUTH)
+    if (err) {
+      commit(REVOKE_AUTH)
+      throw err
+    }
   }
 }
