@@ -5,7 +5,6 @@ export default {
   maxLength: '{attribute} is too long',
   unique: '{attribute} is already taken',
   email: 'Email is invalid',
-  passwordMatches: 'Password does not match',
   minEntropy: '{attribute} is not strong enough',
   manualError: `If you're seeing this, supply a local error message`
 }
