@@ -16,7 +16,6 @@ router.get('/me', getUserInfo);
 router.get('/usernameRegistered', queryController.usernameRegistered);
 router.get('/emailRegistered', queryController.emailRegistered);
 router.get('/identifierExists', queryController.identifierExists);
-router.post('/passwordMatches', authLimiter, queryController.passwordMatches);
 
 router.post('/createTable', create);
 
