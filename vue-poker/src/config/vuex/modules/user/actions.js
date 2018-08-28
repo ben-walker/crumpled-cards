@@ -27,10 +27,7 @@ export default {
 
   async getMe ({ commit }) {
     const [ err, res ] = await to(axios.get('me'))
-    if (err) {
-      commit(RESET)
-      throw err
-    }
+    if (err) return commit(RESET)
     commit(POPULATE, res.data.user)
   }
 }
