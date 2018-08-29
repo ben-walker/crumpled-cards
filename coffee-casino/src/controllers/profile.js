@@ -1,6 +1,6 @@
 import { ProfilePicture } from '../models/profile-picture';
 
-export default (req, res) => {
+export const uploadProfilePic = (req, res) => {
   ProfilePicture.findOneAndUpdate(
     { user: req.user },
     {
@@ -16,4 +16,8 @@ export default (req, res) => {
       return res.status(200).send(profilePicture);
     },
   );
+};
+
+export const getProfilePic = () => {
+
 };
