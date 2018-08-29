@@ -8,7 +8,7 @@
           .navbar-start
           .navbar-end
             .navbar-item.has-dropdown.is-hoverable
-              a #[avatar.is-unselectable(:username="username" color="white")]
+              a #[user-avatar]
               .navbar-dropdown.is-boxed.is-right
                 .navbar-item
                   strong.is-unselectable {{ username }}
@@ -27,7 +27,7 @@
 import to from 'await-to-js'
 import TitleHead from '@/components/TitleHead.vue'
 import ProfileModal from '@/components/ProfileModal.vue'
-import Avatar from 'vue-avatar'
+import UserAvatar from '@/components/UserAvatar.vue'
 
 export default {
   name: 'navbar',
@@ -38,8 +38,8 @@ export default {
   },
   components: {
     TitleHead,
-    Avatar,
-    ProfileModal
+    ProfileModal,
+    UserAvatar
   },
   methods: {
     async logout () {
