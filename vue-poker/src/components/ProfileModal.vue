@@ -8,6 +8,9 @@
           br
           h1.title.is-4 {{ username }}
           h2.subtitle.is-6 {{ email }}
+          b-field.file
+            b-upload(v-model="files" @input="test")
+              a Change your profile image
 </template>
 
 <script>
@@ -17,8 +20,16 @@ export default {
   name: 'profileModal',
   data () {
     return {
+      files: [],
       username: this.$store.getters['user/username'],
       email: this.$store.getters['user/email']
+    }
+  },
+  computed: {
+    newProfilePic () {
+      return this.files.length > 0
+        ? this.files[0]
+        : null
     }
   },
   components: {
