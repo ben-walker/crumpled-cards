@@ -49,7 +49,8 @@ export default {
     openProfile () {
       this.$modal.open({
         parent: this,
-        component: ProfileModal
+        component: ProfileModal,
+        canCancel: ['x', 'outside']
       })
     }
   }
