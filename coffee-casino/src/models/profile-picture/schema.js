@@ -12,7 +12,7 @@ export default {
     required: true,
   },
   user: {
-    type: [objId],
+    type: objId,
     ref: 'User',
   },
 };
