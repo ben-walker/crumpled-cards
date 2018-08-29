@@ -11,12 +11,14 @@ import mongoose from 'mongoose';
 import connectMongo from 'connect-mongo';
 import passport from 'passport';
 import secure from 'express-force-https';
+import busboyBodyParser from 'busboy-body-parser';
 import apiRouter from './routes/api';
 import passportConfig from './config/passport';
 import winston from './config/winston';
 
 const app = express();
 app.use(secure);
+app.use(busboyBodyParser());
 
 const corsOpts = {
   origin: process.env.ORIGINS.split(','),
