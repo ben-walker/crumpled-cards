@@ -16,7 +16,7 @@
                 router-link(to="/profile").navbar-item
                   span.icon.has-text-primary
                     i.fas.fa-user
-                  strong.is-unselectable View Profile
+                  strong.is-unselectable Profile
                 a.navbar-item(@click="logout")
                   span.icon.has-text-danger
                     i.fas.fa-sign-out-alt
