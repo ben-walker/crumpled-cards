@@ -31,8 +31,10 @@ export default {
     commit(POPULATE, res.data.user)
   },
 
-  async uploadProfilePic ({ commit }, file) {
-    const [ err ] = await to(axios.post('profilePicture', { file }))
+  async uploadProfilePic ({ commit }, formData) {
+    const [ err ] = await to(axios.post('profilePicture', formData,
+      { headers: { 'Content-Type': 'multipart/form-data' } }
+    ))
     if (err) throw err
   }
 }
