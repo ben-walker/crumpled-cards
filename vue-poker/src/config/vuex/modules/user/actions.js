@@ -29,5 +29,10 @@ export default {
     const [ err, res ] = await to(axios.get('me'))
     if (err) return commit(RESET)
     commit(POPULATE, res.data.user)
+  },
+
+  async uploadProfilePic ({ commit }, file) {
+    const [ err ] = await to(axios.post('profilePicture', file))
+    if (err) throw err
   }
 }
