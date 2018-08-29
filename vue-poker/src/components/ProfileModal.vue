@@ -6,8 +6,8 @@
           user-avatar(:size="170")
         .column.is-narrow
           br
-          h1.title.is-4 {{ username }}
-          h2.subtitle.is-6 {{ email }}
+          h1.title.is-4.is-unselectable {{ username }}
+          h2.subtitle.is-6.is-unselectable {{ email }}
           b-field.file
             b-upload(v-model="files" @input="upload")
               a Change your profile picture
