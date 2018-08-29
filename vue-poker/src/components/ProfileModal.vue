@@ -9,7 +9,7 @@
           h1.title.is-4 {{ username }}
           h2.subtitle.is-6 {{ email }}
           b-field.file
-            b-upload(v-model="files" @input="test")
+            b-upload(v-model="files" @input="upload")
               a Change your profile image
 </template>
 
@@ -34,6 +34,9 @@ export default {
   },
   components: {
     UserAvatar
+  },
+  methods: {
+    upload () {}
   }
 }
 </script>
