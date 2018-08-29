@@ -13,7 +13,7 @@
                 .navbar-item
                   strong.is-unselectable {{ username }}
                 hr.navbar-divider
-                router-link(to="/profile").navbar-item
+                a.navbar-item(@click="openProfile")
                   span.icon.has-text-primary
                     i.fas.fa-user
                   strong.is-unselectable Profile
@@ -26,6 +26,7 @@
 <script>
 import to from 'await-to-js'
 import TitleHead from '@/components/TitleHead.vue'
+import ProfileModal from '@/components/ProfileModal.vue'
 import Avatar from 'vue-avatar'
 
 export default {
@@ -37,12 +38,19 @@ export default {
   },
   components: {
     TitleHead,
-    Avatar
+    Avatar,
+    ProfileModal
   },
   methods: {
     async logout () {
       const [ err ] = await to(this.$store.dispatch('user/logOut'))
       if (!err) this.$router.push('/welcome')
+    },
+    openProfile () {
+      this.$modal.open({
+        parent: this,
+        component: ProfileModal
+      })
     }
   }
 }
