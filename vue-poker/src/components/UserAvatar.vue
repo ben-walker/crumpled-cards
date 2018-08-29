@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import Avatar from 'vue-avatar'
+import Avatar from '@lossendae/vue-avatar'
 
 export default {
   name: 'userAvatar',
