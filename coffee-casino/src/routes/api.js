@@ -3,7 +3,7 @@ import * as authController from '../controllers/auth';
 import * as queryController from '../controllers/query';
 import getUserInfo from '../controllers/me';
 import create from '../controllers/table';
-import uploadProfilePic from '../controllers/profile';
+import * as profileController from '../controllers/profile';
 import authLimiter from '../config/rate-limit';
 
 const router = express.Router();
@@ -14,7 +14,8 @@ router.post('/logOut', authController.logOut);
 
 router.get('/me', getUserInfo);
 
-router.post('/profilePicture', uploadProfilePic);
+router.post('/profilePicture', profileController.uploadProfilePic);
+router.get('/profilePicture/:userId', profileController.getProfilePic);
 
 router.get('/usernameRegistered', queryController.usernameRegistered);
 router.get('/emailRegistered', queryController.emailRegistered);
