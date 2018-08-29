@@ -10,10 +10,11 @@
           h2.subtitle.is-6 {{ email }}
           b-field.file
             b-upload(v-model="files" @input="upload")
-              a Change your profile image
+              a Change your profile picture
 </template>
 
 <script>
+import to from 'await-to-js'
 import UserAvatar from '@/components/UserAvatar.vue'
 
 export default {
@@ -36,7 +37,9 @@ export default {
     UserAvatar
   },
   methods: {
-    upload () {}
+    async upload () {
+      const [ err ] = await to(this.$store.dispatch('user/uploadProfilePic', this.newProfilePic))
+    }
   }
 }
 </script>
