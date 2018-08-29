@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     async upload () {
-      this.formData.set('profile', this.newProfilePic)
+      this.formData.set('profilePicture', this.newProfilePic)
       const [ err ] = await to(this.$store.dispatch('user/uploadProfilePic', this.formData))
       if (err) throw err
     }
