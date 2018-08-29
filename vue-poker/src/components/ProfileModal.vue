@@ -39,6 +39,7 @@ export default {
   methods: {
     async upload () {
       const [ err ] = await to(this.$store.dispatch('user/uploadProfilePic', this.newProfilePic))
+      if (err) throw err
     }
   }
 }
