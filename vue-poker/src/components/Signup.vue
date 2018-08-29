@@ -29,7 +29,7 @@
             @blur="showPasswordStrength = false"
           )
         transition(name="fade")
-          PasswordStrengthMeter(v-if="showPasswordStrength" :password="password")
+          password-strength-meter(v-if="showPasswordStrength" :password="password")
         .has-text-right
           button.button.is-light(type="submit" :class="{ 'is-loading': loading }") Sign Up
     p.is-unselectable Already have an account? #[router-link(to="/authenticate/login") Log In]

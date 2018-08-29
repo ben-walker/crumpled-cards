@@ -3,7 +3,7 @@
     nav.navbar.has-shadow.is-spaced.is-transparent
       .container
         .navbar-brand
-          TitleHead.navbar-item
+          title-head.navbar-item
         .navbar-menu
           .navbar-start
           .navbar-end

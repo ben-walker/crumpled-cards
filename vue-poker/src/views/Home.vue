@@ -1,6 +1,6 @@
 <template lang="pug">
   #home
-    Navbar
+    navbar
 </template>
 
 <script>

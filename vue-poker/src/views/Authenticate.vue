@@ -3,14 +3,12 @@
     section.hero.is-fullheight
       .hero-head
         section.section.has-text-centered
-          TitleHead
+          title-head
         .columns.is-centered
           .column.is-one-third
             transition(enter-active-class="animated bounceIn" leave-active-class="animated bounceOut" mode="out-in")
               keep-alive
-                router-view(
-                  @forgotPassword="forgotPassword"
-                )
+                router-view(@forgotPassword="forgotPassword")
 </template>
 
 <script>
