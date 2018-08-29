@@ -22,6 +22,7 @@ export default {
   data () {
     return {
       files: [],
+      formData: new FormData(),
       username: this.$store.getters['user/username'],
       email: this.$store.getters['user/email']
     }
@@ -38,7 +39,8 @@ export default {
   },
   methods: {
     async upload () {
-      const [ err ] = await to(this.$store.dispatch('user/uploadProfilePic', this.newProfilePic))
+      this.formData.set('file', this.newProfilePic)
+      const [ err ] = await to(this.$store.dispatch('user/uploadProfilePic', this.formData))
       if (err) throw err
     }
   }
