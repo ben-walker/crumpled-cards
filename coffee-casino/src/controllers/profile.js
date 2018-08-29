@@ -13,11 +13,15 @@ export const uploadProfilePic = (req, res) => {
     },
     (err, profilePicture) => {
       if (err) return res.status(500).send('Profile picture upload failed');
-      return res.status(200).send(profilePicture);
+      return res.status(200).send({ profilePicture });
     },
   );
 };
 
-export const getProfilePic = () => {
-
+export const getProfilePic = (req, res) => {
+  ProfilePicture.findOne({ user: req.params.userId }, (err, profilePicture) => {
+    if (err) return res.status(500).send('Profile picture retrieval failed');
+    if (!profilePicture) return res.status(404).send('Profile picture not found');
+    return res.status(200).send(profilePicture.data);
+  });
 };
