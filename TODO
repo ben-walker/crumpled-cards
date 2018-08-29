@@ -2,6 +2,7 @@ Coffee Casino:
   ☐ Use Mongo Store for rate limiter
   ☐ Set up email functionality
   ☐ Investigate why cookies break requests
+  ☐ Limit profile pic upload size
   Production:
 
 Vue Poker:
