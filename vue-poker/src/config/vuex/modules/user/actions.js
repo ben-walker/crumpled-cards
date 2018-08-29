@@ -32,7 +32,7 @@ export default {
   },
 
   async uploadProfilePic ({ commit }, file) {
-    const [ err ] = await to(axios.post('profilePicture', file))
+    const [ err ] = await to(axios.post('profilePicture', { file }))
     if (err) throw err
   }
 }
