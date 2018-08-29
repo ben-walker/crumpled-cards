@@ -1,8 +1,9 @@
 import express from 'express';
 import * as authController from '../controllers/auth';
 import * as queryController from '../controllers/query';
-import * as meController from '../controllers/me';
+import getUserInfo from '../controllers/me';
 import create from '../controllers/table';
+import uploadProfilePic from '../controllers/profile';
 import authLimiter from '../config/rate-limit';
 
 const router = express.Router();
@@ -11,8 +12,9 @@ router.post('/signUp', authLimiter, authController.signUp);
 router.post('/logIn', authLimiter, authController.logIn);
 router.post('/logOut', authController.logOut);
 
-router.get('/me', meController.getUserInfo);
-router.post('/profilePicture', meController.uploadProfilePic);
+router.get('/me', getUserInfo);
+
+router.post('/profilePicture', uploadProfilePic);
 
 router.get('/usernameRegistered', queryController.usernameRegistered);
 router.get('/emailRegistered', queryController.emailRegistered);
