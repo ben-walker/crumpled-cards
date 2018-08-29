@@ -32,7 +32,7 @@
           PasswordStrengthMeter(v-if="showPasswordStrength" :password="password")
         .has-text-right
           button.button.is-light(type="submit" :class="{ 'is-loading': loading }") Sign Up
-    p.is-unselectable Already have an account? #[InternalLink(:link="loginLink")]
+    p.is-unselectable Already have an account? #[router-link(to="/authenticate/login") Log In]
 </template>
 
 <script>
@@ -40,7 +40,6 @@ import to from 'await-to-js'
 import { validationMixin } from 'vuelidate'
 import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
 import { minEntropy, unique } from '@/validators'
-import InternalLink from '@/components/InternalLink.vue'
 import PasswordStrengthMeter from '@/components/PasswordStrengthMeter.vue'
 import { debounceInput, toast } from '@/mixins'
 
@@ -51,7 +50,6 @@ export default {
       username: '',
       email: '',
       password: '',
-      loginLink: { route: '/authenticate/login', color: 'primary', text: 'Log In' },
       showPasswordStrength: false
     }
   },
@@ -68,7 +66,6 @@ export default {
     }
   },
   components: {
-    InternalLink,
     PasswordStrengthMeter
   },
   mixins: [

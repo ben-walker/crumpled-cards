@@ -25,7 +25,7 @@
             a.level-item.is-unselectable(@click="forgotPassword") Forgot your password?
           .level-right
             button.level-item.button.is-light(type="submit" :class="{ 'is-loading': loading }") Log In
-    p.is-unselectable Need an account? #[InternalLink(:link="signupLink")]
+    p.is-unselectable Need an account? #[router-link(to="/authenticate/signup") Sign Up]
 </template>
 
 <script>
@@ -34,7 +34,6 @@ import { validationMixin } from 'vuelidate'
 import { debounceInput, toast } from '@/mixins'
 import { required } from 'vuelidate/lib/validators'
 import { userExists, manualError } from '@/validators'
-import InternalLink from '@/components/InternalLink.vue'
 
 export default {
   name: 'login',
@@ -42,7 +41,6 @@ export default {
     return {
       identifier: '',
       password: '',
-      signupLink: { route: '/authenticate/signup', color: 'primary', text: 'Sign Up' },
       passwordError: false
     }
   },
@@ -56,9 +54,6 @@ export default {
     loading () {
       return this.$store.state.user.loading
     }
-  },
-  components: {
-    InternalLink
   },
   mixins: [
     validationMixin,
