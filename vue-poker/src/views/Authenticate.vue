@@ -8,23 +8,37 @@
           .column.is-one-third
             transition(enter-active-class="animated bounceIn" leave-active-class="animated bounceOut" mode="out-in")
               keep-alive
-                router-view(@forgotPassword="forgotPassword")
+                router-view(@error="handleError")
 </template>
 
 <script>
 import TitleHead from '@/components/TitleHead.vue'
+import { toast } from '@/mixins'
 
 export default {
   name: 'authenticate',
   components: {
     TitleHead
   },
+  mixins: [
+    toast
+  ],
   methods: {
-    forgotPassword (identifier) {
-      this.$dialog.alert({
-        title: 'Instructions Sent',
-        message: `Password reset instructions sent to <b>${identifier}</b>, check your inbox and spam folder.`
-      })
+    handleError (err) {
+      if (err.response) {
+        switch (err.response.status) {
+          case 401: // unauthorized
+            this.dangerToast('Password incorrect')
+            break
+          case 429: // rate limited
+            this.dangerToast('Please try again later')
+            break
+          case 500: // internal server error
+            this.dangerToast('Internal server error')
+        }
+      } else {
+        this.dangerToast('Unexpected error')
+      }
     }
   }
 }
