@@ -9,7 +9,6 @@ Vue Poker:
   ☐ Mobile design
   ☐ Use vue-wait in components and vuex
   ☐ Invisible recaptcha
-  ☐ Turn avatar dropdown into component
   Profile Pic:
     ☐ Updating profile pic should update all avatars in real time
     ☐ Error/loading states should be shown on upload as applicable
