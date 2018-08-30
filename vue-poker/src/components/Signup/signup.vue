@@ -1,0 +1,101 @@
+<template lang="pug">
+  #signup
+    .box
+      h2.subtitle.is-4.has-text-grey.is-unselectable Create Your Account
+      form(@submit.prevent="submit" novalidate)
+        form-group(:validator="$v.username" label="Username")
+          b-input(
+            :value="$v.username.$model"
+            @input="debounceInput('username', $event)"
+            v-focus
+            :loading="$v.username.$pending"
+            :disabled="loading"
+          )
+        form-group(:validator="$v.email" label="Email")
+          b-input(
+            :value="$v.email.$model"
+            @input="debounceInput('email', $event)"
+            :loading="$v.email.$pending"
+            :disabled="loading"
+          )
+        form-group(:validator="$v.password" label="Password")
+          b-input(
+            v-model="$v.password.$model"
+            type="password"
+            placeholder="••••••••"
+            password-reveal
+            :disabled="loading"
+            @focus="showPasswordStrength = true"
+            @blur="showPasswordStrength = false"
+          )
+        transition(name="fade")
+          password-strength-meter(v-if="showPasswordStrength" :password="password")
+        .has-text-right
+          button.button.is-light(type="submit" :class="{ 'is-loading': loading }") Sign Up
+    p.is-unselectable Already have an account? #[router-link(to="/authenticate/login") Log In]
+</template>
+
+<script>
+import { validationMixin } from 'vuelidate'
+import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
+import { minEntropy, unique } from '@/validators'
+import { debounceInput } from '@/mixins'
+import PasswordStrengthMeter from '@/components/PasswordStrengthMeter.vue'
+
+export default {
+  name: 'signup',
+  data () {
+    return {
+      username: '',
+      email: '',
+      password: '',
+      showPasswordStrength: false
+    }
+  },
+  props: {
+    loading: {
+      type: Boolean,
+      required: true
+    }
+  },
+  components: {
+    PasswordStrengthMeter
+  },
+  mixins: [
+    validationMixin,
+    debounceInput
+  ],
+  validations () {
+    return {
+      username: {
+        required,
+        minLength: minLength(4),
+        maxLength: maxLength(20),
+        unique: unique('username')
+      },
+      email: {
+        required,
+        email,
+        unique: unique('email')
+      },
+      password: {
+        required,
+        minLength: minLength(8),
+        minEntropy: minEntropy(40)
+      }
+    }
+  },
+  methods: {
+    submit () {
+      this.$v.$touch()
+      if (!this.$v.$invalid) {
+        this.$emit('signUp', {
+          username: this.username,
+          email: this.email,
+          password: this.password
+        })
+      }
+    }
+  }
+}
+</script>
