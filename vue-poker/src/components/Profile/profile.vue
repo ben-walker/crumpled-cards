@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import UserAvatar from '@/components/UserAvatar.vue'
+import UserAvatar from '@/components/UserAvatar'
 
 export default {
   name: 'profile',
