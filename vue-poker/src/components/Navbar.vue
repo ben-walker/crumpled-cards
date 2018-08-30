@@ -12,21 +12,21 @@
 
 <script>
 import TitleHead from '@/components/TitleHead.vue'
-import ProfileModal from '@/components/ProfileModal.vue'
+import Profile from '@/components/Profile'
 import UserDropdown from '@/components/UserDropdown'
 
 export default {
   name: 'navbar',
   components: {
     TitleHead,
-    ProfileModal,
+    Profile,
     UserDropdown
   },
   methods: {
     openProfile () {
       this.$modal.open({
         parent: this,
-        component: ProfileModal,
+        component: Profile,
         canCancel: ['x', 'outside']
       })
     }
