@@ -29,9 +29,8 @@
 </template>
 
 <script>
-import to from 'await-to-js'
 import { validationMixin } from 'vuelidate'
-import { debounceInput, toast } from '@/mixins'
+import { debounceInput } from '@/mixins'
 import { required } from 'vuelidate/lib/validators'
 import { userExists, manualError } from '@/validators'
 
@@ -44,21 +43,15 @@ export default {
       passwordError: false
     }
   },
-  computed: {
-    authPayload () {
-      return {
-        identifier: this.identifier,
-        password: this.password
-      }
-    },
-    loading () {
-      return this.$store.state.user.loading
+  props: {
+    loading: {
+      type: Boolean,
+      required: true
     }
   },
   mixins: [
     validationMixin,
-    debounceInput,
-    toast
+    debounceInput
   ],
   validations () {
     return {
@@ -73,33 +66,18 @@ export default {
     }
   },
   methods: {
-    async submit () {
+    submit () {
       this.$v.$touch()
       if (!this.$v.$invalid) {
-        const [ err ] = await to(this.$store.dispatch('user/logIn', this.authPayload))
-        if (err) return this.handleError(err)
-        this.$router.push('/')
+        this.$emit('logIn', {
+          identifier: this.identifier,
+          password: this.password
+        })
       }
     },
     forgotPassword () {
       this.$v.identifier.$touch()
-      if (!this.$v.identifier.$invalid) this.$emit('forgotPassword', this.identifier)
-    },
-    handleError (err) {
-      if (err.response) {
-        switch (err.response.status) {
-          case 401: // unauthorized
-            this.passwordError = true
-            break
-          case 429: // rate limited
-            this.dangerToast('Please try again later')
-            break
-          case 500: // internal server error
-            this.dangerToast('Internal server error')
-        }
-      } else {
-        this.dangerToast('Unexpected error')
-      }
+      if (!this.$v.identifier.$invalid) this.$emit('forgot', this.identifier)
     }
   }
 }
