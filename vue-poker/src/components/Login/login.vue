@@ -11,10 +11,9 @@
             :loading="$v.identifier.$pending"
             :disabled="loading"
           )
-        form-group(:validator="$v.password" label="Password" :messages="{ manualError: 'Password does not match' }")
+        form-group(:validator="$v.password" label="Password")
           b-input(
             v-model="$v.password.$model"
-            @input="passwordError = false"
             type="password"
             placeholder="••••••••"
             password-reveal
@@ -32,15 +31,14 @@
 import { validationMixin } from 'vuelidate'
 import { debounceInput } from '@/mixins'
 import { required } from 'vuelidate/lib/validators'
-import { userExists, manualError } from '@/validators'
+import { userExists } from '@/validators'
 
 export default {
   name: 'login',
   data () {
     return {
       identifier: '',
-      password: '',
-      passwordError: false
+      password: ''
     }
   },
   props: {
@@ -55,14 +53,8 @@ export default {
   ],
   validations () {
     return {
-      identifier: {
-        required,
-        userExists
-      },
-      password: {
-        required,
-        manualError: manualError(this.passwordError)
-      }
+      identifier: { required, userExists },
+      password: { required }
     }
   },
   methods: {
