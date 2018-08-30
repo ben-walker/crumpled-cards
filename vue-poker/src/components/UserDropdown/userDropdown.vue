@@ -20,6 +20,7 @@
 
 <script>
 import UserAvatar from '@/components/UserAvatar'
+import Profile from '@/components/Profile'
 
 export default {
   name: 'userDropdown',
@@ -30,11 +31,16 @@ export default {
     }
   },
   components: {
-    UserAvatar
+    UserAvatar,
+    Profile
   },
   methods: {
     openProfile () {
-      this.$emit('openProfile')
+      this.$modal.open({
+        parent: this,
+        component: Profile,
+        canCancel: ['x', 'outside']
+      })
     },
     logOut () {
       this.$emit('logOut')

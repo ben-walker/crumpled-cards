@@ -7,29 +7,18 @@
         .navbar-menu
           .navbar-start
           .navbar-end
-            user-dropdown(@openProfile="openProfile")
+            user-dropdown
 </template>
 
 <script>
 import TitleHead from '@/components/TitleHead.vue'
-import Profile from '@/components/Profile'
 import UserDropdown from '@/components/UserDropdown'
 
 export default {
   name: 'navbar',
   components: {
     TitleHead,
-    Profile,
     UserDropdown
-  },
-  methods: {
-    openProfile () {
-      this.$modal.open({
-        parent: this,
-        component: Profile,
-        canCancel: ['x', 'outside']
-      })
-    }
   }
 }
 </script>

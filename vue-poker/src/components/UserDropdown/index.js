@@ -3,7 +3,7 @@ import userDropdown from './userDropdown.vue'
 
 export default connect({
   gettersToProps: {
-    username: 'user/username'
+    username: 'user/profile/username'
   },
 
   methodsToEvents: {

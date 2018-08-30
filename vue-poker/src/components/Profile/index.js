@@ -4,15 +4,15 @@ import profile from './profile.vue'
 
 export default connect({
   gettersToProps: {
-    username: 'user/username',
-    email: 'user/email'
+    username: 'user/profile/username',
+    email: 'user/profile/email'
   },
 
   methodsToEvents: {
     async upload ({ dispatch }, files) {
       const formData = new FormData()
       formData.set('profilePicture', files[0])
-      const [ err ] = await to(dispatch('user/uploadProfilePic', formData))
+      const [ err ] = await to(dispatch('user/profile/uploadProfilePic', formData))
       if (err) throw err
     }
   }

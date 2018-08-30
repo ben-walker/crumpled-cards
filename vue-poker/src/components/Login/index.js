@@ -9,10 +9,11 @@ export default connect({
 
   methodsToEvents: {
     async logIn ({ dispatch }, credentials) {
-      const [ err ] = await to(dispatch('user/logIn', credentials))
-      err
-        ? this.$emit('error', err)
-        : this.$router.push('/')
+      const [ err ] = await to(dispatch('user/authenticate', {
+        endpoint: 'login',
+        credentials
+      }))
+      err ? this.$emit('error', err) : this.$router.push('/')
     },
 
     forgot (identifier) {

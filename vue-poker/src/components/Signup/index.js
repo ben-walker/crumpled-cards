@@ -8,11 +8,12 @@ export default connect({
   },
 
   methodsToEvents: {
-    async signUp ({ dispatch }, payload) {
-      const [ err ] = await to(dispatch('user/signUp', payload))
-      err
-        ? this.$emit('error', err)
-        : this.$router.push('/')
+    async signUp ({ dispatch }, credentials) {
+      const [ err ] = await to(dispatch('user/authenticate', {
+        endpoint: 'signUp',
+        credentials
+      }))
+      err ? this.$emit('error', err) : this.$router.push('/')
     }
   }
 })('signup', signup)

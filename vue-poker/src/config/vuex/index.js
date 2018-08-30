@@ -17,6 +17,12 @@ export default new Vuex.Store({
     user,
     socket
   },
+  actions: {
+    clearAll ({ commit }) {
+      commit('user/RESET')
+      commit('user/profile/RESET')
+    }
+  },
   plugins: [
     createPersistedState({ reducer })
   ],
