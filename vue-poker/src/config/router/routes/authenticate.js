@@ -1,6 +1,6 @@
 const Authenticate = () => import(/* webpackChunkName: "visible" */ '@/views/Authenticate.vue')
 const Login = () => import(/* webpackChunkName: "visible" */ '@/components/Login')
-const Signup = () => import(/* webpackChunkName: "visible" */ '@/components/Signup.vue')
+const Signup = () => import(/* webpackChunkName: "visible" */ '@/components/Signup')
 
 export const login = {
   path: 'login',
