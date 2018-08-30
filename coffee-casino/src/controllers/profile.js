@@ -4,7 +4,7 @@ export const uploadProfilePic = (req, res) => {
   ProfilePicture.findOneAndUpdate(
     { user: req.user },
     {
-      data: req.files.profilePicture.data,
+      img: req.files.profilePicture.data,
       mimetype: req.files.profilePicture.mimetype,
     },
     {
@@ -22,6 +22,6 @@ export const getProfilePic = (req, res) => {
   ProfilePicture.findOne({ user: req.params.userId }, (err, profilePicture) => {
     if (err) return res.status(500).send('Profile picture retrieval failed');
     if (!profilePicture) return res.status(404).send('Profile picture not found');
-    return res.status(200).send(profilePicture.data);
+    return res.status(200).send(profilePicture.img);
   });
 };

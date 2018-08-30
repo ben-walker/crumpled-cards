@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const objId = mongoose.Schema.Types.ObjectId;
 
 export default {
-  data: {
+  img: {
     type: Buffer,
     required: true,
   },
