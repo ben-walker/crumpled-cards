@@ -30,6 +30,9 @@ export default {
           case 401: // unauthorized
             this.dangerToast('Password incorrect')
             break
+          case 422: // unprocessable
+            this.dangerToast('User info could not be processed')
+            break
           case 429: // rate limited
             this.dangerToast('Please try again later')
             break
