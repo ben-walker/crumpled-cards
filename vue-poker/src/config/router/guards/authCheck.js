@@ -1,7 +1,7 @@
 import store from '@/config/vuex'
 
 export default async (to, from, next) => {
-  await store.dispatch('user/getMe')
+  await store.dispatch('user/authCheck')
   const authRequired = to.matched.some((route) => route.meta.auth)
   const authenticated = store.getters['user/authenticated']
 
