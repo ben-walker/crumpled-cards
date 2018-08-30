@@ -1,6 +1,6 @@
 <template lang="pug">
   .userAvatar
-    avatar.is-unselectable(:size="size" :username="username" :src="profilePictureUrl")
+    avatar.is-unselectable(:size="size" :username="username" :src="profilePictureRef")
 </template>
 
 <script>
@@ -17,7 +17,7 @@ export default {
       type: String,
       required: true
     },
-    profilePictureUrl: {
+    profilePictureRef: {
       type: String,
       required: true
     }
