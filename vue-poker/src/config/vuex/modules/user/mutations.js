@@ -2,7 +2,6 @@ import initialState from './state'
 
 export const RESET = 'RESET'
 export const AUTHENTICATE = 'AUTHENTICATE'
-export const REVOKE_AUTH = 'REVOKE_AUTH'
 export const START_LOADING = 'START_LOADING'
 export const STOP_LOADING = 'STOP_LOADING'
 export const POPULATE = 'POPULATE'
