@@ -13,5 +13,6 @@ Vue Poker:
     ☐ Updating profile pic should update all avatars in real time
     ☐ Error/loading states should be shown on upload as applicable
     ☐ Stop the flicker from initials to image if possible
+    ☐ Probably will require a fork of vue-avatar
   Production:
     ☐ Reduce webpack bundle size (`npm run build` to see warnings)
