@@ -8,8 +8,8 @@ export default {
   name: 'titleHead',
   props: {
     textColor: {
-      default: 'has-text-dark',
-      type: String
+      type: String,
+      default: 'has-text-dark'
     }
   }
 }
