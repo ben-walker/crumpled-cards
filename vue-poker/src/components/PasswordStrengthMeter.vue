@@ -15,7 +15,12 @@ export default {
       MAX: 128
     }
   },
-  props: ['password'],
+  props: {
+    password: {
+      type: String,
+      required: true
+    }
+  },
   computed: {
     quotient () {
       return measureEntropy(this.password) / this.MAX
