@@ -7,7 +7,6 @@ Coffee Casino:
 
 Vue Poker:
   ☐ Mobile design
-  ☐ Some sort of global server error handling/message repo
   ☐ Use vue-wait in components and vuex
   ☐ Invisible recaptcha
   ☐ Turn avatar dropdown into component
