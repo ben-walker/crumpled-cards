@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import TitleHead from '@/components/TitleHead.vue'
+import TitleHead from '@/components/TitleHead'
 import UserDropdown from '@/components/UserDropdown'
 
 export default {

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import TitleHead from '@/components/TitleHead.vue'
+import { TitleHead } from '@/components'
 import { toast } from '@/mixins'
 
 export default {

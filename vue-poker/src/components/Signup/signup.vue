@@ -38,7 +38,7 @@ import { validationMixin } from 'vuelidate'
 import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
 import { minEntropy, unique } from '@/validators'
 import { debounceInput } from '@/mixins'
-import PasswordStrengthMeter from '@/components/PasswordStrengthMeter.vue'
+import PasswordStrengthMeter from '@/components/PasswordStrengthMeter'
 
 export default {
   name: 'signup',

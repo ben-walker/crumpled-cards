@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import TitleHead from '@/components/TitleHead.vue'
+import { TitleHead } from '@/components'
 
 export default {
   name: 'welcome',
