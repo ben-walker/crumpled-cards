@@ -11,21 +11,30 @@ export default {
     commit(AUTHENTICATE)
   },
 
-  async logIn ({ commit }, authPayload) {
+  async logIn ({ commit, dispatch }, authPayload) {
     commit(START_LOADING)
     const [ err ] = await to(axios.post('logIn', authPayload))
-    commit(STOP_LOADING)
-    if (err) throw err
+    if (err) {
+      commit(STOP_LOADING)
+      throw err
+    }
+    dispatch('populateUserData')
     commit(AUTHENTICATE)
+    commit(STOP_LOADING)
   },
 
   async logOut ({ commit }) {
+    commit(RESET)
     const [ err ] = await to(axios.post('logOut'))
     if (err) throw err
-    commit(RESET)
   },
 
-  async getMe ({ commit }) {
+  async authCheck ({ commit }) {
+    const [ err ] = await to(axios.get('me'))
+    if (err) commit(RESET)
+  },
+
+  async populateUserData ({ commit }) {
     const [ err, res ] = await to(axios.get('me'))
     if (err) return commit(RESET)
     commit(POPULATE, res.data.user)
