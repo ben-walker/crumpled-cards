@@ -1,4 +1,9 @@
 import { User } from './user';
 import { Table } from './table';
+import { ProfilePicture } from './profile-picture';
 
-export { User, Table };
+export {
+  User,
+  Table,
+  ProfilePicture,
+};
