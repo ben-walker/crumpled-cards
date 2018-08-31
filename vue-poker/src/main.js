@@ -9,6 +9,7 @@ import '@/config/buefy'
 import '@/config/socket.io'
 import '@/config/css'
 import '@/config/vuelidate-error-extractor'
+import '@/config/axios-progress'
 import '@/directives'
 
 Vue.config.productionTip = false
