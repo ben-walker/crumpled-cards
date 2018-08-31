@@ -10,16 +10,18 @@ export const uploadProfilePic = (req, res) => {
     {
       upsert: true,
       new: true,
+      overwrite: true,
     },
     (err, profilePicture) => {
       if (err) return res.status(500).send('Profile picture upload failed');
-      return res.status(200).send({ profilePicture });
+      // eslint-disable-next-line no-underscore-dangle
+      return res.status(200).send({ id: profilePicture._id });
     },
   );
 };
 
 export const getProfilePic = (req, res) => {
-  ProfilePicture.findOne({ user: req.params.userId }, (err, profilePicture) => {
+  ProfilePicture.findById(req.params.picId, (err, profilePicture) => {
     if (err) return res.status(500).send('Profile picture retrieval failed');
     if (!profilePicture) return res.status(404).send('Profile picture not found');
     return res.status(200).send(profilePicture.img);

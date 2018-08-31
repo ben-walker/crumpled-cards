@@ -15,7 +15,7 @@ router.post('/logOut', authController.logOut);
 router.get('/me', getUserInfo);
 
 router.post('/profilePicture', profileController.uploadProfilePic);
-router.get('/profilePicture/:userId', profileController.getProfilePic);
+router.get('/profilePicture/:picId', profileController.getProfilePic);
 
 router.get('/usernameRegistered', queryController.usernameRegistered);
 router.get('/emailRegistered', queryController.emailRegistered);
