@@ -1,5 +1,6 @@
 export default () => ({
   id: '',
   username: '',
-  email: ''
+  email: '',
+  profilePicUrl: ''
 })
