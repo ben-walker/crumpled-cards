@@ -14,13 +14,6 @@ export default connect({
         credentials
       }))
       err ? this.$emit('error', err) : this.$router.push('/')
-    },
-
-    forgot (identifier) {
-      this.$dialog.alert({
-        title: 'Instructions Sent',
-        message: `Password reset instructions sent to <b>${identifier}</b>, check your inbox and spam folder.`
-      })
     }
   }
 })('login', login)
