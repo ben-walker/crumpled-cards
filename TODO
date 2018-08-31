@@ -12,5 +12,6 @@ Vue Poker:
   Profile Pic:
     ☐ Error/loading states should be shown on upload as applicable
     ☐ Probably will require a fork of vue-avatar
+    ☐ Slight pop-out effect on hover would be cool
   Production:
     ☐ Reduce webpack bundle size (`npm run build` to see warnings)
