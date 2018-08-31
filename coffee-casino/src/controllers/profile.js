@@ -1,24 +1,19 @@
 import { ProfilePicture, User } from '../models';
 
 export const uploadProfilePic = (req, res) => {
-  ProfilePicture.findOneAndUpdate(
-    { user: req.user },
-    {
+  ProfilePicture.findOneAndRemove({ user: req.user }, (err) => {
+    if (err) return res.status(500).send('Profile picture upload failed');
+
+    return ProfilePicture.create({
       user: req.user,
       img: req.files.profilePicture.data,
       mimetype: req.files.profilePicture.mimetype,
-    },
-    {
-      upsert: true,
-      new: true,
-      overwrite: true,
-    },
-    (err, profilePicture) => {
-      if (err) return res.status(500).send('Profile picture upload failed');
+    }, (picErr, profilePicture) => {
+      if (picErr) return res.status(500).send('Profile picture upload failed');
       // eslint-disable-next-line no-underscore-dangle
       return res.status(200).send({ id: profilePicture._id });
-    },
-  );
+    });
+  });
 };
 
 export const getProfilePicBuffer = (req, res) => {
