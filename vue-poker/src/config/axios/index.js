@@ -1,14 +1,11 @@
 import axios from 'axios'
 
-const http = axios.create({
+const options = {
   baseURL: process.env.VUE_APP_API,
   withCredentials: true
-})
-
-const axiosProgress = axios.create({
-  baseURL: process.env.VUE_APP_API,
-  withCredentials: true
-})
+}
+const http = axios.create(options)
+const axiosProgress = axios.create(options)
 
 export {
   http as axios,
