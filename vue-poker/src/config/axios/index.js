@@ -5,4 +5,12 @@ const http = axios.create({
   withCredentials: true
 })
 
-export default http
+const axiosProgress = axios.create({
+  baseURL: process.env.VUE_APP_API,
+  withCredentials: true
+})
+
+export {
+  http as axios,
+  axiosProgress
+}

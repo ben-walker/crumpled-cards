@@ -1,5 +1,5 @@
 import to from 'await-to-js'
-import axios from '@/config/axios'
+import { axios } from '@/config/axios'
 
 export default (field) => async (value, vm) => {
   if (value === '') return true

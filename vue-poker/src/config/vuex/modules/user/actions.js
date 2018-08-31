@@ -1,11 +1,11 @@
-import axios from '@/config/axios'
+import { axios, axiosProgress } from '@/config/axios'
 import to from 'await-to-js'
 import { AUTHENTICATE, START_LOADING, STOP_LOADING } from './mutations'
 
 export default {
   async authenticate ({ commit, dispatch }, payload) {
     commit(START_LOADING)
-    const [ err ] = await to(axios.post(payload.endpoint, payload.credentials))
+    const [ err ] = await to(axiosProgress.post(payload.endpoint, payload.credentials))
     if (err) {
       commit(STOP_LOADING)
       throw err
@@ -17,7 +17,7 @@ export default {
 
   async logOut ({ dispatch }) {
     dispatch('clearAll', null, { root: true })
-    const [ err ] = await to(axios.post('logOut'))
+    const [ err ] = await to(axiosProgress.post('logOut'))
     if (err) throw err
   },
 
