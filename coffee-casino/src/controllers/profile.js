@@ -4,6 +4,7 @@ export const uploadProfilePic = (req, res) => {
   ProfilePicture.findOneAndUpdate(
     { user: req.user },
     {
+      user: req.user,
       img: req.files.profilePicture.data,
       mimetype: req.files.profilePicture.mimetype,
     },
