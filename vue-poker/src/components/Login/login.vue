@@ -9,7 +9,6 @@
             @input="debounceInput('identifier', $event)"
             v-focus
             :loading="$v.identifier.$pending"
-            :disabled="loading"
           )
         form-group(:validator="$v.password" label="Password")
           b-input(
@@ -17,13 +16,12 @@
             type="password"
             placeholder="••••••••"
             password-reveal
-            :disabled="loading"
           )
         nav.level
           .level-left
             a.level-item.is-unselectable(@click="forgotPassword") Forgot your password?
           .level-right
-            button.level-item.button.is-light(type="submit" :class="{ 'is-loading': loading }") Log In
+            button.level-item.button.is-light(type="submit" :disabled="loading") Log In
     p.is-unselectable Need an account? #[router-link(to="/authenticate/signup") Sign Up]
 </template>
 

@@ -9,14 +9,12 @@
             @input="debounceInput('username', $event)"
             v-focus
             :loading="$v.username.$pending"
-            :disabled="loading"
           )
         form-group(:validator="$v.email" label="Email")
           b-input(
             :value="$v.email.$model"
             @input="debounceInput('email', $event)"
             :loading="$v.email.$pending"
-            :disabled="loading"
           )
         form-group(:validator="$v.password" label="Password")
           b-input(
@@ -24,12 +22,11 @@
             type="password"
             placeholder="••••••••"
             password-reveal
-            :disabled="loading"
           )
         transition(name="fade")
           password-strength-meter(:password="password")
         .has-text-right
-          button.button.is-light(type="submit" :class="{ 'is-loading': loading }") Sign Up
+          button.button.is-light(type="submit" :disabled="loading") Sign Up
     p.is-unselectable Already have an account? #[router-link(to="/authenticate/login") Log In]
 </template>
 
