@@ -21,3 +21,12 @@ $link-focus-border: $primary;
 
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
+
+#nprogress {
+  .bar {
+    background: $primary !important;
+  }
+  .peg {
+    box-shadow: 0 0 10px $primary, 0 0 5px $primary !important;
+  }
+}
