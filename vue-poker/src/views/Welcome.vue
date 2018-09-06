@@ -8,8 +8,8 @@
             h2.subtitle.is-4.is-unselectable online poker, made with ❤️
             nav.breadcrumb.has-bullet-separator.is-centered
               ul
-                li #[router-link(to="/authenticate/login") Log In]
-                li #[router-link(to="/authenticate/signup") Sign Up]
+                li #[router-link(:to="{ name: 'login' }") Log In]
+                li #[router-link(:to="{ name: 'signup' }") Sign Up]
 </template>
 
 <script>

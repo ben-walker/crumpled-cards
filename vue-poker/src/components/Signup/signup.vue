@@ -27,7 +27,7 @@
           password-strength-meter(:password="password")
         .has-text-right
           button.button.is-light(type="submit" :disabled="loading") Sign Up
-    p.is-unselectable Already have an account? #[router-link(to="/authenticate/login") Log In]
+    p.is-unselectable Already have an account? #[router-link(:to="{ name: 'login' }") Log In]
 </template>
 
 <script>
