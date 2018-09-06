@@ -11,7 +11,6 @@
           b-field.file
             b-upload(v-model="files" @input="upload")
               a Change profile picture
-      .is-divider
 </template>
 
 <script>
