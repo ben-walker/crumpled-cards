@@ -1,4 +1,4 @@
-const Welcome = () => import(/* webpackChunkName: "visible" */ '@/views/Welcome.vue')
+const Welcome = () => import(/* webpackChunkName: "public" */ '@/views/Welcome.vue')
 
 export default {
   path: '/welcome',

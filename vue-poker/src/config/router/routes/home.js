@@ -1,4 +1,11 @@
-const Home = () => import('@/views/Home.vue')
+const Home = () => import(/* webpackChunkName: "private" */ '@/views/Home.vue')
+const Tables = () => import(/* webpackChunkName: "private" */ '@/views/Tables.vue')
+
+export const tables = {
+  path: 'tables',
+  name: 'tables',
+  component: Tables
+}
 
 export default {
   path: '/',
@@ -6,5 +13,8 @@ export default {
   component: Home,
   meta: {
     auth: true
-  }
+  },
+  children: [
+    tables
+  ]
 }
