@@ -25,10 +25,10 @@
     "cors": "^2.8.4",
     "debug": "~3.1.0",
     "dotenv": "^6.0.0",
-    "eslint": "^5.4.0",
+    "eslint": "^5.5.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "express": "~4.16.0",
+    "express": "~4.16.3",
     "express-force-https": "^1.0.0",
     "express-rate-limit": "^3.1.0",
     "express-session": "^1.15.6",
@@ -43,7 +43,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "helmet": "^3.13.0",
     "http-errors": "^1.7.0",
-    "mongoose": "^5.2.12",
+    "mongoose": "^5.2.13",
     "morgan": "~1.9.0",
     "nodemailer": "^4.6.8",
     "nodemon": "^1.18.4",
@@ -51,6 +51,6 @@
     "passport-local": "^1.0.0",
     "socket.io": "^2.1.1",
     "socket.io-adapter-mongo": "^2.0.3",
-    "winston": "^3.0.0"
+    "winston": "^3.1.0"
   }
 }
