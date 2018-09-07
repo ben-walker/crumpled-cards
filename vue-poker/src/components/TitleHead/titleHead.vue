@@ -1,6 +1,6 @@
 <template lang="pug">
   #titleHead
-    h1.title.is-2.is-unselectable(:class="textColor") {{ $appName }}
+    router-link.title.is-2.is-unselectable(:class="textColor" :to="{ name: 'home' }") {{ $appName }}
 </template>
 
 <script>
