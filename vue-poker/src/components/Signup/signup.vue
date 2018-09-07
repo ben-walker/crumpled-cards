@@ -21,7 +21,6 @@
             v-model="$v.password.$model"
             type="password"
             placeholder="••••••••"
-            password-reveal
           )
         transition(name="fade")
           password-strength-meter(:password="password")

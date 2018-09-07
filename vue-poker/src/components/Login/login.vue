@@ -15,7 +15,6 @@
             v-model="$v.password.$model"
             type="password"
             placeholder="••••••••"
-            password-reveal
           )
         nav.level
           .level-left
