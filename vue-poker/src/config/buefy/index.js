@@ -3,11 +3,7 @@ import Buefy from 'buefy'
 
 Vue.use(Buefy, { defaultIconPack: 'fas' })
 /* import config from 'buefy/src/utils/config'
-import Field from 'buefy/dist/components/field'
-import Input from 'buefy/dist/components/input'
-import Icon from 'buefy/dist/components/icon'
-import Toast from 'buefy/dist/components/toast'
-import Modal from 'buefy/dist/components/modal'
+import { Field, Input, Icon, Toast, Modal } from 'buefy/dist/components'
 
 Vue.use(Field)
 Vue.use(Input)
