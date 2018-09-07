@@ -3,14 +3,16 @@
     .navbar-item.has-dropdown.is-hoverable
       a #[user-avatar]
       .navbar-dropdown.is-boxed.is-right
-        strong.is-unselectable.navbar-item {{ username }}
+        a.navbar-item(@click="openProfile")
+          span
+            .columns.is-centered
+              .column.is-narrow
+                user-avatar
+              .column.is-narrow
+                h1.title.is-5.is-unselectable {{ username }}
+                h2.subtitle.is-6.is-unselectable {{ email }}
 
         hr.navbar-divider
-
-        a.navbar-item(@click="openProfile")
-          span.icon.has-text-primary
-            i.fas.fa-user
-          strong.is-unselectable Profile
 
         a.navbar-item(@click="logOut")
           span.icon.has-text-danger
@@ -26,6 +28,10 @@ export default {
   name: 'userDropdown',
   props: {
     username: {
+      type: String,
+      required: true
+    },
+    email: {
       type: String,
       required: true
     }
