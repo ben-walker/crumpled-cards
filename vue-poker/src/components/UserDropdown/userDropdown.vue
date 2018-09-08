@@ -1,7 +1,7 @@
 <template lang="pug">
   #userDropdown
-    .navbar-item.has-dropdown.is-hoverable
-      a #[user-avatar]
+    .navbar-item.has-dropdown(:class="{ 'is-active': isActive }" v-on-clickaway="hide")
+      a(@click="toggle") #[user-avatar]
       .navbar-dropdown.is-boxed.is-right
         a.navbar-item(@click="openProfile")
           span
@@ -9,7 +9,7 @@
               .column.is-narrow
                 user-avatar
               .column.is-narrow
-                h1.title.is-5.is-unselectable {{ username }}
+                h1.title.is-4.is-unselectable {{ username }}
                 h2.subtitle.is-6.is-unselectable {{ email }}
 
         hr.navbar-divider
@@ -24,9 +24,15 @@
 <script>
 import UserAvatar from '@/components/UserAvatar'
 import Profile from '@/components/Profile'
+import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
   name: 'userDropdown',
+  data () {
+    return {
+      isActive: false
+    }
+  },
   props: {
     username: {
       type: String,
@@ -41,7 +47,16 @@ export default {
     UserAvatar,
     Profile
   },
+  mixins: [
+    clickaway
+  ],
   methods: {
+    toggle () {
+      this.isActive = !this.isActive
+    },
+    hide () {
+      this.isActive = false
+    },
     openProfile () {
       this.$modal.open({
         parent: this,
