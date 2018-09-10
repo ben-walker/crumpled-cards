@@ -10,7 +10,9 @@
           h2.subtitle.is-6.is-unselectable {{ email }}
           b-field.file
             b-upload(v-model="files" @input="upload")
-              a Change profile picture
+              a.button.is-primary
+                b-icon(pack="fas" icon="upload")
+                span Profile Picture
 </template>
 
 <script>
