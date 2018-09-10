@@ -1,7 +1,7 @@
 <template lang="pug">
   #signup
     .box
-      h2.subtitle.is-4.has-text-grey.is-unselectable Create Your Account
+      h2.subtitle.is-4.has-text-primary.is-unselectable Create Your Account
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.username" label="Username")
           b-input(

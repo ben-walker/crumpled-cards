@@ -1,7 +1,7 @@
 <template lang="pug">
   #login
     .box
-      h2.subtitle.is-4.has-text-grey.is-unselectable Welcome Back
+      h2.subtitle.is-4.has-text-primary.is-unselectable Welcome Back
       form(@submit.prevent="submit" novalidate)
         form-group(:validator="$v.identifier" label="Username or Email" attribute="Identifier")
           b-input(
