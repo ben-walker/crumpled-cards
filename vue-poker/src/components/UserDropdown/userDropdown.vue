@@ -63,8 +63,10 @@ export default {
         component: Profile,
         canCancel: ['x', 'outside']
       })
+      this.hide()
     },
     logOut () {
+      this.hide()
       this.$emit('logOut')
     }
   }
