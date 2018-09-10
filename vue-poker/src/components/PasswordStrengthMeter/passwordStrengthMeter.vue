@@ -1,8 +1,8 @@
 <template lang="pug">
   .passwordStrengthMeter
-    label.label Password Strength
+    label.label.is-unselectable Password Strength
     progress.progress.is-marginless.is-small(:value="quotient" :class="color" max="1")
-    p.label.help {{ message }}
+    p.label.help.is-unselectable {{ message }}
 </template>
 
 <script>
