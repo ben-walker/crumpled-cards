@@ -20,7 +20,7 @@
           .level-left
             a.level-item.is-unselectable(@click="forgotPassword") Forgot your password?
           .level-right
-            button.level-item.button.is-light(type="submit" :disabled="loading") Log In
+            button.level-item.button.is-primary(type="submit" :disabled="loading") Log In
     p.is-unselectable Need an account? #[router-link(:to="{ name: 'signup' }") Sign Up]
 </template>
 
