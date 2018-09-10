@@ -16,8 +16,7 @@
 
         a.navbar-item(@click="logOut")
           span
-            span.icon.is-large.has-text-danger.is-inline-block
-              i.fas.fa-sign-out-alt.fa-lg
+            b-icon.has-text-danger.is-inline-block(pack="fas" icon="sign-out-alt")
             strong.title.is-6.is-unselectable Log Out
 </template>
 
