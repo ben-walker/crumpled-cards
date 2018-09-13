@@ -16,7 +16,7 @@
       b-dropdown-item(@click="logOut")
         nav.level.is-mobile
           .level-left
-              b-icon.has-text-danger.level-item(pack="fas" icon="sign-out-alt")
+              b-icon.level-item(pack="fas" icon="sign-out-alt")
               strong.title.is-6.is-unselectable.level-item Log Out
 </template>
 
