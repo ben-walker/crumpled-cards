@@ -11,7 +11,7 @@
           b-field.file
             b-upload(v-model="files" @input="upload")
               a.button.is-primary
-                b-icon(pack="fas" icon="upload")
+                b-icon(pack="fas" icon="upload" size="is-small")
                 span Profile Picture
 </template>
 
