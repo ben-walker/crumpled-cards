@@ -8,7 +8,8 @@ import {
   faSignOutAlt,
   faUser,
   faQuestionCircle,
-  faUpload
+  faUpload,
+  faLock
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -19,7 +20,8 @@ library.add(
   faSignOutAlt,
   faUser,
   faQuestionCircle,
-  faUpload
+  faUpload,
+  faLock
 )
 
 dom.watch()
