@@ -6,6 +6,16 @@
           title-head.navbar-item
         .navbar-menu
           .navbar-start
+            .navbar-item
+              router-link.button(:to="{ name: 'tables' }")
+                b-icon(pack="fas" icon="layer-group" size="is-small")
+                span Tables
+
+            .navbar-item
+              router-link.button(:to="{ name: 'friends' }")
+                b-icon(pack="fas" icon="user-friends" size="is-small")
+                span Friends
+
           .navbar-end
             user-dropdown
 </template>
