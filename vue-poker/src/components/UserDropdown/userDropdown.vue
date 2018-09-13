@@ -15,9 +15,10 @@
         hr.navbar-divider
 
         a.navbar-item(@click="logOut")
-          span
-            b-icon.has-text-danger.is-inline-block(pack="fas" icon="sign-out-alt")
-            strong.title.is-6.is-unselectable Log Out
+          nav.level.is-mobile
+            .level-left
+              b-icon.has-text-danger.level-item(pack="fas" icon="sign-out-alt")
+              strong.title.is-6.is-unselectable.level-item Log Out
 </template>
 
 <script>
