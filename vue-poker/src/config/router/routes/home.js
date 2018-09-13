@@ -7,6 +7,11 @@ export const tables = {
   component: Tables
 }
 
+export const friends = {
+  path: 'friends',
+  name: 'friends'
+}
+
 export default {
   path: '/',
   name: 'home',
@@ -15,6 +20,7 @@ export default {
     auth: true
   },
   children: [
-    tables
+    tables,
+    friends
   ]
 }
