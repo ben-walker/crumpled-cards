@@ -16,6 +16,7 @@ export default {
   path: '/',
   name: 'home',
   component: Home,
+  redirect: { name: 'tables' },
   meta: {
     auth: true
   },
