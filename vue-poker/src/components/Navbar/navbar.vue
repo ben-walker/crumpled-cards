@@ -7,12 +7,12 @@
         .navbar-menu
           .navbar-start
             .navbar-item
-              router-link.button(:to="{ name: 'tables' }")
+              router-link.button.is-light(:to="{ name: 'tables' }")
                 b-icon(pack="fas" icon="layer-group" size="is-small")
                 span Tables
 
             .navbar-item
-              router-link.button(:to="{ name: 'friends' }")
+              router-link.button.is-light(:to="{ name: 'friends' }")
                 b-icon(pack="fas" icon="user-friends" size="is-small")
                 span Friends
 
