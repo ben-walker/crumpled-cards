@@ -9,7 +9,9 @@ import {
   faUser,
   faQuestionCircle,
   faUpload,
-  faLock
+  faLock,
+  faUserFriends,
+  faLayerGroup
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -21,7 +23,9 @@ library.add(
   faUser,
   faQuestionCircle,
   faUpload,
-  faLock
+  faLock,
+  faUserFriends,
+  faLayerGroup
 )
 
 dom.watch()
