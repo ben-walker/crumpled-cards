@@ -4,6 +4,7 @@ Coffee Casino:
   ☐ Investigate why cookies break some requests
   ☐ Limit profile pic upload size (or compress it on request)
   ☐ Remember me functionality (back-end)
+  ☐ Store user's profile pic id in user schema?
   Production:
 
 Vue Poker:
