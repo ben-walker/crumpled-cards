@@ -16,7 +16,7 @@
             type="password"
             placeholder="••••••••"
           )
-        nav.level
+        nav.level.is-mobile
           .level-left
             a.level-item.is-unselectable(@click="forgotPassword") Forgot your password?
           .level-right
