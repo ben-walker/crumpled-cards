@@ -1,5 +1,6 @@
 const Home = () => import(/* webpackChunkName: "private" */ '@/views/Home.vue')
 const Tables = () => import(/* webpackChunkName: "private" */ '@/views/Tables.vue')
+const Friends = () => import(/* webpackChunkName: "private" */ '@/views/Friends.vue')
 
 export const tables = {
   path: 'tables',
@@ -9,7 +10,8 @@ export const tables = {
 
 export const friends = {
   path: 'friends',
-  name: 'friends'
+  name: 'friends',
+  component: Friends
 }
 
 export default {
