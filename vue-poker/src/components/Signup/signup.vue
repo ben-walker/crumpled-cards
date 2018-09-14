@@ -25,7 +25,7 @@
         transition(name="fade")
           password-strength-meter(:password="password")
         .has-text-right
-          button.button.is-info(type="submit" :disabled="loading")
+          button.button.is-warning(type="submit" :disabled="loading")
             b-icon(pack="fas" icon="lock" size="is-small")
             span Sign Up
     p.is-unselectable Already have an account? #[router-link(:to="{ name: 'login' }") Log In]
