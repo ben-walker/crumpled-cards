@@ -7,12 +7,12 @@
         .navbar-menu
           .navbar-start
             .navbar-item
-              router-link.button.is-light(:to="{ name: 'tables' }")
+              router-link.button.is-dark.is-outlined(:to="{ name: 'tables' }" tag="button")
                 b-icon(pack="fas" icon="layer-group" size="is-small")
                 span Tables
 
             .navbar-item
-              router-link.button.is-light(:to="{ name: 'friends' }")
+              router-link.button.is-dark.is-outlined(:to="{ name: 'friends' }" tag="button")
                 b-icon(pack="fas" icon="user-friends" size="is-small")
                 span Friends
 
