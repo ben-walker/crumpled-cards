@@ -5,6 +5,7 @@ Coffee Casino:
   ☐ Limit profile pic upload size (or compress it on request)
   ☐ Remember me functionality (back-end)
   ☐ Store user's profile pic id in user schema?
+  ☐ Use mongoose promise functionality, along with async/await-to-js
   Production:
 
 Vue Poker:
