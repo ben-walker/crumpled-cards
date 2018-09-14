@@ -7,7 +7,6 @@ Vue.use(VueRouter)
 
 let router = new VueRouter({
   mode: 'history',
-  linkActiveClass: 'is-active',
   routes
 })
 
