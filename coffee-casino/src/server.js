@@ -1,7 +1,6 @@
 import http from 'http';
-import socketIo from 'socket.io';
-import mongoAdapter from 'socket.io-adapter-mongo';
 import app from './app';
+import socketImplementation from './config/socket';
 import { normalizePort, onListening, onError } from './server-utils';
 
 const PORT = normalizePort(process.env.PORT || '3000');
@@ -13,9 +12,5 @@ server.listen(PORT);
 server.on('listening', onListening(server));
 server.on('error', onError(PORT));
 
-export const io = socketIo(server, {
-  serveClient: false,
-  adapter: mongoAdapter(process.env.MONGODB_URI),
-});
-
+socketImplementation(server);
 export default server;
