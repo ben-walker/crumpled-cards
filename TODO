@@ -1,19 +1,28 @@
-Coffee Casino:
-  ☐ Use Mongo Store for rate limiter
-  ☐ Set up email functionality
-  ☐ Investigate why cookies break some requests
-  ☐ Limit profile pic upload size (or compress it on request)
-  ☐ Remember me functionality (back-end)
-  ☐ Store user's profile pic id in user schema?
-  ☐ Use mongoose promise functionality, along with async/await-to-js
-  Production:
+Friends System:
+  ☐ Search through all users by username
+  ☐ Send friend requests
+  ☐ View, accept, decline friend requests
 
-Vue Poker:
+Profile Pic:
+  ☐ Store user's profile pic id in user schema?
+  ☐ Limit/compress profile pic upload sizes
+  ☐ Error state should be shown on profile pic upload as applicable
+
+Back-end - General:
+  ☐ Use Mongo Store for rate limiting
+  ☐ Investigate why cookies break some requests
+  ☐ Use mongoose promise functionality, along with async/await-to-js
+
+Forgot Password:
+  ☐ Set up email functionality (back-end)
+  ☐ Create view for changing one's password
+  ☐ Add endpoint for updating user password
+
+Security:
+  ☐ Add invisible recaptcha to client
+  ☐ Use recaptcha response on server
+
+Front-end - General:
+  ☐ Reduce webpack bundle size (`npm run build` to see warnings)
   ☐ Mobile design
   ☐ Use vue-wait in components and vuex
-  ☐ Invisible recaptcha/analytics
-  ☐ Remember me functionality (front-end)
-  Profile Pic:
-    ☐ Error state should be shown on upload as applicable
-  Production:
-    ☐ Reduce webpack bundle size (`npm run build` to see warnings)
