@@ -11,7 +11,8 @@ import {
   faUpload,
   faLock,
   faUserFriends,
-  faLayerGroup
+  faLayerGroup,
+  faSearch
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -25,7 +26,8 @@ library.add(
   faUpload,
   faLock,
   faUserFriends,
-  faLayerGroup
+  faLayerGroup,
+  faSearch
 )
 
 dom.watch()
