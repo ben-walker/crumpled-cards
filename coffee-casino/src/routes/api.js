@@ -14,7 +14,6 @@ router.get('/usernameRegistered', userController.usernameRegistered);
 router.get('/emailRegistered', userController.emailRegistered);
 router.get('/identifierExists', userController.identifierExists);
 router.post('/profilePicture', userController.uploadProfilePic);
-router.get('/profilePicture', userController.getProfilePic);
 
 router.all('*', (req, res) => res.status(404).end());
 

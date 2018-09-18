@@ -14,10 +14,6 @@ userSchema.methods.comparePassword = function (candidate) {
   return bcrypt.compareSync(candidate, this.password);
 };
 
-userSchema.statics.findProfilePic = function (username, cb) {
-  return this.findOne({ username }, 'profilePicture -_id', cb);
-};
-
 userSchema.pre('save', function (next) {
   if (!this.isModified('password')) return next();
   this.password = bcrypt.hashSync(this.password, SALT_WORK);
