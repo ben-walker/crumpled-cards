@@ -4,6 +4,6 @@ import userAvatar from './userAvatar.vue'
 export default connect({
   gettersToProps: {
     username: 'user/profile/username',
-    profilePictureRef: 'user/profile/pictureRef'
+    profilePicture: 'user/profile/picture'
   }
 })('userAvatar', userAvatar)
