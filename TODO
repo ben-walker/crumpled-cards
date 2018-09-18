@@ -12,6 +12,7 @@ Back-end - General:
   ☐ Use Mongo Store for rate limiting
   ☐ Investigate why cookies break some requests
   ☐ Use mongoose promise functionality, along with async/await-to-js
+  ☐ Friends should be a different model, not embedded in user
 
 Forgot Password:
   ☐ Set up email functionality (back-end)
