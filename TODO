@@ -4,7 +4,6 @@ Friends System:
   ☐ View, accept, decline friend requests
 
 Profile Pic:
-  ☐ Store user's profile pic id in user schema?
   ☐ Limit/compress profile pic upload sizes
   ☐ Error state should be shown on profile pic upload as applicable
 
