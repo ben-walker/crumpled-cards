@@ -4,6 +4,7 @@ Friends System:
   ☐ View, accept, decline friend requests
 
 Profile Pic:
+  ☐ Update front-end to handle new method of pic upload/retrieval
   ☐ Limit/compress profile pic upload sizes
   ☐ Error state should be shown on profile pic upload as applicable
 
