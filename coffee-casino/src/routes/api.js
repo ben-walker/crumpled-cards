@@ -1,7 +1,6 @@
 import express from 'express';
 import * as authController from '../controllers/auth';
 import * as userController from '../controllers/user';
-import create from '../controllers/table';
 import authLimiter from '../config/rate-limit';
 
 const router = express.Router();
@@ -16,8 +15,6 @@ router.get('/emailRegistered', userController.emailRegistered);
 router.get('/identifierExists', userController.identifierExists);
 router.post('/profilePicture', userController.uploadProfilePic);
 router.get('/profilePicture', userController.getProfilePic);
-
-router.post('/createTable', create);
 
 router.all('*', (req, res) => res.status(404).end());
 
