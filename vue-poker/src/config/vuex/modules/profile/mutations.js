@@ -9,6 +9,7 @@ export default {
     state.id = userData._id
     state.username = userData.username
     state.email = userData.email
+    state.picture = userData.profilePicture
   },
 
   [RESET] (state) {
