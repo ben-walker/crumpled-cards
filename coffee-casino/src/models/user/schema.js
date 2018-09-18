@@ -22,5 +22,6 @@ export default {
   profilePicture: {
     type: objId,
     ref: 'ProfilePicture',
+    default: null,
   },
 };
