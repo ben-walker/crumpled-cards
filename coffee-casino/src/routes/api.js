@@ -1,7 +1,6 @@
 import express from 'express';
 import * as authController from '../controllers/auth';
-import * as queryController from '../controllers/query';
-import getUserInfo from '../controllers/me';
+import * as userController from '../controllers/user';
 import create from '../controllers/table';
 import * as profileController from '../controllers/profile';
 import authLimiter from '../config/rate-limit';
@@ -12,15 +11,14 @@ router.post('/signUp', authLimiter, authController.signUp);
 router.post('/logIn', authLimiter, authController.logIn);
 router.post('/logOut', authController.logOut);
 
-router.get('/me', getUserInfo);
+router.get('/me', userController.getMe);
+router.get('/usernameRegistered', userController.usernameRegistered);
+router.get('/emailRegistered', userController.emailRegistered);
+router.get('/identifierExists', userController.identifierExists);
 
 router.post('/profilePicture', profileController.uploadProfilePic);
 router.get('/profilePicture/:picId', profileController.getProfilePicBuffer);
 router.get('/profilePictureByUsername/:username', profileController.getProfilePicIdByUsername);
-
-router.get('/usernameRegistered', queryController.usernameRegistered);
-router.get('/emailRegistered', queryController.emailRegistered);
-router.get('/identifierExists', queryController.identifierExists);
 
 router.post('/createTable', create);
 
