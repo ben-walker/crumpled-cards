@@ -19,8 +19,8 @@ export default {
     type: String,
     required: true,
   },
-  friends: {
-    type: [objId],
-    ref: 'User',
+  profilePicture: {
+    type: objId,
+    ref: 'ProfilePicture',
   },
 };
