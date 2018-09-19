@@ -10,6 +10,9 @@
 </template>
 
 <script>
+import { httpProgress } from '@/config/axios'
+import to from 'await-to-js'
+
 export default {
   name: 'userSearch',
   data () {
@@ -18,7 +21,12 @@ export default {
     }
   },
   watch: {
-    userQuery () {}
+    async userQuery () {
+      const [ err, res ] = await to(httpProgress.get('users', {
+        params: { username: this.userQuery }
+      }))
+      err ? this.$emit('error', err) : this.$emit('userList', res.data)
+    }
   }
 }
 </script>
