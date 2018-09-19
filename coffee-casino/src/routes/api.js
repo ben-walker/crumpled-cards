@@ -15,6 +15,8 @@ router.get('/emailRegistered', userController.emailRegistered);
 router.get('/identifierExists', userController.identifierExists);
 router.post('/profilePicture', userController.uploadProfilePic);
 
+router.get('/users', userController.find);
+
 router.all('*', (req, res) => res.status(404).end());
 
 export default router;
