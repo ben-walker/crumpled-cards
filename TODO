@@ -26,3 +26,4 @@ Front-end - General:
   ☐ Reduce webpack bundle size (`npm run build` to see warnings)
   ☐ Mobile design
   ☐ Use vue-wait in components and vuex
+  ☐ Lint code using same config (AirBnb) as backend
