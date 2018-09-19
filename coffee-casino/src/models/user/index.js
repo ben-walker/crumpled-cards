@@ -14,6 +14,13 @@ userSchema.methods.comparePassword = function (candidate) {
   return bcrypt.compareSync(candidate, this.password);
 };
 
+userSchema.statics.search = function (username, cb) {
+  return this
+    .find({ username: new RegExp(username, 'i') }, 'username profilePicture -_id')
+    .populate('profilePicture')
+    .exec(cb);
+};
+
 userSchema.pre('save', function (next) {
   if (!this.isModified('password')) return next();
   this.password = bcrypt.hashSync(this.password, SALT_WORK);
