@@ -2,6 +2,7 @@
   #userSearch
     b-field
       b-input(
+        v-model="userQuery"
         placeholder="Search..."
         type="search"
         expanded
@@ -10,6 +11,14 @@
 
 <script>
 export default {
-  name: 'userSearch'
+  name: 'userSearch',
+  data () {
+    return {
+      userQuery: ''
+    }
+  },
+  watch: {
+    userQuery () {}
+  }
 }
 </script>
