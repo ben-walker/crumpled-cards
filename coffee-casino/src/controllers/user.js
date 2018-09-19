@@ -57,3 +57,14 @@ export const uploadProfilePic = (req, res) => {
     });
   });
 };
+
+export const find = (req, res) => {
+  const { username } = req.query;
+  if (!username) return res.status(200).send([]);
+
+  return User.search(username, (err, users) => {
+    if (err) return res.status(500).send('User search failed');
+    if (!users) return res.status(404).send('No users found');
+    return res.status(200).send(users);
+  });
+};
