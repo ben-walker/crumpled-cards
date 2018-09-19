@@ -64,7 +64,7 @@ export const find = (req, res) => {
 
   return User.search(username, (err, users) => {
     if (err) return res.status(500).send('User search failed');
-    if (!users) return res.status(404).send('No users found');
+    if (!users) return res.status(200).send([]);
     return res.status(200).send(users);
   });
 };
