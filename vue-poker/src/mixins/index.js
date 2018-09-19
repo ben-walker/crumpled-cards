@@ -1,4 +1,4 @@
 import toast from './repo/toast'
-import debounceInput from './repo/debounceInput'
+import vuelidateDebounce from './repo/vuelidateDebounce'
 
-export { toast, debounceInput }
+export { toast, vuelidateDebounce }

@@ -6,14 +6,14 @@
         form-group(:validator="$v.username" label="Username")
           b-input(
             :value="$v.username.$model"
-            @input="debounceInput('username', $event)"
+            @input="vuelidateDebounce('username', $event)"
             v-focus
             :loading="$v.username.$pending"
           )
         form-group(:validator="$v.email" label="Email")
           b-input(
             :value="$v.email.$model"
-            @input="debounceInput('email', $event)"
+            @input="vuelidateDebounce('email', $event)"
             :loading="$v.email.$pending"
           )
         form-group(:validator="$v.password" label="Password")
@@ -35,7 +35,7 @@
 import { validationMixin } from 'vuelidate'
 import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
 import { minEntropy, unique } from '@/validators'
-import { debounceInput } from '@/mixins'
+import { vuelidateDebounce } from '@/mixins'
 import PasswordStrengthMeter from '@/components/PasswordStrengthMeter'
 
 export default {
@@ -58,7 +58,7 @@ export default {
   },
   mixins: [
     validationMixin,
-    debounceInput
+    vuelidateDebounce
   ],
   validations () {
     return {

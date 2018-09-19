@@ -6,7 +6,7 @@
         form-group(:validator="$v.identifier" label="Username or Email" attribute="Identifier")
           b-input(
             :value="$v.identifier.$model"
-            @input="debounceInput('identifier', $event)"
+            @input="vuelidateDebounce('identifier', $event)"
             v-focus
             :loading="$v.identifier.$pending"
           )
@@ -28,7 +28,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { debounceInput } from '@/mixins'
+import { vuelidateDebounce } from '@/mixins'
 import { required } from 'vuelidate/lib/validators'
 import { userExists } from '@/validators'
 
@@ -48,7 +48,7 @@ export default {
   },
   mixins: [
     validationMixin,
-    debounceInput
+    vuelidateDebounce
   ],
   validations () {
     return {
