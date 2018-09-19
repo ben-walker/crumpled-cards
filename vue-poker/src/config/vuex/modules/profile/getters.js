@@ -4,7 +4,8 @@ export default {
   email: state => state.email,
   picture: state => {
     if (!state.picture.img) return ''
-    let encoding = btoa(String.fromCharCode.apply(null, state.picture.img.data))
-    return `data:image/jpg;base64,${encoding}`
+    const encoding = btoa(String.fromCharCode.apply(null, state.picture.img.data))
+    const { mimetype } = state.picture
+    return `data:${mimetype};base64,${encoding}`
   }
 }
