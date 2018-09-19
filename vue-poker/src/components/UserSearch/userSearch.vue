@@ -12,6 +12,7 @@
 <script>
 import { httpProgress } from '@/config/axios'
 import to from 'await-to-js'
+import { debounce } from 'lodash-es'
 
 export default {
   name: 'userSearch',
@@ -21,12 +22,20 @@ export default {
     }
   },
   watch: {
-    async userQuery () {
+    userQuery () {
+      this.debouncedUserQuery()
+    }
+  },
+  methods: {
+    async findUsers () {
       const [ err, res ] = await to(httpProgress.get('users', {
         params: { username: this.userQuery }
       }))
       err ? this.$emit('error', err) : this.$emit('userList', res.data)
     }
+  },
+  created () {
+    this.debouncedUserQuery = debounce(this.findUsers, 500)
   }
 }
 </script>
