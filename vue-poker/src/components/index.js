@@ -7,6 +7,7 @@ import TableModal from './TableModal'
 import TitleHead from './TitleHead'
 import UserAvatar from './UserAvatar'
 import UserDropdown from './UserDropdown'
+import UserSearch from './UserSearch'
 
 export {
   Login,
@@ -17,5 +18,6 @@ export {
   TableModal,
   TitleHead,
   UserAvatar,
-  UserDropdown
+  UserDropdown,
+  UserSearch
 }
