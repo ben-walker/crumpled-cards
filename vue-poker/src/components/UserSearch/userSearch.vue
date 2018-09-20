@@ -1,6 +1,6 @@
 <template lang="pug">
   #userSearch
-    b-field.is-unselectable(label="Find a User")
+    b-field.is-unselectable(label="Find Someone")
       b-input(
         v-model="userQuery"
         placeholder="Search..."
