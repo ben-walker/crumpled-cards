@@ -27,3 +27,4 @@ Front-end - General:
   ☐ Mobile design
   ☐ Use vue-wait in components and vuex
   ☐ Lint code using same config (AirBnb) as backend
+  ☐ Use normal router links with icons for navbar items
