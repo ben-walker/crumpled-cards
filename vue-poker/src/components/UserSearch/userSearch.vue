@@ -1,9 +1,9 @@
 <template lang="pug">
   #userSearch
-    b-field
+    b-field(label="Find a User")
       b-input(
         v-model="userQuery"
-        placeholder="Find some..."
+        placeholder="Search..."
         type="search"
         icon-pack="fas"
         icon="search"
@@ -30,6 +30,7 @@ export default {
   },
   methods: {
     async findUsers () {
+      if (this.userQuery === '') return
       const [ err, res ] = await to(httpProgress.get('users', {
         params: { username: this.userQuery }
       }))
