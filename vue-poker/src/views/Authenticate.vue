@@ -40,7 +40,7 @@ export default {
             this.dangerToast('Internal server error')
         }
       } else {
-        this.dangerToast('Unexpected error')
+        this.dangerToast('Something went wrong')
       }
     }
   }
