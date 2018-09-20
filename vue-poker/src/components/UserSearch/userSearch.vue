@@ -3,8 +3,10 @@
     b-field
       b-input(
         v-model="userQuery"
-        placeholder="Search..."
+        placeholder="Find some..."
         type="search"
+        icon-pack="fas"
+        icon="search"
         expanded
       )
 </template>
