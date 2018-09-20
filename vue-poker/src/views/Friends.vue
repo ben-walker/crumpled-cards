@@ -2,9 +2,7 @@
   #friends
     section.section
       .container
-        .columns.is-centered
-          .column.is-one-third
-            user-search
+        h2.title.is-1.is-unselectable Friends
 </template>
 
 <script>
