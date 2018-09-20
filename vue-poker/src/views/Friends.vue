@@ -2,7 +2,7 @@
   #friends
     section.section
       .container
-        h2.title.is-1.is-unselectable Friends
+        h1.title.is-1.is-unselectable Friends
 </template>
 
 <script>
