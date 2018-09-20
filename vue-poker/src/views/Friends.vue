@@ -2,7 +2,13 @@
   #friends
     section.section
       .container
-        h1.title.is-1.is-unselectable Friends
+        nav.level
+          .level-left
+            .level-item
+              h1.title.is-1.is-unselectable Friends
+          .level-right
+            .level-item
+              user-search
 </template>
 
 <script>
