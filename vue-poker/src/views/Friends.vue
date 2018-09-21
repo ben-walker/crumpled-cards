@@ -17,9 +17,12 @@
             .notification.has-text-centered
               user-avatar(:size="150" :username="user.username" :profilePicture="user.profilePicture")
               strong.is-unselectable {{ user.username }}
+    back-to-top(:visibleoffset="500")
+      button.button.is-primary Back to Top
 </template>
 
 <script>
+import BackToTop from 'vue-backtotop'
 import { UserSearch } from '@/components'
 import UserAvatar from '@/components/UserAvatar/userAvatar.vue'
 import { toast } from '@/mixins'
@@ -33,7 +36,8 @@ export default {
   },
   components: {
     UserSearch,
-    UserAvatar
+    UserAvatar,
+    BackToTop
   },
   mixins: [
     toast
