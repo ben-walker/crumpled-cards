@@ -7,14 +7,13 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import helmet from 'helmet';
-import mongoose from 'mongoose';
-import connectMongo from 'connect-mongo';
 import passport from 'passport';
 import secure from 'express-force-https';
 import busboyBodyParser from 'busboy-body-parser';
 import apiRouter from './routes/api';
 import passportConfig from './config/passport';
 import winston from './config/winston';
+import store from './config/store';
 
 const app = express();
 app.use(secure);
@@ -27,12 +26,9 @@ const corsOpts = {
 app.options('*', cors(corsOpts));
 app.use(cors(corsOpts));
 
-const MongoStore = connectMongo(session);
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
-
 const sessionConfig = {
   secret: process.env.SECRET,
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  store,
   saveUninitialized: false,
   resave: false,
   unset: 'destroy',
