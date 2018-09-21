@@ -10,8 +10,10 @@
             .level-item
               user-search(
                 @error="handleError"
-                @userList="processUsers"
+                @userList="showFoundUsers"
               )
+        .columns.is-multiline
+          .column.is-one-quarter(v-for="user in users")
 </template>
 
 <script>
@@ -20,6 +22,11 @@ import { toast } from '@/mixins'
 
 export default {
   name: 'friends',
+  data () {
+    return {
+      users: []
+    }
+  },
   components: {
     UserSearch
   },
@@ -27,8 +34,8 @@ export default {
     toast
   ],
   methods: {
-    processUsers (users) {
-      console.log(users)
+    showFoundUsers (users) {
+      this.users = users
     },
     handleError (err) {
       if (err.response) {
