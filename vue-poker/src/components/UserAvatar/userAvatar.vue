@@ -1,6 +1,6 @@
 <template lang="pug">
   .userAvatar
-    avatar.is-unselectable(:size="size" :username="username" :src="profilePicture")
+    avatar.is-unselectable(:size="size" :username="username" :src="encodeImage(profilePicture)")
 </template>
 
 <script>
@@ -18,12 +18,20 @@ export default {
       required: true
     },
     profilePicture: {
-      type: String,
-      required: true
+      required: true,
+      validator: prop => typeof prop === 'object' || prop === null
     }
   },
   components: {
     Avatar
+  },
+  methods: {
+    encodeImage (pic) {
+      if (!pic || !pic.img) return ''
+      const { img, mimetype } = pic
+      const encoding = btoa(String.fromCharCode.apply(null, img.data))
+      return `data:${mimetype};base64,${encoding}`
+    }
   }
 }
 </script>
