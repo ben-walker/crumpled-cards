@@ -14,7 +14,9 @@
               )
         .columns.is-multiline
           .column.is-one-quarter(v-for="user in users")
-            user-avatar(:size="150" :username="user.username" :profilePicture="user.profilePicture")
+            .notification.has-text-centered
+              user-avatar(:size="150" :username="user.username" :profilePicture="user.profilePicture")
+              strong {{ user.username }}
 </template>
 
 <script>
