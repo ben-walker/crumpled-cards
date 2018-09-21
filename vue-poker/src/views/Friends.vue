@@ -16,7 +16,7 @@
           .column.is-one-quarter(v-for="user in users")
             .notification.has-text-centered
               user-avatar(:size="150" :username="user.username" :profilePicture="user.profilePicture")
-              strong {{ user.username }}
+              strong.is-unselectable {{ user.username }}
 </template>
 
 <script>
