@@ -14,10 +14,12 @@
               )
         .columns.is-multiline
           .column.is-one-quarter(v-for="user in users")
+            user-avatar(:size="150" :username="user.username" :profilePicture="user.profilePicture")
 </template>
 
 <script>
 import { UserSearch } from '@/components'
+import UserAvatar from '@/components/UserAvatar/userAvatar.vue'
 import { toast } from '@/mixins'
 
 export default {
@@ -28,7 +30,8 @@ export default {
     }
   },
   components: {
-    UserSearch
+    UserSearch,
+    UserAvatar
   },
   mixins: [
     toast
