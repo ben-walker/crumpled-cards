@@ -1,15 +1,11 @@
 import { User, ProfilePicture } from '../models';
 
 export const getMe = (req, res) => {
-  if (req.isAuthenticated()) {
-    const { user } = req;
-    user.populate('profilePicture', (err, populatedUser) => {
-      if (err) return res.status(500).send('Request failure');
-      return res.status(200).send({ user: populatedUser });
-    });
-  } else {
-    res.status(404).send({ user: null });
-  }
+  const { user } = req;
+  user.populate('profilePicture', (err, populatedUser) => {
+    if (err) return res.status(500).send('Request failure');
+    return res.status(200).send({ user: populatedUser });
+  });
 };
 
 export const usernameRegistered = (req, res) => {
