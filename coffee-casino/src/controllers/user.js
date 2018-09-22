@@ -40,7 +40,6 @@ export const identifierExists = (req, res) => {
 };
 
 export const uploadProfilePic = (req, res) => {
-  if (!req.isAuthenticated()) return res.status(401).send();
   const { user, files } = req;
 
   ProfilePicture.findByIdAndRemove(user.profilePicture);
@@ -62,9 +61,16 @@ export const find = (req, res) => {
   const { username } = req.query;
   if (!username) return res.status(200).send([]);
 
-  return User.search(username, (err, users) => {
-    if (err) return res.status(500).send('User search failed');
-    if (!users) return res.status(200).send([]);
-    return res.status(200).send(users);
-  });
+  return User
+    .find({
+      $and: [
+        { username: new RegExp(username, 'i') }, // username contains query string
+        { username: { $ne: req.user.username } }, // username not equal to current user
+      ],
+    })
+    .populate('profilePicture')
+    .exec((err, users) => {
+      if (err) return res.status(500).send('User search failed');
+      return res.status(200).send(users);
+    });
 };
