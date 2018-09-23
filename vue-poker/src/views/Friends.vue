@@ -13,8 +13,8 @@
                 @userList="showFoundUsers"
               )
         .columns.is-multiline
-          .column.is-one-quarter(v-for="user in users")
-            .notification.has-text-centered
+          .column.is-one-fifth(v-for="user in users")
+            .box.has-text-centered
               user-avatar(:size="150" :username="user.username" :profilePicture="user.profilePicture")
               strong.is-unselectable {{ user.username }}
     back-to-top(:visibleoffset="500")
