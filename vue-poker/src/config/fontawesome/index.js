@@ -13,7 +13,8 @@ import {
   faUserFriends,
   faLayerGroup,
   faSearch,
-  faTimes
+  faTimes,
+  faPlus
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -29,7 +30,8 @@ library.add(
   faUserFriends,
   faLayerGroup,
   faSearch,
-  faTimes
+  faTimes,
+  faPlus
 )
 
 dom.watch()
