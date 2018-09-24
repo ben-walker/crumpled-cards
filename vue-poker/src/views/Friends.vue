@@ -17,7 +17,7 @@
             .card
               .card-content.has-text-centered
                 user-avatar(:size="140" :username="user.username" :profilePicture="user.profilePicture")
-                strong.is-unselectable {{ user.username }}
+                h1.title.is-5.has-text-grey-dark.is-unselectable {{ user.username }}
               .card-footer
                 a.card-footer-item #[b-icon(pack="fas" icon="plus")]
     back-to-top(:visibleoffset="500")
