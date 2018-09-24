@@ -14,9 +14,12 @@
               )
         .columns.is-multiline
           .column.is-one-fifth(v-for="user in users")
-            .box.has-text-centered
-              user-avatar(:size="150" :username="user.username" :profilePicture="user.profilePicture")
-              strong.is-unselectable {{ user.username }}
+            .card
+              .card-content.has-text-centered
+                user-avatar(:size="140" :username="user.username" :profilePicture="user.profilePicture")
+                strong.is-unselectable {{ user.username }}
+              .card-footer
+                a.card-footer-item #[b-icon(pack="fas" icon="plus")]
     back-to-top(:visibleoffset="500")
       button.button.is-primary Back to Top
 </template>
