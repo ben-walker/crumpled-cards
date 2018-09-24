@@ -35,12 +35,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.userAvatar {
-  transition: transform .3s;
-  &:hover {
-    transform: scale(1.08);
-  }
-}
-</style>
