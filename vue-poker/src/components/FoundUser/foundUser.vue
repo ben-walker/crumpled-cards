@@ -1,11 +1,7 @@
 <template lang="pug">
-  .foundUser
-    .card
-      .card-content.has-text-centered
-        user-avatar(:size="140" :username="user.username" :profilePicture="user.profilePicture")
-        h1.title.is-5.has-text-grey-dark.is-unselectable {{ user.username }}
-      .card-footer
-        a.card-footer-item #[b-icon(pack="fas" icon="plus")]
+  .foundUser.has-text-centered
+    user-avatar(:size="140" :username="user.username" :profilePicture="user.profilePicture")
+    h1.title.is-5.has-text-grey-dark.is-unselectable {{ user.username }}
 </template>
 
 <script>
