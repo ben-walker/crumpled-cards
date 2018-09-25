@@ -8,6 +8,7 @@ import TitleHead from './TitleHead'
 import UserAvatar from './UserAvatar'
 import UserDropdown from './UserDropdown'
 import UserSearch from './UserSearch'
+import FoundUser from './FoundUser'
 
 export {
   Login,
@@ -19,5 +20,6 @@ export {
   TitleHead,
   UserAvatar,
   UserDropdown,
-  UserSearch
+  UserSearch,
+  FoundUser
 }
