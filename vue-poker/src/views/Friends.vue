@@ -14,19 +14,14 @@
               )
         .columns.is-multiline
           .column.is-one-fifth(v-for="user in users")
-            .card
-              .card-content.has-text-centered
-                user-avatar(:size="140" :username="user.username" :profilePicture="user.profilePicture")
-                h1.title.is-5.has-text-grey-dark.is-unselectable {{ user.username }}
-              .card-footer
-                a.card-footer-item #[b-icon(pack="fas" icon="plus")]
+            found-user(:user="user")
     back-to-top(:visibleoffset="500")
       button.button.is-primary Back to Top
 </template>
 
 <script>
 import BackToTop from 'vue-backtotop'
-import { UserSearch } from '@/components'
+import { UserSearch, FoundUser } from '@/components'
 import UserAvatar from '@/components/UserAvatar/userAvatar.vue'
 import { toast } from '@/mixins'
 
@@ -40,7 +35,8 @@ export default {
   components: {
     UserSearch,
     UserAvatar,
-    BackToTop
+    BackToTop,
+    FoundUser
   },
   mixins: [
     toast
