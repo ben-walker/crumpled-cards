@@ -1,6 +1,8 @@
 <template lang="pug">
   .userAvatar
     avatar.is-unselectable(:size="size" :username="username" :src="encodeImage(profilePicture)")
+    .user-badge
+      slot(name="user-badge")
 </template>
 
 <script>
@@ -35,3 +37,22 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.userAvatar {
+  position: relative;
+  width: inherit;
+}
+
+.vue-avatar {
+  position: relative;
+  z-index: 1;
+}
+
+.user-badge {
+  position: absolute;
+  bottom: 4px;
+  right: 40px;
+  z-index: 3;
+}
+</style>
