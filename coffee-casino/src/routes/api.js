@@ -22,6 +22,4 @@ router.get('/me', isAuthenticated, userController.getMe);
 router.get('/users', isAuthenticated, userController.find);
 router.post('/profilePicture', isAuthenticated, userController.uploadProfilePic);
 
-router.all('*', (req, res) => res.status(404).end());
-
 export default router;
