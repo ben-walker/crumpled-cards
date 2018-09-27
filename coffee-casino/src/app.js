@@ -9,7 +9,7 @@ import helmet from 'helmet';
 import passport from 'passport';
 import secure from 'express-force-https';
 import busboyBodyParser from 'busboy-body-parser';
-import apiRouter from './routes/api';
+import defRoute, { apiRouter } from './routes';
 import passportConfig from './config/passport';
 import winston from './config/winston';
 import store from './config/store';
@@ -52,6 +52,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api', apiRouter);
+app.use('/', defRoute);
 app.use((req, res, next) => {
   next(createError(404));
 });
