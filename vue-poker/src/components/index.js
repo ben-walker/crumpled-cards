@@ -9,6 +9,7 @@ import UserAvatar from './UserAvatar'
 import UserDropdown from './UserDropdown'
 import UserSearch from './UserSearch'
 import FoundUser from './FoundUser'
+import UserBadge from './UserBadge'
 
 export {
   Login,
@@ -21,5 +22,6 @@ export {
   UserAvatar,
   UserDropdown,
   UserSearch,
-  FoundUser
+  FoundUser,
+  UserBadge
 }
