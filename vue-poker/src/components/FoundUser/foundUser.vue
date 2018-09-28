@@ -1,13 +1,13 @@
 <template lang="pug">
   .foundUser.has-text-centered
     user-avatar(:size="140" :username="user.username" :profilePicture="user.profilePicture")
-      button.button.is-primary(slot="user-badge")
-        b-icon(pack="fas" icon="plus" size="is-small")
+      a(slot="user-badge") #[user-badge(status="add")]
     h1.title.is-5.has-text-grey-dark.is-unselectable {{ user.username }}
 </template>
 
 <script>
 import UserAvatar from '@/components/UserAvatar/userAvatar.vue'
+import UserBadge from '@/components/UserBadge/userBadge.vue'
 
 export default {
   name: 'foundUser',
@@ -18,7 +18,8 @@ export default {
     }
   },
   components: {
-    UserAvatar
+    UserAvatar,
+    UserBadge
   }
 }
 </script>
