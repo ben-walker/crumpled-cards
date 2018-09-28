@@ -1,35 +1,37 @@
 <template lang="pug">
   .userBadge
     span.fa-stack
-      i.fas.fa-circle.fa-stack-2x(:class="baseColor")
-      i.fas.fa-stack-1x.has-text-white(:class="icon")
+      i.fas.fa-circle.fa-stack-2x(:class="badgeData.color")
+      i.fas.fa-stack-1x.has-text-white(v-if="badgeData.icon" :class="badgeData.icon")
 </template>
 
 <script>
+const badgeStatii = {
+  add: {
+    icon: 'fa-plus',
+    color: 'has-text-primary'
+  },
+  online: {
+    icon: null,
+    color: 'has-text-success'
+  }
+}
+
 export default {
   name: 'userBadge',
+  data () {
+    return {
+      badgeData: {}
+    }
+  },
   props: {
     status: {
       type: String,
       required: true
     }
   },
-  computed: {
-    statusCode () {
-      switch (this.status) {
-        case 'add': return 0
-      }
-    },
-    baseColor () {
-      switch (this.statusCode) {
-        case 0: return 'has-text-primary'
-      }
-    },
-    icon () {
-      switch (this.statusCode) {
-        case 0: return 'fa-plus'
-      }
-    }
+  created () {
+    this.badgeData = badgeStatii[this.status]
   }
 }
 </script>
