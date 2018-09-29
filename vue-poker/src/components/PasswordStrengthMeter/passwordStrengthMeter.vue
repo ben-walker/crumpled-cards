@@ -1,12 +1,35 @@
 <template lang="pug">
   .passwordStrengthMeter
     label.label.is-unselectable Password Strength
-    progress.progress.is-marginless.is-small(:value="quotient" :class="color" max="1")
-    p.label.help.is-unselectable {{ message }}
+    progress.progress.is-marginless.is-small(:value="quotient" :class="data.color" max="1")
+    p.label.help.is-unselectable {{ data.message }}
 </template>
 
 <script>
 import measureEntropy from 'fast-password-entropy'
+
+const strengthStates = {
+  0: {
+    color: 'is-danger',
+    message: ''
+  },
+  1: {
+    color: 'is-danger',
+    message: 'Weak'
+  },
+  2: {
+    color: 'is-warning',
+    message: 'Risky'
+  },
+  3: {
+    color: 'is-success',
+    message: 'Strong'
+  },
+  4: {
+    color: 'is-primary',
+    message: 'Secure'
+  }
+}
 
 export default {
   name: 'passwordStrengthMeter',
@@ -32,22 +55,8 @@ export default {
       else if (this.quotient < 0.8) return 3
       else return 4
     },
-    color () {
-      switch (this.index) {
-        case 0: case 1: return 'is-danger'
-        case 2: return 'is-warning'
-        case 3: return 'is-success'
-        case 4: return 'is-primary'
-      }
-    },
-    message () {
-      switch (this.index) {
-        case 0: return ''
-        case 1: return 'Weak'
-        case 2: return 'Risky'
-        case 3: return 'Strong'
-        case 4: return 'Secure'
-      }
+    data () {
+      return strengthStates[this.index]
     }
   }
 }
