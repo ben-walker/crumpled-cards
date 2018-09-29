@@ -38,7 +38,7 @@ export const identifierExists = (req, res) => {
 export const uploadProfilePic = (req, res) => {
   const { user, files } = req;
 
-  ProfilePicture.findByIdAndRemove(user.profilePicture);
+  ProfilePicture.findByIdAndRemove(user.profilePicture).exec();
 
   return ProfilePicture.create({
     img: files.profilePicture.data,
