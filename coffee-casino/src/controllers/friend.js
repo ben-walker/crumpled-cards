@@ -11,9 +11,9 @@ export const sendRequest = (req, res) => {
     return FriendRequest.create({
       requester: user,
       recipient,
-    }, (createErr) => {
+    }, (createErr, friendRequest) => {
       if (createErr) return res.status(500).send('Friend request failed');
-      return res.status(200).send();
+      return res.status(200).send(friendRequest.status);
     });
   });
 };
