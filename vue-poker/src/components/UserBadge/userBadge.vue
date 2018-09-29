@@ -19,19 +19,16 @@ const badgeStatii = {
 
 export default {
   name: 'userBadge',
-  data () {
-    return {
-      badgeData: {}
-    }
-  },
   props: {
     status: {
       type: String,
       required: true
     }
   },
-  created () {
-    this.badgeData = badgeStatii[this.status]
+  computed: {
+    badgeData () {
+      return badgeStatii[this.status]
+    }
   }
 }
 </script>
