@@ -1,3 +1,4 @@
+import '@babel/register';
 import gulp from 'gulp';
 import config from './gulp/config';
 import {
