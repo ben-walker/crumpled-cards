@@ -1,16 +1,10 @@
-import mongoose from 'mongoose';
-
-const objId = mongoose.Schema.Types.ObjectId;
-
 export default {
   requester: {
-    type: objId,
-    ref: 'User',
+    type: String,
     required: true,
   },
   recipient: {
-    type: objId,
-    ref: 'User',
+    type: String,
     required: true,
   },
   status: {
