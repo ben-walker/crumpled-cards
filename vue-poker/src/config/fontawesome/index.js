@@ -16,7 +16,8 @@ import {
   faTimes,
   faPlus,
   faPlusCircle,
-  faCircle
+  faCircle,
+  faPaperPlane
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -35,7 +36,8 @@ library.add(
   faTimes,
   faPlus,
   faPlusCircle,
-  faCircle
+  faCircle,
+  faPaperPlane
 )
 
 dom.watch()

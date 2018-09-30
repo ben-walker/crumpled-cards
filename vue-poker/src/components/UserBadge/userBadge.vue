@@ -11,6 +11,10 @@ const badgeStatii = {
     icon: 'fa-plus',
     color: 'has-text-primary'
   },
+  requestSent: {
+    icon: 'fa-paper-plane',
+    color: 'has-text-dark'
+  },
   online: {
     icon: null,
     color: 'has-text-success'
