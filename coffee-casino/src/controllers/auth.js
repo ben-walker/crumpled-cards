@@ -1,19 +1,27 @@
 import passport from 'passport';
+import to from 'await-to-js';
 import { checkSchema, validationResult } from 'express-validator/check';
 import { User, userValidation } from '../models/user';
 
 export const signUp = [
   checkSchema(userValidation),
-  (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() });
 
-    return User.create(req.body, (createErr, user) => {
-      if (createErr) return res.status(500).send('User registration failure');
-      return req.logIn(user, (err) => {
-        if (err) return next(err);
-        return res.status(200).send({ authenticated: req.isAuthenticated() });
-      });
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(422).send({ errors: errors.array() });
+
+    const { username, email, password } = req.body;
+    const user = new User({
+      username,
+      email,
+      password,
+    });
+    const [err, doc] = await to(user.save());
+    if (err) return res.status(500).send('User signup failure');
+
+    return req.logIn(doc, (logInErr) => {
+      if (logInErr) return res.status(500).send('Use signup failure');
+      return res.status(200).send({ authenticated: req.isAuthenticated() });
     });
   },
 ];
@@ -29,12 +37,10 @@ export const logIn = [
 export const logOut = (req, res) => {
   req.logOut();
   req.session.destroy((err) => {
-    if (err) res.status(500).send('Session destruction failure');
-    else {
-      res
-        .status(200)
-        .clearCookie('connect.sid', { path: '/' })
-        .send({ authenticated: req.isAuthenticated() });
-    }
+    if (err) return res.status(500).send('Session destruction failure');
+    return res
+      .status(200)
+      .clearCookie('connect.sid', { path: '/' })
+      .send({ authenticated: req.isAuthenticated() });
   });
 };
