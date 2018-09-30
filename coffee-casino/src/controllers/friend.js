@@ -7,7 +7,7 @@ export const sendRequest = async (req, res) => {
 
   FriendRequest.findOneAndDelete({ requester: user.username, recipient: username }).exec();
 
-  const [err, recipient] = await to(User.findOne({ username }).exec());
+  const [err, recipient] = await to(User.findOne({ username }));
   if (err) return res.status(500).send('Friend request failed');
   if (!recipient) return res.status(404).send('Recipient not found');
 
