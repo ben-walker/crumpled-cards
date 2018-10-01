@@ -9,18 +9,21 @@
             @input="vuelidateDebounce('username', $event)"
             v-focus
             :loading="$v.username.$pending"
+            rounded
           )
         form-group(:validator="$v.email" label="Email")
           b-input(
             :value="$v.email.$model"
             @input="vuelidateDebounce('email', $event)"
             :loading="$v.email.$pending"
+            rounded
           )
         form-group(:validator="$v.password" label="Password")
           b-input(
             v-model="$v.password.$model"
             type="password"
             placeholder="••••••••"
+            rounded
           )
         transition(name="fade")
           password-strength-meter(:password="password")

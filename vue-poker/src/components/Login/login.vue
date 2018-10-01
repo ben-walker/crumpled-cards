@@ -9,12 +9,14 @@
             @input="vuelidateDebounce('identifier', $event)"
             v-focus
             :loading="$v.identifier.$pending"
+            rounded
           )
         form-group(:validator="$v.password" label="Password")
           b-input(
             v-model="$v.password.$model"
             type="password"
             placeholder="••••••••"
+            rounded
           )
         nav.level.is-mobile
           .level-left

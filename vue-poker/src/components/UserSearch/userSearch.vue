@@ -8,6 +8,7 @@
         icon-pack="fas"
         icon="search"
         expanded
+        rounded
       )
 </template>
 
