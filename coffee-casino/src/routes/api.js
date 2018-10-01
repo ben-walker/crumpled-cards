@@ -24,5 +24,6 @@ router.get('/users', isAuthenticated, userController.find);
 router.post('/profilePicture', isAuthenticated, userController.uploadProfilePic);
 
 router.post('/sendFriendRequest', isAuthenticated, friendController.sendRequest);
+router.get('/friendRequestsForUsers', isAuthenticated, friendController.getFriendRequestsForUsers);
 
 export default router;
