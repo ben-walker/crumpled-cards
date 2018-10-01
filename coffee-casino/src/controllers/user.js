@@ -62,7 +62,7 @@ export const find = async (req, res) => {
         { username: new RegExp(username, 'i') }, // username contains query string
         { username: { $ne: req.user.username } }, // username not equal to current user
       ],
-    })
+    }, 'username profilePicture -_id')
     .populate('profilePicture'));
   if (err) return res.status(500).send('User search failed');
   return res.status(200).send(users);
