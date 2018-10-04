@@ -46,7 +46,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "helmet": "^3.13.0",
     "http-errors": "^1.7.1",
-    "mongoose": "^5.3.0",
+    "mongoose": "^5.3.1",
     "morgan": "^1.9.1",
     "nodemailer": "^4.6.8",
     "nodemon": "^1.18.4",
