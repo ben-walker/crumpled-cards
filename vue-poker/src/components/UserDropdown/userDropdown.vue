@@ -42,6 +42,8 @@ export default {
   },
   methods: {
     openProfile () {
+      // uncomment this when profile is ready
+      // this.$router.push({ name: 'profile' })
       this.$modal.open({
         parent: this,
         component: Profile,

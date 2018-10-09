@@ -26,3 +26,4 @@ Front-end - General:
   ☐ Mobile design
   ☐ Use vue-wait in components and vuex
   ☐ Lint code using same config (AirBnb) as backend
+  ☐ Maybe remove fixed navbar (replace with pagination)
