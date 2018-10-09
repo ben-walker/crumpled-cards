@@ -12,15 +12,15 @@
     "node": "10.11.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.4",
-    "@fortawesome/free-solid-svg-icons": "^5.3.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.5",
+    "@fortawesome/free-solid-svg-icons": "^5.4.0",
     "@fortawesome/vue-fontawesome": "^0.1.1",
     "@lossendae/vue-avatar": "git+https://github.com/ben-walker/vue-avatar.git",
     "animate.css": "^3.7.0",
     "await-to-js": "^2.0.1",
     "axios": "^0.18.0",
     "axios-progress-bar": "^1.2.0",
-    "buefy": "^0.6.7",
+    "buefy": "^0.7.0",
     "bulma-divider": "^2.0.1",
     "express": "^4.16.3",
     "express-force-https": "^1.0.0",
@@ -44,15 +44,21 @@
     "vuelidate": "^0.7.4",
     "vuelidate-error-extractor": "^2.2.2",
     "vuex": "^3.0.1",
-    "vuex-connect": "^2.1.0",
+    "vuex-connect": "^2.1.1",
     "vuex-persistedstate": "^2.5.4",
     "webpack-bundle-analyzer": "^3.0.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.4",
-    "@vue/cli-plugin-eslint": "^3.0.4",
-    "@vue/cli-service": "^3.0.4",
-    "@vue/eslint-config-standard": "^3.0.4"
+    "@babel/core": "^7.0.0-beta.47",
+    "@vue/cli-plugin-babel": "^3.0.5",
+    "@vue/cli-plugin-eslint": "^3.0.5",
+    "@vue/cli-service": "^3.0.5",
+    "@vue/eslint-config-standard": "^3.0.5",
+    "ajv": "^6.0.0",
+    "eslint": "^5.6.1",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
   },
   "browserslist": [
     "> 1%",
