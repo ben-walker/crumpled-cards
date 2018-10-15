@@ -1,6 +1,6 @@
 <template lang="pug">
   #navbar
-    nav.navbar.has-shadow.is-spaced.is-transparent.is-fixed-top
+    nav.navbar.has-shadow.is-spaced.is-transparent
       .container
         .navbar-brand
           title-head.navbar-item
