@@ -42,13 +42,7 @@ export default {
   },
   methods: {
     openProfile () {
-      // uncomment this when profile is ready
-      // this.$router.push({ name: 'profile' })
-      this.$modal.open({
-        parent: this,
-        component: Profile,
-        canCancel: ['x', 'outside']
-      })
+      this.$router.push({ name: 'profile' })
     },
     logOut () {
       this.$emit('logOut')

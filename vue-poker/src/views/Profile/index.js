@@ -14,6 +14,11 @@ export default connect({
       formData.set('profilePicture', files[0])
       const [ err ] = await to(dispatch('user/profile/uploadProfilePic', formData))
       if (err) throw err
+    },
+
+    logOut ({ dispatch }) {
+      dispatch('user/logOut')
+      this.$router.push('/welcome')
     }
   }
 })('profile', profile)
