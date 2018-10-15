@@ -12,8 +12,8 @@
     "node": "10.11.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.5",
-    "@fortawesome/free-solid-svg-icons": "^5.4.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.6",
+    "@fortawesome/free-solid-svg-icons": "^5.4.1",
     "@fortawesome/vue-fontawesome": "^0.1.1",
     "@lossendae/vue-avatar": "git+https://github.com/ben-walker/vue-avatar.git",
     "animate.css": "^3.7.0",
@@ -22,11 +22,11 @@
     "axios-progress-bar": "^1.2.0",
     "buefy": "^0.7.0",
     "bulma-divider": "^2.0.1",
-    "express": "^4.16.3",
+    "express": "^4.16.4",
     "express-force-https": "^1.0.0",
     "fast-password-entropy": "^1.1.0",
     "lodash-es": "^4.17.11",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.9.4",
     "project-name-generator": "^2.1.5",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
@@ -55,7 +55,7 @@
     "@vue/cli-service": "^3.0.5",
     "@vue/eslint-config-standard": "^3.0.5",
     "ajv": "^6.0.0",
-    "eslint": "^5.6.1",
+    "eslint": "^5.7.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0"
