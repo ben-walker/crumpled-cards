@@ -25,8 +25,7 @@
             placeholder="••••••••"
             rounded
           )
-        transition(name="fade")
-          password-strength-meter(:password="password")
+        password-strength-meter(:password="password")
         .has-text-right
           button.button.is-warning(type="submit" :disabled="loading")
             b-icon(pack="fas" icon="lock" size="is-small")
