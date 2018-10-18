@@ -18,6 +18,10 @@ const badgeStatii = {
   online: {
     icon: null,
     color: 'has-text-success'
+  },
+  edit: {
+    icon: 'fa-pencil-alt',
+    color: 'has-text-warning'
   }
 }
 
