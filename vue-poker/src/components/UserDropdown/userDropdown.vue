@@ -22,7 +22,6 @@
 
 <script>
 import UserAvatar from '@/components/UserAvatar'
-import Profile from '@/components/Profile'
 
 export default {
   name: 'userDropdown',
@@ -37,8 +36,7 @@ export default {
     }
   },
   components: {
-    UserAvatar,
-    Profile
+    UserAvatar
   },
   methods: {
     openProfile () {
