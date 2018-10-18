@@ -3,9 +3,10 @@ Friends System:
   ☐ View, accept, decline friend requests
   ☐ Clear differentiation between "Friends" and "Found Users"
 
-Profile Pic:
+Profile:
   ☐ Limit/compress profile pic upload sizes
   ☐ Error state should be shown on profile pic upload as applicable
+  ☐ Investigate inconsistent user badge depending on size of avatar
 
 Back-end - General:
   ☐ Use Mongo Store for rate limiting
