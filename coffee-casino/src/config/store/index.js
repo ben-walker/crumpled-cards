@@ -3,7 +3,10 @@ import mongoose from 'mongoose';
 import connectMongo from 'connect-mongo';
 
 const MongoStore = connectMongo(session);
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+});
 const store = new MongoStore({ mongooseConnection: mongoose.connection });
 
 export default store;
