@@ -21,7 +21,7 @@ const badgeStatii = {
   },
   edit: {
     icon: 'fa-pencil-alt',
-    color: 'has-text-warning'
+    color: 'has-text-dark'
   }
 }
 
