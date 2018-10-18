@@ -10,9 +10,6 @@
               br
               p.is-size-4.has-text-grey-dark.has-text-weight-semibold.is-unselectable {{ username }}
               p.is-size-4.has-text-grey-dark.has-text-weight-semibold.is-unselectable {{ email }}
-              button.button.is-danger(@click="logOut")
-                b-icon(pack="fas" icon="sign-out-alt" size="is-small")
-                span Log Out
 </template>
 
 <script>
