@@ -9,9 +9,9 @@ export default connect({
   },
 
   methodsToEvents: {
-    async upload ({ dispatch }, files) {
+    async upload ({ dispatch }, file) {
       const formData = new FormData()
-      formData.set('profilePicture', files[0])
+      formData.set('profilePicture', file)
       const [ err ] = await to(dispatch('user/profile/uploadProfilePic', formData))
       if (err) throw err
     },

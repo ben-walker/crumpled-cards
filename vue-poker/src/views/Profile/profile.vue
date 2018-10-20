@@ -16,7 +16,7 @@
                   p.heading.is-marginless.is-unselectable Email
                   p.is-size-4.has-text-grey-dark.has-text-weight-semibold.is-unselectable {{ email }}
                 div
-                  a Change Profile Pic
+                  b-upload(v-model="file" @input="upload") #[a Change Profile Pic]
                 div
                   a.has-text-danger(@click="logOut") Log Out
 </template>
@@ -29,7 +29,7 @@ export default {
   name: 'profile',
   data () {
     return {
-      files: []
+      file: null
     }
   },
   props: {
@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     upload () {
-      this.$emit('upload', this.files)
+      this.$emit('upload', this.file)
     },
     logOut () {
       this.$emit('logOut')
