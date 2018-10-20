@@ -6,12 +6,19 @@
           a(@click="$router.go(-1)").has-text-dark.is-pulled-right #[b-icon(pack="fas" icon="times" size="is-large")]
           .section
             .columns.is-centered
-              .column.is-narrow.has-text-centered
-                user-avatar(:size="220")
-                  a(slot="user-badge") #[user-badge(status="edit")]
+              .column.is-narrow
+                user-avatar.has-text-centered(:size="190")
                 br
-                p.is-size-4.has-text-grey-dark.has-text-weight-semibold.is-unselectable {{ username }}
-                p.is-size-4.has-text-grey-dark.has-text-weight-semibold.is-unselectable {{ email }}
+                div
+                  p.heading.is-marginless.is-unselectable Username
+                  p.is-size-4.has-text-grey-dark.has-text-weight-semibold.is-unselectable {{ username }}
+                div
+                  p.heading.is-marginless.is-unselectable Email
+                  p.is-size-4.has-text-grey-dark.has-text-weight-semibold.is-unselectable {{ email }}
+                div
+                  a Change Profile Pic
+                div
+                  a.has-text-danger(@click="logOut") Log Out
 </template>
 
 <script>
