@@ -10,7 +10,7 @@ const localLogin = new LocalStrategy({
   User.findOne({
     $or: [
       { username: identifier },
-      { email: identifier },
+      { email: identifier.toLocaleLowerCase() },
     ],
   }, (err, user) => {
     if (err) return done(err);
