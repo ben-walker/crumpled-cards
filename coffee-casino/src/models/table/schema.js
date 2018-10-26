@@ -7,8 +7,8 @@ export default {
     type: String,
     required: true,
   },
-  players: {
-    type: [objId],
+  players: [{
+    type: objId,
     ref: 'User',
-  },
+  }],
 };
