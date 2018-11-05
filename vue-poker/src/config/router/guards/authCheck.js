@@ -5,7 +5,7 @@ export default async (to, from, next) => {
   const authRequired = to.matched.some((route) => route.meta.auth)
   const authenticated = store.getters['user/authenticated']
 
-  if (authRequired && !authenticated) next('/welcome')
-  else if (!authRequired && authenticated) next('/')
+  if (authRequired && !authenticated) next({ name: 'welcome' })
+  else if (!authRequired && authenticated) next({ name: 'home' })
   else next()
 }
