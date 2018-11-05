@@ -5,7 +5,7 @@
         .hero-head
           a(@click="$router.go(-1)").has-text-dark.is-pulled-right #[b-icon(pack="fas" icon="times" size="is-large")]
           .section
-            aside #[h1.title.is-1.is-unselectable Your Profile]
+            aside #[h1.title.is-1.is-unselectable Profile]
             .columns.is-centered
               .column.is-narrow
                 user-avatar.has-text-centered(:size="190")
