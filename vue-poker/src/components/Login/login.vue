@@ -73,7 +73,7 @@ export default {
       if (!this.$v.identifier.$invalid) {
         this.$dialog.alert({
           title: 'Instructions Sent',
-          message: `Password reset instructions sent to <b>${this.identifier}</b>, check your inbox and spam folder.`
+          message: `Password reset instructions sent to <b>${this.identifier}</b>, check your inbox and spam folders.`
         })
       }
     }

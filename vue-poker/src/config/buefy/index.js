@@ -9,7 +9,8 @@ import {
   Upload,
   Dropdown,
   Tooltip,
-  Pagination
+  Pagination,
+  Dialog
 } from 'buefy/dist/components'
 
 Vue.use(Field)
@@ -21,4 +22,5 @@ Vue.use(Upload)
 Vue.use(Dropdown)
 Vue.use(Tooltip)
 Vue.use(Pagination)
+Vue.use(Dialog)
 config.defaultIconPack = 'fas'
