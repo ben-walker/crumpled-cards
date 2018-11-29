@@ -20,7 +20,7 @@ export const signUp = [
     if (err) return res.status(500).send('User signup failure');
 
     return req.logIn(doc, (logInErr) => {
-      if (logInErr) return res.status(500).send('Use signup failure');
+      if (logInErr) return res.status(500).send('User signup failure');
       return res.status(200).send({ authenticated: req.isAuthenticated() });
     });
   },
