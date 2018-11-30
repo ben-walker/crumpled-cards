@@ -51,8 +51,8 @@ export default {
 
 .user-badge {
   position: absolute;
-  bottom: 4px;
-  right: 40px;
+  bottom: 2px;
+  right: 8px;
   z-index: 3;
 }
 </style>

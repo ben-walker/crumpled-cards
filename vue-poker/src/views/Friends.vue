@@ -14,7 +14,8 @@
               )
         .columns.is-multiline
           .column.is-one-fifth(v-for="user in users")
-            found-user(:user="user")
+            .notification
+              found-user(:user="user")
     back-to-top(:visibleoffset="500")
       button.button.is-primary Back to Top
 </template>
