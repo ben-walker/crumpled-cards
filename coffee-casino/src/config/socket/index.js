@@ -11,6 +11,8 @@ export default (server) => {
     adapter: mongoAdapter(process.env.MONGODB_URI),
   });
 
+  io.origins(process.env.ORIGINS.split(','));
+
   io.use(passportSocketIo.authorize({
     cookieParser,
     secret: process.env.SECRET,

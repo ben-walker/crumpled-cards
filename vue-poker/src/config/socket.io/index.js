@@ -3,7 +3,13 @@ import io from 'socket.io-client'
 import VueSocketIO from 'vue-socket.io'
 import store from '@/config/vuex'
 
-export const socketInstance = io(process.env.VUE_APP_SERVER)
+const connectionOpts = {
+  'force new connection': true,
+  reconnectionAttempts: 'Infinity',
+  timeout: 10000,
+  transports: ['websocket']
+}
+export const socketInstance = io(process.env.VUE_APP_SERVER, connectionOpts)
 
 Vue.use(new VueSocketIO({
   debug: process.env.NODE_ENV !== 'production',
