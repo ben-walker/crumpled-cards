@@ -5,4 +5,12 @@ import store from '@/config/vuex'
 
 export const socketInstance = io(process.env.VUE_APP_SERVER)
 
-Vue.use(VueSocketIO, socketInstance, store)
+Vue.use(new VueSocketIO({
+  debug: process.env.NODE_ENV !== 'production',
+  connection: socketInstance,
+  vuex: {
+    store,
+    actionPrefix: 'SOCKET_',
+    mutationPrefix: 'SOCKET_'
+  }
+}))
