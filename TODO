@@ -7,6 +7,7 @@ Profile:
   ☐ Limit/compress profile pic upload sizes
   ☐ Error state should be shown on profile pic upload as applicable
   ☐ Investigate inconsistent user badge depending on size of avatar
+  ☐ Investigate non-scrolling issue
 
 Back-end - General:
   ☐ Use Mongo Store for rate limiting
