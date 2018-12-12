@@ -17,9 +17,9 @@
                   p.heading.is-marginless.is-unselectable Email
                   p.is-size-4.has-text-grey-dark.has-text-weight-semibold.is-unselectable {{ email }}
                 div
-                  b-upload(v-model="file" @input="upload") #[a Change Profile Pic]
+                  b-upload(v-model="file" @input="upload") #[a.is-unselectable Change Profile Pic]
                 div
-                  a.has-text-danger(@click="logOut") Log Out
+                  a.has-text-danger.is-unselectable(@click="logOut") Log Out
 </template>
 
 <script>

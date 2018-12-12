@@ -1,7 +1,7 @@
 <template lang="pug">
   #home
     navbar
-    transition(name="fade" mode="out-in")
+    transition(name="zoom-out" mode="out-in")
       router-view
 </template>
 

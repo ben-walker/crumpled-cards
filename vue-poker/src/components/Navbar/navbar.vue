@@ -8,13 +8,9 @@
           .navbar-start
           .navbar-end
             router-link.navbar-item(:to="{ name: 'tables' }" active-class="is-active")
-              span.icon
-                b-icon(pack="fas" icon="layer-group" size="is-small")
-              span Tables
+              span.is-size-5.has-text-weight-bold Tables
             router-link.navbar-item(:to="{ name: 'friends' }" active-class="is-active")
-              span.icon
-                b-icon(pack="fas" icon="user-friends" size="is-small")
-              span Friends
+              span.is-size-5.has-text-weight-bold Friends
             user-dropdown.navbar-item
 </template>
 
