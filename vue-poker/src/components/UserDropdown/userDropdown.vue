@@ -22,6 +22,7 @@
 
 <script>
 import UserAvatar from '@/components/UserAvatar'
+import ProfileModal from '@/components/ProfileModal'
 
 export default {
   name: 'userDropdown',
@@ -40,7 +41,12 @@ export default {
   },
   methods: {
     openProfile () {
-      this.$router.push({ name: 'profile' })
+      this.$modal.open({
+        parent: this,
+        component: ProfileModal,
+        canCancel: ['escape'],
+        animation: 'fade'
+      })
     },
     logOut () {
       this.$emit('logOut')

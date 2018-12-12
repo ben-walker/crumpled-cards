@@ -1,9 +1,9 @@
 <template lang="pug">
-  transition(enter-active-class="animated fadeIn")
-    #profile
+  #profileModal
+    .card.overlay
       section.hero.is-fullheight
         .hero-head
-          a(@click="$router.go(-1)").has-text-dark.is-pulled-right #[b-icon(pack="fas" icon="times" size="is-large")]
+          a(@click="$emit('close')").has-text-dark.is-pulled-right #[b-icon(pack="fas" icon="times" size="is-large")]
           .section
             aside #[h1.title.is-1.is-unselectable Profile]
             .columns.is-centered
@@ -27,7 +27,7 @@ import UserAvatar from '@/components/UserAvatar'
 import UserBadge from '@/components/UserBadge'
 
 export default {
-  name: 'profile',
+  name: 'profileModal',
   data () {
     return {
       file: null

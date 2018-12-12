@@ -1,6 +1,6 @@
 import { connect } from 'vuex-connect'
 import to from 'await-to-js'
-import profile from './profile.vue'
+import profileModal from './profileModal.vue'
 
 export default connect({
   gettersToProps: {
@@ -17,8 +17,9 @@ export default connect({
     },
 
     logOut ({ dispatch }) {
+      this.$emit('close')
       dispatch('user/logOut')
       this.$router.push('/welcome')
     }
   }
-})('profile', profile)
+})('profileModal', profileModal)
