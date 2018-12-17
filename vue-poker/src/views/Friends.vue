@@ -1,11 +1,10 @@
 <template lang="pug">
   #friends
-    section.section
+    .section
       .container
+        br
         nav.level
           .level-left
-            .level-item
-              h1.title.is-1.is-unselectable Friends
           .level-right
             .level-item
               user-search(

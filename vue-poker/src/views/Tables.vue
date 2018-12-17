@@ -1,8 +1,9 @@
 <template lang="pug">
   #tables
-    section.section
+    .section
       .container
-        h1.title.is-1.is-unselectable Tables
+        br
+        button.button.is-primary Open Demo Table
 </template>
 
 <script>
