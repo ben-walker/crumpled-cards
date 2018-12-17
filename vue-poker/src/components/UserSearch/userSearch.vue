@@ -1,15 +1,14 @@
 <template lang="pug">
   #userSearch
-    b-field.is-unselectable(label="Find Someone")
-      b-input(
-        v-model="userQuery"
-        placeholder="Search..."
-        type="search"
-        icon-pack="fas"
-        icon="search"
-        expanded
-        rounded
-      )
+    b-input(
+      v-model="userQuery"
+      placeholder="Find someone..."
+      type="search"
+      icon-pack="fas"
+      icon="search"
+      expanded
+      rounded
+    )
 </template>
 
 <script>

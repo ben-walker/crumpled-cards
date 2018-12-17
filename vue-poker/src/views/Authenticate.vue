@@ -1,14 +1,15 @@
 <template lang="pug">
   #authenticate
-    section.hero.is-fullheight
+    .hero
       .hero-head
-        section.section.has-text-centered
+        .has-text-centered
           title-head
-        .columns.is-centered
-          .column.is-one-third
-            transition(enter-active-class="animated bounceIn" leave-active-class="animated bounceOut" mode="out-in")
-              keep-alive
-                router-view(@error="handleError")
+        .section
+          .columns.is-centered
+            .column.is-one-third
+              transition(name="fade" mode="out-in")
+                keep-alive
+                  router-view(@error="handleError")
 </template>
 
 <script>

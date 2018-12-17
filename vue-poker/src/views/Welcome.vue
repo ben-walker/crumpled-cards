@@ -1,8 +1,8 @@
 <template lang="pug">
   #welcome
-    section.hero.is-fullheight
+    .hero
       .hero-head
-        section.section.is-medium
+        .section.is-medium
           .container.has-text-centered
             title-head
             h2.subtitle.is-4.is-unselectable online poker, made with ❤️
