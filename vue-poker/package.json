@@ -36,6 +36,7 @@
     "vue": "^2.5.21",
     "vue-axios": "^2.1.4",
     "vue-backtotop": "^1.6.1",
+    "vue-fab": "^2.3.1",
     "vue-router": "^3.0.2",
     "vue-socket.io": "^3.0.4",
     "vue-template-compiler": "^2.5.21",

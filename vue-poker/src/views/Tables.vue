@@ -3,11 +3,28 @@
     .section
       .container
         br
-        button.button.is-primary Open Demo Table
+    fab(
+      :actions="[]"
+      :main-tooltip="fabTip"
+      :enable-rotation="false"
+      @click.native=""
+      z-index="10"
+    )
 </template>
 
 <script>
+import fab from 'vue-fab'
+
 export default {
-  name: 'tables'
+  name: 'tables',
+  data () {
+    return {
+      fabTip: 'New Table'
+    }
+  },
+  components: {
+    fab
+  },
+  methods: {}
 }
 </script>
