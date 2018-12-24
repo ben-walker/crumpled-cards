@@ -9,6 +9,7 @@
       :enable-rotation="false"
       @click.native=""
       z-index="10"
+      icon-size="small"
     )
 </template>
 
