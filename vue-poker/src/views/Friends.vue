@@ -15,7 +15,7 @@
           .column.is-one-fifth(v-for="user in users")
             .notification
               found-user(:user="user")
-    back-to-top(:visibleoffset="0")
+    back-to-top(:visibleoffset="500")
       fab(
         :actions="[]"
         icon-size="small"
