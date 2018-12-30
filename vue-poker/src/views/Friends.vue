@@ -20,7 +20,7 @@
         :actions="[]"
         icon-size="small"
         main-icon="keyboard_arrow_up"
-        :ripple-show="false"
+        ripple-color="dark"
         :enable-rotation="false"
       )
 </template>
