@@ -1,7 +1,7 @@
 <template lang="pug">
   .foundUser.has-text-centered
     user-avatar(:size="140" :username="user.username" :profilePicture="user.profilePicture")
-      //a(slot="user-badge" @click="sendRequest(user.username)") #[user-badge(status="add")]
+      a(slot="user-badge" @click="sendRequest(user.username)") #[user-badge(status="add")]
     h1.title.is-5.has-text-grey-dark.is-unselectable {{ user.username }}
 </template>
 
