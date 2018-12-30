@@ -15,8 +15,14 @@
           .column.is-one-fifth(v-for="user in users")
             .notification
               found-user(:user="user")
-    back-to-top(:visibleoffset="500")
-      button.button.is-primary Back to Top
+    back-to-top(:visibleoffset="0")
+      fab(
+        :actions="[]"
+        icon-size="small"
+        main-icon="keyboard_arrow_up"
+        :ripple-show="false"
+        :enable-rotation="false"
+      )
 </template>
 
 <script>
@@ -24,6 +30,7 @@ import BackToTop from 'vue-backtotop'
 import { UserSearch, FoundUser } from '@/components'
 import UserAvatar from '@/components/UserAvatar/userAvatar.vue'
 import { toast } from '@/mixins'
+import fab from 'vue-fab'
 
 export default {
   name: 'friends',
@@ -36,7 +43,8 @@ export default {
     UserSearch,
     UserAvatar,
     BackToTop,
-    FoundUser
+    FoundUser,
+    fab
   },
   mixins: [
     toast
@@ -58,3 +66,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.vue-back-to-top {
+  z-index: 10;
+}
+</style>
