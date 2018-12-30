@@ -5,7 +5,6 @@
         br
     fab(
       :actions="[]"
-      :main-tooltip="fabTip"
       :enable-rotation="false"
       @click.native=""
       z-index="10"
@@ -18,11 +17,6 @@ import fab from 'vue-fab'
 
 export default {
   name: 'tables',
-  data () {
-    return {
-      fabTip: 'New Table'
-    }
-  },
   components: {
     fab
   },
