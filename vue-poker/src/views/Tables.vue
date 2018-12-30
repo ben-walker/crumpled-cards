@@ -6,20 +6,31 @@
     fab(
       :actions="[]"
       :enable-rotation="false"
-      @click.native=""
+      ripple-color="dark"
+      @click.native="openCreateTableModal"
       z-index="10"
       icon-size="small"
     )
 </template>
 
 <script>
+import TableModal from '@/components/TableModal'
 import fab from 'vue-fab'
 
 export default {
   name: 'tables',
   components: {
+    TableModal,
     fab
   },
-  methods: {}
+  methods: {
+    openCreateTableModal () {
+      this.$modal.open({
+        parent: this,
+        component: TableModal,
+        canCancel: ['escape', 'outside']
+      })
+    }
+  }
 }
 </script>
