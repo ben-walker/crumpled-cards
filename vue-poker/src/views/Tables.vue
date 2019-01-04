@@ -20,25 +20,31 @@
 </template>
 
 <script>
+import { http } from '@/config/axios'
 import TableModal from '@/components/TableModal'
+import to from 'await-to-js'
 import fab from 'vue-fab'
 
 export default {
   name: 'tables',
   data () {
     return {
-      tables: [
-        { title: 'Mock Table 1', time: 'Created 4 hours ago' },
-        { title: 'Mock Table 2', time: 'Created < an hour ago' },
-        { title: 'Mock Table 3', time: 'Created an hour ago' }
-      ]
+      tables: null
     }
+  },
+  created () {
+    this.fetchTables()
   },
   components: {
     TableModal,
     fab
   },
   methods: {
+    async fetchTables () {
+      const [ err, res ] = await to(http.get('tables'))
+      if (err) console.log(err)
+      this.tables = res.data
+    },
     openCreateTableModal () {
       this.$modal.open({
         parent: this,
