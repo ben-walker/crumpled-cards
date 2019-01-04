@@ -26,6 +26,7 @@
     "express-force-https": "^1.0.0",
     "fast-password-entropy": "^1.1.0",
     "lodash-es": "^4.17.11",
+    "moment": "^2.23.0",
     "node-sass": "^4.11.0",
     "project-name-generator": "^2.1.5",
     "pug": "^2.0.3",
