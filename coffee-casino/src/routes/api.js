@@ -28,5 +28,6 @@ router.post('/sendFriendRequest', isAuthenticated, friendController.sendRequest)
 router.get('/friendRequestsForUsers', isAuthenticated, friendController.getFriendRequestsForUsers);
 
 router.post('/createTable', isAuthenticated, tableController.create);
+router.get('/tables', isAuthenticated, tableController.retrieve);
 
 export default router;

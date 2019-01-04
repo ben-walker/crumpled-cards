@@ -22,4 +22,9 @@ export const create = [
   },
 ];
 
-export const retrieve = () => {};
+export const retrieve = async (req, res) => {
+  const [err, tables] = await to(Table.find({}));
+  return err
+    ? res.status(500).send('Table retrieval failed')
+    : res.status(200).send(tables);
+};
