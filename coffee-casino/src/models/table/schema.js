@@ -7,6 +7,10 @@ export default {
     type: String,
     required: true,
   },
+  createdBy: {
+    type: String,
+    required: true,
+  },
   players: [{
     type: objId,
     ref: 'User',

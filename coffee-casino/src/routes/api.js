@@ -2,6 +2,7 @@ import express from 'express';
 import * as authController from '../controllers/auth';
 import * as userController from '../controllers/user';
 import * as friendController from '../controllers/friend';
+import * as tableController from '../controllers/table';
 import authLimiter from '../config/rate-limit';
 
 const isAuthenticated = (req, res, next) => (
@@ -25,5 +26,7 @@ router.post('/profilePicture', isAuthenticated, userController.uploadProfilePic)
 
 router.post('/sendFriendRequest', isAuthenticated, friendController.sendRequest);
 router.get('/friendRequestsForUsers', isAuthenticated, friendController.getFriendRequestsForUsers);
+
+router.post('/createTable', isAuthenticated, tableController.create);
 
 export default router;
