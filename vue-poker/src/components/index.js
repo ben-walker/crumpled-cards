@@ -9,6 +9,7 @@ import UserDropdown from './UserDropdown'
 import UserSearch from './UserSearch'
 import FoundUser from './FoundUser'
 import UserBadge from './UserBadge'
+import TableTile from './TableTile'
 
 export {
   Login,
@@ -21,5 +22,6 @@ export {
   UserDropdown,
   UserSearch,
   FoundUser,
-  UserBadge
+  UserBadge,
+  TableTile
 }

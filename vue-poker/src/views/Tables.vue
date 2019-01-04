@@ -5,10 +5,7 @@
         br
         .columns.is-multiline
           .column.is-half(v-for="table in tables")
-            .box
-              p.title.has-text-grey-dark.is-unselectable.is-marginless {{ table.title }}
-              p.help.is-unselectable {{ table.time }}
-              .has-text-right
+            table-tile(:table="table")
     fab(
       :actions="[]"
       :enable-rotation="false"
@@ -21,7 +18,10 @@
 
 <script>
 import { http } from '@/config/axios'
-import TableModal from '@/components/TableModal'
+import {
+  TableModal,
+  TableTile
+} from '@/components'
 import to from 'await-to-js'
 import fab from 'vue-fab'
 
@@ -37,6 +37,7 @@ export default {
   },
   components: {
     TableModal,
+    TableTile,
     fab
   },
   methods: {
