@@ -3,13 +3,18 @@
     .box
       h2.subtitle.is-4.has-text-grey.is-unselectable Create Your Table
       form(@submit.prevent="submit" novalidate)
-        label.label.is-unselectable(@click="newTitle") Title
-        span.tag.is-primary.is-large.is-unselectable(@click="newTitle") {{ title }}
+        p.heading.is-marginless.is-unselectable Title
+        p.title.is-marginless.is-unselectable {{ title }}
+        a.is-size-6.is-unselectable(@click="newTitle") Refresh
         .has-text-right
-          button.button.is-light(type="submit") Create Table
+          button.button.is-primary(type="submit")
+            b-icon(pack="fas" icon="plus" size="is-small")
+            span Create
 </template>
 
 <script>
+import { httpProgress } from '@/config/axios'
+import to from 'await-to-js'
 import generate from 'project-name-generator'
 
 export default {
@@ -35,7 +40,9 @@ export default {
     newTitle () {
       this.rawTitle = generate().spaced
     },
-    submit () {}
+    async submit () {
+      await to(httpProgress.post('createTable', this.payload))
+    }
   }
 }
 </script>
