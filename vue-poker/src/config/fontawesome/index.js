@@ -18,7 +18,8 @@ import {
   faPlusCircle,
   faCircle,
   faPaperPlane,
-  faPencilAlt
+  faPencilAlt,
+  faSignInAlt
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -39,7 +40,8 @@ library.add(
   faPlusCircle,
   faCircle,
   faPaperPlane,
-  faPencilAlt
+  faPencilAlt,
+  faSignInAlt
 )
 
 dom.watch()
