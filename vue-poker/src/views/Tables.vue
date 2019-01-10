@@ -14,6 +14,11 @@
       z-index="10"
       icon-size="small"
     )
+    div(
+      v-infinite-scroll="fetchTables"
+      infinite-scroll-disabled="busy"
+      infinite-scroll-distance="10"
+    )
 </template>
 
 <script>
@@ -29,9 +34,10 @@ export default {
   name: 'tables',
   data () {
     return {
-      tables: null,
+      tables: [],
       lastSeenTableId: null,
-      fetchQuantity: 20
+      fetchQuantity: 20,
+      busy: false
     }
   },
   created () {
@@ -44,11 +50,17 @@ export default {
   },
   methods: {
     async fetchTables () {
+      this.busy = true
       const [ err, res ] = await to(http.get('tables', {
-        params: { quantity: this.fetchQuantity }
+        params: {
+          quantity: this.fetchQuantity,
+          lastSeenId: this.lastSeenTableId
+        }
       }))
       if (err) console.log(err)
-      this.tables = res.data
+      this.tables.push(...res.data)
+      this.lastSeenTableId = this.tables.slice(-1)[0]._id
+      this.busy = false
     },
     openCreateTableModal () {
       this.$modal.open({
