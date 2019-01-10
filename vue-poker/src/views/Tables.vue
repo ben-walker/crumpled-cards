@@ -58,6 +58,7 @@ export default {
         }
       }))
       if (err) console.log(err)
+      if (res.data.length === 0) return
       this.tables.push(...res.data)
       this.lastSeenTableId = this.tables.slice(-1)[0]._id
       this.busy = false
