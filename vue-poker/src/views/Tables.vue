@@ -29,7 +29,9 @@ export default {
   name: 'tables',
   data () {
     return {
-      tables: null
+      tables: null,
+      lastSeenTableId: null,
+      fetchQuantity: 20
     }
   },
   created () {
@@ -42,7 +44,9 @@ export default {
   },
   methods: {
     async fetchTables () {
-      const [ err, res ] = await to(http.get('tables'))
+      const [ err, res ] = await to(http.get('tables', {
+        params: { quantity: this.fetchQuantity }
+      }))
       if (err) console.log(err)
       this.tables = res.data
     },

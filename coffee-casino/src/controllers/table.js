@@ -23,7 +23,13 @@ export const create = [
 ];
 
 export const retrieve = async (req, res) => {
-  const [err, tables] = await to(Table.find({}));
+  const {
+    quantity,
+    lastSeenId,
+  } = req.query;
+
+  const condition = lastSeenId ? { _id: { $gt: lastSeenId } } : {};
+  const [err, tables] = await to(Table.find(condition).limit(Number(quantity)));
   return err
     ? res.status(500).send('Table retrieval failed')
     : res.status(200).send(tables);
