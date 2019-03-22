@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "compile": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "heroku-publish": "cd ../ && git subtree push --prefix vue-poker heroku-vue-poker master || true"
   },
