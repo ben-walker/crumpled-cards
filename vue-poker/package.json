@@ -9,11 +9,11 @@
     "heroku-publish": "cd ../ && git subtree push --prefix vue-poker heroku-vue-poker master || true"
   },
   "engines": {
-    "node": "10.12.0"
+    "node": "11.12.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.16",
-    "@fortawesome/free-solid-svg-icons": "^5.8.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/vue-fontawesome": "^0.1.6",
     "@lossendae/vue-avatar": "git+https://github.com/ben-walker/vue-avatar.git",
     "animate.css": "^3.7.0",
